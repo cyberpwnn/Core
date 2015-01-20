@@ -1,0 +1,6 @@
+local PATH = CPI.getPath()
+local r = "r"
+local w = "w"
+local a = "a"
+local b = "b"
+
