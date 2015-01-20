@@ -1,0 +1,139 @@
+CPI.requireAPI("Terminal")
+
+local C = Terminal.getColors()
+local T = Terminal.newCursor()
+local W, H = Terminal.getSize()
+
+local shape = {}
+local Shape = CPI.object()
+local sid = 0
+local index = 4
+
+function newShape(x,y,z,w,h,t,b,c)
+  local self = CPI.object(Shape)
+  self.x = x
+  self.y = y
+  self.z = z
+  self.w = w
+  self.h = h
+  self.t = t
+  self.b = b
+  self.c = c
+  self.v = false
+  self.i = newID()
+  
+  return self
+end
+
+function Shape:render()
+  render(self.x,self.y,self.w,self.h)
+  return self
+end
+
+function Shape:show()
+  register(self.i,self.x,self.y,self.z,self.w,self.h,self.t,self.b,self.c)
+  self:render()
+  self.v = true
+  return self
+end
+
+function Shape:hide()
+  unregister(self.i)
+  self:render()
+  self.v = false
+  return self
+end
+
+function Shape:move(x,y)
+  register(self.i,x,y,self.z,self.w,self.h,self.t,self.b,self.c)
+  self:render()
+  self.x = x
+  self.y = y
+  self:render()
+  return self
+end
+
+function register(id,x,y,z,w,h,t,b,c)
+  if z > index then index = z end
+  local v = {}
+    v.id = id
+    v.x = x
+    v.y = y
+    v.z = z
+    v.w = w
+    v.h = h
+    v.t = t
+    v.b = b
+    v.c = c
+  if isShape(id) then unregister(id) end
+  table.insert(shape, v)
+end
+
+function unregister(id)
+  for i,v in ipairs(shape) do
+    if v.id == id then shape[i] = nil end
+  end
+end
+
+function isShape(id)
+  for i,v in ipairs(shape) do
+    if v.id == id then return true end
+  end
+  return false
+end
+
+function getShape(id)
+  for i,v in ipairs(shape) do
+    if v.id == id then return v end
+  end
+end
+
+function getShapeAt(x,y,z)
+  for i,v in ipairs(shape) do
+    if x >= v.x and x <= v.x + v.w -1
+    and y >= v.y and y <= v.y + v.h -1
+    and z == v.z then
+      return v.id
+    end
+  end
+  return 0
+end
+
+function render(x,y,w,h)
+  if not x then x = 1 end
+  if not y then y = 1 end
+  if not w then w = W end
+  if not h then h = H end
+  
+  for i = y,h+y -1 do
+    for j = x,w+x -1 do
+      T:setCursor(j,i)
+      for k = index,1,-1 do
+        local v = getShapeAt(j,i,k)
+        if v ~= 0 then
+          v = getShape(v)
+          if v.c:len() > 1 then
+            if j-v.x+1 > v.c:len() then
+              T:setColor(v.t,v.b):write(" ")
+            else
+              T:setColor(v.t,v.b):write(v.c:sub(j-v.x+1,j-v.x+1))
+            end
+          else
+            T:setColor(v.t,v.b):write(v.c)
+          end
+          
+          break
+        else
+          if k == 1 then
+            T:setColor(C.black,C.black):write(" ")
+          end
+        end
+      end
+    end
+  end
+end
+
+function newID()
+  sid = sid + 1 
+  return sid
+end
