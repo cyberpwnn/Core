@@ -1,0 +1,18 @@
+local running = true
+local net = peripheral.wrap("top") net.open(3)
+print("Listening to port 3")
+local command = {}
+  table.insert(command, {"/reboot", function() os.reboot() end})
+
+function process(c)
+  for i,v in ipairs(command) do
+    if v[1] == c then v[2]() return end
+    if c:sub(1,1) == "#" then term.setTextColor(tonumber(c:sub(2))) return end
+  end
+  print(c)
+end
+  
+while running do
+  local event, modemSide, senderChannel, replyChannel, message, senderDistance = os.pullEvent("modem_message")
+  process(message)
+end

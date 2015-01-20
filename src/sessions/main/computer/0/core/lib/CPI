@@ -8,20 +8,28 @@ local stcLogs = "/logs"
 local stcConfig = "/config"
 local tStc = {}
 local deb
+local net
 
 local otd = false
+local otn = false
+local ots = false
 
 local ERROR = {}
 
 function launch(path, stored)
-  inf("Information")
+  ots = true
+  inf("Starting Debugger")
+  startDebugger()
   APIStored = stored
+  vrb("Transferring CPI Cache")
   stc = path
+  vrb("Path set to " .. stc)
   stcLib = stc..stcLib
   stcLogs = stc..stcLogs
   stcConfig = stc..stcConfig
   tStc = {stcLib, stcLogs, stcConfig}
   for i,v in ipairs(tStc) do
+    vrb("Checking " .. v)
     if not fs.exists(v) then fs.makeDir(v) end
   end
   for i,v in ipairs(fs.list(stcLib)) do
@@ -45,6 +53,8 @@ function launch(path, stored)
     read()
     os.reboot()
   end
+  ots = false
+  inf("Main Logging Onscreen Closed")
 end
 
 function requireAPI(s)
@@ -106,8 +116,10 @@ end
 
 -- Logging
 function output(s, t)
-  term.setTextColor(t)
-  print(s)
+  if ots then
+    term.setTextColor(t)
+    print(s)
+  end
   if otd then 
     local ax,ay = deb.getCursorPos()
     local aw,ah = deb.getSize()
@@ -116,6 +128,10 @@ function output(s, t)
     if ay == ah then deb.scroll(1) else
       deb.setCursorPos(1,ay+1)
     end
+  end
+  if otn then
+    net.transmit(3, 1, "#"..tostring(t))
+    net.transmit(3, 1, s)
   end
 end
 
@@ -130,6 +146,8 @@ function getPath() return stc end
 function startDebugger()
   deb = peripheral.find("monitor")
   if monitor then otd = true else otd = false end
+  net = peripheral.wrap("top")
+  if net then otn = true net.transmit(3, 1, "/reboot") os.sleep(0.051) else otn = false end
 end
 
 function object(o)
