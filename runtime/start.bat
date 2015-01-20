@@ -1,1 +1,0 @@
-java -Dcom.xtansia.ccemu.path="C:\Users\Daniel\Documents\GitHub\Core\src" -jar ccemuredux-launcher.jar
