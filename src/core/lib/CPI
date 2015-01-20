@@ -1,0 +1,144 @@
+local APIBuffer = {}
+local APIStored = {}
+
+local sls = "/"
+local stc = "/core"
+local stcLib = "/lib"
+local stcLogs = "/logs"
+local stcConfig = "/config"
+local tStc = {}
+local deb
+
+local otd = false
+
+local ERROR = {}
+
+function launch(path, stored)
+  inf("Information")
+  APIStored = stored
+  stc = path
+  stcLib = stc..stcLib
+  stcLogs = stc..stcLogs
+  stcConfig = stc..stcConfig
+  tStc = {stcLib, stcLogs, stcConfig}
+  for i,v in ipairs(tStc) do
+    if not fs.exists(v) then fs.makeDir(v) end
+  end
+  for i,v in ipairs(fs.list(stcLib)) do
+    if v ~= "CPI" then
+      if loadAPI(stcLib..sls..v) then
+        
+      else
+        err("Failed to load " .. v)
+      end
+    end
+  end  
+  
+  if #ERROR > 0 then
+    erc("Core Has Crashed!")
+    erc("There are " .. #ERROR .. " errors")
+    erc("---------------------- TRACE ----------------------")
+    for i,v in ipairs(ERROR) do
+      erc("["..i.."] "..v)
+    end
+    erc("---------------------- ----- ----------------------")
+    read()
+    os.reboot()
+  end
+end
+
+function requireAPI(s)
+  if isLoaded(s) or isLoaded(stcLib..sls..s) then return true end
+  if fs.exists(s) then 
+    os.loadAPI(s) 
+  elseif fs.exists(stcLib..sls..s) then os.loadAPI(stcLib..sls..s) else
+    return false
+  end
+end
+
+function loadAPI(path)
+  local name = fs.getName(path)
+  local envelope = {}
+  local fAPI, errt = loadfile(path)
+  local cAPI = {}
+
+  if APIBuffer[name] == true then
+    err(name.." is already in the load queue!")
+    err("Loading apis to each other is not a good idea!")
+    return false
+  end
+  
+  APIBuffer[name] = true
+  setmetatable(envelope, {__index = _G})
+  
+  if fAPI then
+    setfenv(fAPI, envelope)
+    fAPI()
+  else
+    err(errt)
+    APIBuffer[name] = nil
+    return false
+  end
+  
+  for k,v in pairs(envelope) do
+    cAPI[k] = v
+  end
+  
+  _G[name] = cAPI    
+  APIBuffer[name] = nil
+  table.insert(APIStored, path)
+  return true
+end
+
+function unloadAPI(name)
+  if name ~= "_G" and type(_G[name]) == "table" then
+    _G[name] = nil
+  end
+end
+
+function isLoaded(s)
+  for i,v in ipairs(APIStored) do
+    if v == s then return true end
+  end
+  if APIBuffer[s] == true then return true end
+  return false
+end
+
+-- Logging
+function output(s, t)
+  term.setTextColor(t)
+  print(s)
+  if otd then 
+    local ax,ay = deb.getCursorPos()
+    local aw,ah = deb.getSize()
+    deb.setTextColor(t)
+    deb.write(s)
+    if ay == ah then deb.scroll(1) else
+      deb.setCursorPos(1,ay+1)
+    end
+  end
+end
+
+function inf(s) output(s, colors.white) end
+function vrb(s) output(s, colors.lightGray) end
+function wrn(s) output(s, colors.yellow) end
+function err(s) output(s, colors.red) table.insert(ERROR, s) end
+function erc(s) output(s, colors.red) end
+
+function getPath() return stc end
+
+function startDebugger()
+  deb = peripheral.find("monitor")
+  if monitor then otd = true else otd = false end
+end
+
+function object(o)
+  if o then 
+    o = setmetatable({}, o)
+    return o
+  else
+    local this = {}
+    this.__index = this
+    return this
+  end
+end
