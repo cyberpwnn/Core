@@ -1,3 +1,5 @@
+-- Starts Up Core
+
 -- ENVIRONMENT VARIABLES
 local PATH = "/core"
 
