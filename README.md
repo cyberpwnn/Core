@@ -20,3 +20,4 @@ Setting up a copy of the project is rather simple. Just git a copy (fork if you 
   * This should show two windows. The first (Marked with main, and the id 0) contains the core apis in it, while The second window simply echoes any debug messages it receives from the main console window. This is for issues when the renderer is misbehaving or when the screen is being used for something else at the time.
   * Using the Restart and terminate controls on both of them, you will begin to notice that only restarting the main console is needed.
 * All of the source files are located withing the session at \src\sessions\main\computer\0
+* It's highly recommended to use an external text editor. With all of the files, and the lengths of them.
