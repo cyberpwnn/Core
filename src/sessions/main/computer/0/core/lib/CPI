@@ -116,6 +116,7 @@ end
 
 -- Logging
 function output(s, t)
+  os.sleep(0.2)
   if ots then
     term.setTextColor(t)
     print(s)

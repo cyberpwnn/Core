@@ -51,6 +51,6 @@ CPI.launch(PATH, APIStored)
 local C = Terminal.getColors()
 
 -- Debugs
-
-
+local a = UI.newWindow(1,1,1,9,5,"Title")
+a:move(3,3)
 

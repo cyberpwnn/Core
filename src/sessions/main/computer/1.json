@@ -3,8 +3,8 @@
   "label" : "Debugger",
   "advanced" : true,
   "on" : false,
-  "screen-x" : 694,
-  "screen-y" : 300,
+  "screen-x" : 0,
+  "screen-y" : 479,
   "side-data" : {
     "bottom" : {
       "peripheral" : {
