@@ -14,6 +14,7 @@ function newWindow(x,y,z,w,h,t)
   self.o = {}
     self.o.pane  = Renderer.newShape(x,y,z,w,h,C.black,C.white," "):show()
     self.o.bar   = Renderer.newShape(x,y,z+1,w,1,C.white,C.blue,t):show()
+    -- Removing the self.o.close fixes it all
     self.o.close = Renderer.newShape(x+w-1,y,z+2,1,1,C.red,C.red," "):show()
 
   

@@ -50,7 +50,7 @@ loadAPI(PATH.."/lib/CPI")
 CPI.launch(PATH, APIStored)
 local C = Terminal.getColors()
 
--- Debugs
+-- Debugs (Use for all apis) They are all loaded at this point
 local a = UI.newWindow(1,1,1,9,5,"Title")
 a:move(3,3)
 
