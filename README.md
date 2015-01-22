@@ -17,10 +17,18 @@ There are many objectives in this project. The issue is trying to address all of
 ### CPI
 - [x] A way for libraries to plug in to other libraries in a safe way.
 - [x] A logging system for any debugging needed which sends data remotley through a modem.
+- [ ] Create an event system for executing code when the core system does some tasks.
+  - [ ] Starting up
+  - [ ] Shutting down
+  - [ ] A crash, with the errors returned
+- [ ] A configuration file for loading external apis, and debugging information prefered to be loaded after a startup for objective purposes
 
 ### Renderer
 - [x] An entire rendering system with objective hooks which allow other apis and programs to manipulate geometrical shapes all from one object.
 - [ ] The ability to move, scale, and change values of each object also.
 
 ### UI
-- [ ] A functional windowing system 
+- [ ] A functional windowing system with buttons, events and other UI components
+
+### Configurator
+- [ ] A way for libraries to plug in and make config files for reading. Stored in the /config folder
