@@ -25,10 +25,10 @@ There are many objectives in this project. The issue is trying to address all of
 - [ ] A configuration file for loading external apis, and debugging information prefered to be loaded after a startup for objective purposes
 
 ### Filesystem
-- [ ] A way for libraries to plug in for file creation
+- [x] A way for libraries to plug in for file creation
 - [ ] Ability to create files with ease, better tools and more.
-- [ ] Hooks into the event system.
-  - [ ] Closes unclosed files on stop
+- [x] Hooks into the event system.
+  - [x] Force Closes unclosed files on stop
 
 ### Event
 - [x] A new way to create, call, and pull events from many things. An objective take at it

@@ -4,3 +4,35 @@ local w = "w"
 local a = "a"
 local b = "b"
 
+local loaded = {}
+
+local File = CPI.object()
+
+CPI.onStop(function() closeAll() end)
+
+function open(d, m)
+  local self = CPI.object(File)
+  self.d = d
+  self.m = m
+  self.i = #loaded +1
+  
+  table.insert(loaded, {self.d, fs.open(d,m)})
+  
+  return self
+end
+
+function File:write(s) loaded[self.i][2].write(s) end
+function File:writeLine(s) loaded[self.i][2].writeLine(s) end
+function File:read(s) loaded[self.i][2].read() end
+function File:readLine(s) loaded[self.i][2].readLine() end
+function File:close(s) loaded[self.i][2].close() loaded[self.i] = nil end
+function File:flush(s) loaded[self.i][2].flush() end
+
+function closeAll()
+  local loadedv = loaded
+  CPI.inf("Filesystem: Closing "..#loadedv .. " Files")
+  for i,v in ipairs(loadedv) do
+    CPI.vrb("Filesystem: Closing File " .. v[1])
+    v[2].close()
+  end
+end

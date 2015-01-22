@@ -64,6 +64,9 @@ function launch(path, stored)
     Renderer.render()
     deployEventStart()
   end
+end
+
+function stop()
   deployEventStop()
 end
 
