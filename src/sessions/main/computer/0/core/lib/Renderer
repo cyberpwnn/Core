@@ -28,7 +28,6 @@ end
 
 function Shape:render()
   render(self.x,self.y,self.w,self.h)
-  CPI.vrb("Render "..self.i)
   return self
 end
 
@@ -36,7 +35,6 @@ function Shape:show()
   register(self.i,self.x,self.y,self.z,self.w,self.h,self.t,self.b,self.c)
   self:render()
   self.v = true
-  CPI.vrb("Show "..self.i)
   return self
 end
 
@@ -44,7 +42,6 @@ function Shape:hide()
   unregister(self.i)
   self:render()
   self.v = false
-  CPI.vrb("Hide "..self.i)
   return self
 end
 
@@ -53,7 +50,6 @@ function Shape:move(x,y)
   self:render()
   self.x = x
   self.y = y
-  CPI.vrb("Move "..self.i)
   self:render()
   return self
 end
@@ -109,9 +105,7 @@ function render(x,y,w,h)
   if not y then y = 1 end
   if not w then w = W end
   if not h then h = H end
-  
-  CPI.vrb("Raster " .. x..","..y..", "..w..","..h)
-  
+    
   for i = y,h+y -1 do
     for j = x,w+x -1 do
       T:setCursor(j,i)

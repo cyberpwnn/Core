@@ -2,7 +2,9 @@ local running = true
 local net = peripheral.wrap("top") net.open(3)
 print("Listening to port 3")
 local command = {}
-  table.insert(command, {"/reboot", function() term.clear() term.setCursorPos(1,1) term.setTextColor(1) end})
+  table.insert(command, {"/clear", function() term.clear() term.setCursorPos(1,1) term.setTextColor(1) end})
+  table.insert(command, {"/reboot", function() os.reboot() end})
+  table.insert(command, {"/sleep", function() os.sleep(1) end})
 
 function process(c)
   for i,v in ipairs(command) do

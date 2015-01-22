@@ -55,11 +55,13 @@ function launch(path, stored)
   end
   ots = false
   inf("Main Logging Onscreen Closed")
+  Renderer.render()
 end
 
 function requireAPI(s)
   if isLoaded(s) or isLoaded(stcLib..sls..s) then return true end
-  if fs.exists(s) then 
+  if fs.exists(s) then
+    vrb("Waiting for " .. s .. " to be loaded.")
     os.loadAPI(s) 
   elseif fs.exists(stcLib..sls..s) then os.loadAPI(stcLib..sls..s) else
     return false
@@ -67,6 +69,7 @@ function requireAPI(s)
 end
 
 function loadAPI(path)
+  inf("Loading ".. path)
   local name = fs.getName(path)
   local envelope = {}
   local fAPI, errt = loadfile(path)
@@ -116,7 +119,6 @@ end
 
 -- Logging
 function output(s, t)
-  os.sleep(0.2)
   if ots then
     term.setTextColor(t)
     print(s)
@@ -148,7 +150,7 @@ function startDebugger()
   deb = peripheral.find("monitor")
   if monitor then otd = true else otd = false end
   net = peripheral.wrap("top")
-  if net then otn = true net.transmit(3, 1, "/reboot") os.sleep(0.051) else otn = false end
+  if net then otn = true net.transmit(3, 1, "/clear") else otn = false end
 end
 
 function object(o)
