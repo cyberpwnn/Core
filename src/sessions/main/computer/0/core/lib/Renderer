@@ -105,7 +105,7 @@ function render(x,y,w,h)
   if not y then y = 1 end
   if not w then w = W end
   if not h then h = H end
-    
+  
   for i = y,h+y -1 do
     for j = x,w+x -1 do
       T:setCursor(j,i)

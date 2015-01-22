@@ -17,10 +17,10 @@ There are many objectives in this project. The issue is trying to address all of
 ### CPI
 - [x] A way for libraries to plug in to other libraries in a safe way.
 - [x] A logging system for any debugging needed which sends data remotley through a modem.
-- [ ] Create an event system for executing code when the core system does some tasks.
-  - [ ] Starting up
-  - [ ] Shutting down
-  - [ ] A crash, with the errors returned
+- [x] Create an event system for executing code when the core system does some tasks.
+  - [x] Starting up
+  - [x] Shutting down
+  - [x] A crash, with the errors returned
 - [ ] A configuration file for loading external apis, and debugging information prefered to be loaded after a startup for objective purposes
 
 ### Renderer

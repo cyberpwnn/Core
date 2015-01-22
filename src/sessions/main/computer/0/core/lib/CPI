@@ -7,6 +7,11 @@ local stcLib = "/lib"
 local stcLogs = "/logs"
 local stcConfig = "/config"
 local tStc = {}
+
+local eventStart = {}
+local eventStop = {}
+local eventCrash = {}
+
 local deb
 local net
 
@@ -50,12 +55,16 @@ function launch(path, stored)
       erc("["..i.."] "..v)
     end
     erc("---------------------- ----- ----------------------")
+    deployEventCrash(ERROR)
     read()
     os.reboot()
+  else
+    ots = false
+    inf("Main Logging Onscreen Closed")
+    Renderer.render()
+    deployEventStart()
   end
-  ots = false
-  inf("Main Logging Onscreen Closed")
-  Renderer.render()
+  deployEventStop()
 end
 
 function requireAPI(s)
@@ -152,6 +161,34 @@ function startDebugger()
   net = peripheral.wrap("top")
   if net then otn = true net.transmit(3, 1, "/clear") else otn = false end
 end
+
+function deployEventStart()
+  vrb("Deploying " .. #eventStart .. " start events...")
+  for i,v in ipairs(eventStart) do
+    v()
+  end
+  inf("Deployed " .. #eventStart .. " start events")
+end
+
+function deployEventStop()
+  vrb("Deploying " .. #eventStop .. " stop events...")
+  for i,v in ipairs(eventStop) do
+    v()
+  end
+  inf("Deployed " .. #eventStop .. " stop events")
+end
+
+function deployEventCrash(e)
+  vrb("Deploying " .. #eventCrash .. " crash events...")
+  for i,v in ipairs(eventCrash) do
+    v(e)
+  end
+  inf("Deployed " .. #eventCrash .. " crash events")
+end
+
+function onStart(f) table.insert(eventStart, f) end
+function onStop(f) table.insert(eventStop, f) end
+function onCrash(f) table.insert(eventCrash, f) end
 
 function object(o)
   if o then 
