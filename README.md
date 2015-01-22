@@ -23,12 +23,42 @@ There are many objectives in this project. The issue is trying to address all of
   - [x] A crash, with the errors returned
 - [ ] A configuration file for loading external apis, and debugging information prefered to be loaded after a startup for objective purposes
 
+### Event
+- [x] A new way to create, call, and pull events from many things. An objective take at it
+- [x] Add the ability to create events, call them, and pull them
+  - [x] Ability to schedule a function for execution on call
+  - [ ] Ability to wait for a call, then continue (Waiting for thread api)
+
 ### Renderer
 - [x] An entire rendering system with objective hooks which allow other apis and programs to manipulate geometrical shapes all from one object.
+- [x] Handling text strings longer then 1 accordingly
 - [ ] The ability to move, scale, and change values of each object also.
+- [ ] Different shapes for different objectives
+  - [x] Boxes, for making boxes.
+  - [ ] Lines (point a to point b)
+  - [ ] Polygons (point a to point b to point c to ...)
+  - [ ] Circles
+  - [ ] Triangles and quads
+- [ ] Hooks into the event system.
 
 ### UI
 - [ ] A functional windowing system with buttons, events and other UI components
+  - [ ] Windowing, with working operation buttons
+  - [ ] Buttons with actions and click listeners
+  - [ ] Text fields with text options
+  - [ ] Scroll views which can have text feilds
+- [ ] Hooks into the event system.
 
 ### Configurator
 - [ ] A way for libraries to plug in and make config files for reading. Stored in the /config folder
+  - [ ] Adding, deleting, and modifying keys/values
+  - [ ] Reloading configs, and getting all of the data for reduction in disk activity
+  - [ ] Autocache for returning the same value, an update option to reload it
+- [ ] Hooks into the event system.
+
+### Thread
+- [ ] The ability to create, run, and stop threads for simultaneous actions
+- [ ] Thread managment and pulling for control.
+  - [ ] Thread lock detection
+  - [ ] Thread killing and other handles
+- [ ] Hooks into the event system.
