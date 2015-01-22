@@ -13,7 +13,8 @@ Setting up a copy of the project is rather simple. Just git a copy (fork if you 
 * It's highly recommended to use an external text editor. With all of the files, and the lengths of them.
 
 ## Objectives
-There are many objectives in this project. The issue is trying to address all of them and actually get some done.
+There are many objectives in this project. The issue is trying to address all of them and actually get some done. Objectives are typically added and kept updated as the project goes on.
+
 ### CPI
 - [x] A way for libraries to plug in to other libraries in a safe way.
 - [x] A logging system for any debugging needed which sends data remotley through a modem.
@@ -29,6 +30,8 @@ There are many objectives in this project. The issue is trying to address all of
 - [ ] Ability to create files with ease, better tools and more.
 - [x] Hooks into the event system.
   - [x] Force Closes unclosed files on stop
+  - [ ] Flush Saves any files before closed
+- [ ] Plugs in with configurator wether or not to save before closing files.
 
 ### Event
 - [x] A new way to create, call, and pull events from many things. An objective take at it
@@ -62,6 +65,10 @@ There are many objectives in this project. The issue is trying to address all of
   - [ ] Reloading configs, and getting all of the data for reduction in disk activity
   - [ ] Autocache for returning the same value, an update option to reload it
 - [ ] Hooks into the event system.
+
+### Registry
+- [ ] An easy way to store keys and values. 
+- [ ] Loaded and cached actively. (Whenever an update is called.)
 
 ### Thread
 - [ ] The ability to create, run, and stop threads for simultaneous actions
