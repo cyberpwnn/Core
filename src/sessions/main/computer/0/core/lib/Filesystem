@@ -4,10 +4,13 @@ local w = "w"
 local a = "a"
 local b = "b"
 
+local n = true
+
 local loaded = {}
 
 local File = CPI.object()
 
+-- Remove safeguard when issue #2 is fixed
 CPI.onStop(function() closeAll() end)
 
 function open(d, m)
