@@ -50,6 +50,11 @@ loadAPI(PATH.."/lib/CPI")
 CPI.launch(PATH, APIStored)
 local C = Terminal.getColors()
 
--- Debugs (Use for all apis) They are all loaded at this point
+-- Start Debugs (Use for all apis) They are all loaded at this point
 
+local a = Filesystem.newArchive("/")
+
+a:list()
+
+-- End Debugs
 CPI.stop()

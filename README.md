@@ -31,6 +31,9 @@ There are many objectives in this project. The issue is trying to address all of
 ### Filesystem
 - [x] A way for libraries to plug in for file creation
 - [ ] Ability to create files with ease, better tools and more.
+- [x] Archiving files in an objective way
+  - [x] Add and Delete files including entire folders
+  - [ ] Output and extracting files for actual usefulness.
 - [x] Hooks into the event system.
   - [x] Force Closes unclosed files on stop
   - [ ] Flush Saves any files before closed

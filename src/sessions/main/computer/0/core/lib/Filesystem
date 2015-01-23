@@ -9,6 +9,7 @@ local n = true
 local loaded = {}
 
 local File = CPI.object()
+local Archive = CPI.object()
 
 -- Remove safeguard when issue #2 is fixed
 CPI.onStop(function() closeAll() end)
@@ -38,4 +39,43 @@ function closeAll()
     CPI.vrb("Filesystem: Closing File " .. v[1])
     v[2].close()
   end
+end
+
+function newArchive(d)
+  local self = CPI.object(Archive)
+  self.l = {}
+  
+  self:add(d)
+
+  
+  return self
+end
+
+function Archive:add(l)
+  if fs.exists(l) then
+    if fs.isDir(l) then
+      for i,v in ipairs(fs.list(l)) do
+        self:add(l.."/"..v)
+      end
+    end
+    if not self:is(l) then
+      table.insert(self.l, l)
+    end
+  end
+end
+
+function Archive:output(l)
+  local f = open(l)
+  for i,v in ipairs(self.l)
+end
+
+function Archive:is(l)
+  for i,v in ipairs(self.l) do
+    if v == l then return true end
+  end
+  return false
+end
+
+function Archive:list()
+  return self.l
 end
