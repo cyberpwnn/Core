@@ -1,6 +1,8 @@
 # Core
 A Computercraft API in which many different things can be accomplished with. Simple things like loading APIs in an order by calling "RequireAPI" or bigger things like making an interactive operating system with actual graphical menus and widows. It all can be done!
 
+I Highly suggest looking at the Wiki. Its great for knowing what libraries do what. The Wiki also has some great tutorials for creating objects, and loading files altogether. Additionally, be sure to set yourself up a copy, and test it out!
+
 ## Setting Up a Copy
 Setting up a copy of the project is rather simple. Just git a copy (fork if you want), and simply execute the start.bat in the main directory. This will Launch the Computercraft emulator. The emulator has a session already loaded with the core api project loaded on it. Here is a full set of instructions below.
 * Download a copy and open the main folder
@@ -77,3 +79,7 @@ There are many objectives in this project. The issue is trying to address all of
   - [ ] Thread lock detection
   - [ ] Thread killing and other handles
 - [ ] Hooks into the event system.
+
+### Math
+- [ ] A mathematical api used for many different things
+- [ ] The ability to get simple functions like sin, and cos, along with heavy calculations. Possibly including objective approaches to this also.
