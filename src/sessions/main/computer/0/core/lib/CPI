@@ -71,16 +71,22 @@ function stop()
 end
 
 function requireAPI(s)
-  if isLoaded(s) or isLoaded(stcLib..sls..s) then return true end
-  if fs.exists(s) then
+  if isLoaded(s) or isLoaded(stcLib..sls..s) then return false else
     vrb("Waiting for " .. s .. " to be loaded.")
-    os.loadAPI(s) 
-  elseif fs.exists(stcLib..sls..s) then os.loadAPI(stcLib..sls..s) else
-    return false
+    if fs.exists(s) then
+      os.loadAPI(s)
+      return true
+    elseif fs.exists(stcLib..sls..s) then 
+      os.loadAPI(stcLib..sls..s)
+      return true
+    else
+      return false
+    end 
   end
 end
 
 function loadAPI(path)
+  if isLoaded(path) or isLoaded(stcLib..sls..path) then return false end
   inf("Loading ".. path)
   local name = fs.getName(path)
   local envelope = {}

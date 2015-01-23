@@ -1,2 +1,3 @@
 CPI.requireAPI("Filesystem")
-CPI.requireAPI("Terminal")
+
+local registry = {}
