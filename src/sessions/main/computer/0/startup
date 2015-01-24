@@ -56,6 +56,7 @@ local a = Filesystem.newCollection("/rom")
 
 a:list()
 a:output("/archive")
+a:extract("/archive")
 
 -- End Debugs
 CPI.stop()

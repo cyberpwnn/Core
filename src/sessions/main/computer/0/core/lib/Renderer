@@ -134,6 +134,10 @@ function render(x,y,w,h)
   end
 end
 
+function reset()
+  Terminal.setColor(C.white, C.black)
+end
+
 function newID()
   sid = sid + 1 
   return sid

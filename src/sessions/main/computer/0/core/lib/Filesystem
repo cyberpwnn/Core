@@ -65,7 +65,7 @@ end
 function Collection:output(l)
   local f = open(l..".col", "w")
   local s = ""
-  local d = ""
+  local d = "?"
   local n = 0
   
   for i,v in ipairs(self.l) do
@@ -79,7 +79,7 @@ function Collection:output(l)
       local fd = ""
       if fv then
         fd = fv:readAll()
-        if fd then s = s .. fd end
+        if fd then s = s .. v.."%"..fd end
         fv:close()
       end
     end
@@ -87,14 +87,30 @@ function Collection:output(l)
   end
   
   -- Additional Processing
-  d = "X"..n..d
+  
   
   -- Output
   f:write(s..d):flush():close()
 end
 
-function Collection:extract()
+function Collection:extract(l)
+  local f = open(l, "r")
+  local d = f:readAll()
+  local k = ""
   
+  if d == "" or d == nil then return false end
+  f:close()
+  
+  for i = d:len(), 1, -1 do
+    term.write(d:sub(i,i))
+    if d:sub(i,i) == "?" then
+      k = d:sub(i, i)
+      break
+    end
+  end
+  os.sleep(1)
+  CPI.inf(k)
+  os.sleep(1)
 end
 
 function Collection:is(l)

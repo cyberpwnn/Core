@@ -33,6 +33,7 @@ function launch(path, stored)
   stcLogs = stc..stcLogs
   stcConfig = stc..stcConfig
   tStc = {stcLib, stcLogs, stcConfig}
+  
   for i,v in ipairs(tStc) do
     vrb("Checking " .. v)
     if not fs.exists(v) then fs.makeDir(v) end
@@ -62,6 +63,7 @@ function launch(path, stored)
     ots = false
     inf("Main Logging Onscreen Closed")
     Renderer.render()
+    Renderer.reset()
     deployEventStart()
   end
 end

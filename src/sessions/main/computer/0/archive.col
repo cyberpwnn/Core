@@ -1,4 +1,4 @@
-
+/rom/startup%
 -- Setup paths
 local sPath = ".:/rom/programs"
 if term.isColor() then
@@ -62,7 +62,7 @@ for n,sName in pairs( peripheral.getNames() ) do
 end
 if sUserStartup then
     shell.run( sUserStartup )
-end-- Colors
+end/rom/apis/colors%-- Colors
 white = 1
 orange = 2
 magenta = 4
@@ -98,7 +98,7 @@ end
 
 function test( colors, color )
     return ((bit.band(colors, color)) == color)
-end-- Colours (for lovers of british spelling)
+end/rom/apis/colours%-- Colours (for lovers of british spelling)
 local fnFile, err = loadfile("/rom/apis/colors")
 if not fnFile then
 	error( err )
@@ -118,7 +118,7 @@ tColours.gray = nil
 tColours.grey = tColors.gray
 
 tColours.lightGray = nil
-tColours.lightGrey = tColors.lightGray
+tColours.lightGrey = tColors.lightGray/rom/apis/disk%
 local function isDrive( name )
 	return peripheral.getType( name ) == "drive"
 end
@@ -201,7 +201,7 @@ function getID( name )
 	end
 	return nil
 end
-
+/rom/apis/gps%
 CHANNEL_GPS = 65534
 
 local function trilaterate( A, B, C )
@@ -358,7 +358,7 @@ function locate( _nTimeout, _bDebug )
 		end
 		return nil
 	end
-end
+end/rom/apis/help%
 local sPath = "/rom/help"
 
 function path()
@@ -406,7 +406,7 @@ function topics()
 	end
 	table.sort( tItemList )
 	return tItemList
-end-- Definition for the IO API
+end/rom/apis/io%-- Definition for the IO API
 
 local g_defaultInput = {
 	bFileHandle = true,
@@ -587,7 +587,7 @@ end
 
 function write( ... )
 	return output():write( ... )
-end
+end/rom/apis/keys%
 -- Minecraft key code bindings
 -- See http://www.minecraftwiki.net/wiki/Key_codes for more info
 
@@ -646,7 +646,7 @@ keys["return"] = keys.enter
 
 function getName( _nKey )
 	return tKeys[ _nKey ]
-end
+end/rom/apis/paintutils%
 local function drawPixelInternal( xPos, yPos )
     term.setCursorPos( xPos, yPos )
     term.write(" ")
@@ -845,7 +845,7 @@ function drawImage( tImage, xPos, yPos )
             end
         end
     end
-end
+end/rom/apis/parallel%
 local function create( first, ... )
 	if first ~= nil then
 	    if type( first ) ~= "function" then
@@ -905,7 +905,7 @@ end
 function waitForAll( ... )
     local routines = { create( ... ) }
 	runUntilLimit( routines, 0 )
-endlocal native = peripheral
+end/rom/apis/peripheral%local native = peripheral
 
 function getNames()
 	local tResults = {}
@@ -1022,7 +1022,7 @@ function find( sType, fnFilter )
 		end
 	end
 	return unpack( tResults )
-end
+end/rom/apis/rednet%
 CHANNEL_BROADCAST = 65535
 CHANNEL_REPEAT = 65533
 
@@ -1287,7 +1287,7 @@ function run()
             end
 		end
 	end
-end
+end/rom/apis/term%
 local native = (term.native and term.native()) or term
 local redirectTarget = native
 
@@ -1342,7 +1342,7 @@ end
 local env = getfenv()
 for k,v in pairs( term ) do
 	env[k] = v
-end
+end/rom/apis/textutils%
 function slowWrite( sText, nRate )
     nRate = nRate or 20
     if nRate < 0 then
@@ -1573,7 +1573,7 @@ end
 
 -- GB versions
 serialise = serialize
-unserialise = unserialize
+unserialise = unserialize/rom/apis/vector%
 local vector = {
 	add = function( self, o )
 		return vector.new(
@@ -1642,7 +1642,7 @@ function new( x, y, z )
 	}
 	setmetatable( v, vmetatable )
 	return v
-end
+end/rom/apis/window%
 function create( parent, nX, nY, nWidth, nHeight, bStartVisible )
 
     if type( parent ) ~= "table" or
@@ -2036,7 +2036,7 @@ function create( parent, nX, nY, nWidth, nHeight, bStartVisible )
         window.redraw()
     end
     return window
-end
+end/rom/apis/turtle/turtle%
 if not turtle then
 	error( "Cannot load turtle API on computer", 2 )
 end
@@ -2069,28 +2069,28 @@ for k,v in pairs( native ) do
     	env[k] = v
     end
 end
-addCraftMethod( env )/rom/apis/turtle/rom/apis--[[
+addCraftMethod( env )/rom/apis/turtle/rom/apis/rom/autorun/.ignoreme%--[[
 Alright then, don't ignore me. This file is to ensure the existance of the "autorun" folder, files placed in this folder
 using resource packs will always run when computers startup.
-]]/rom/autorunadventure is a text adventure game for CraftOS. To navigate around the world of adventure, type simple instructions to the interpreter, for example: "go north", "punch tree", "craft planks", "mine coal with pickaxe", "hit creeper with sword"alias assigns shell commands to run other programs.
+]]/rom/autorun/rom/help/adventure%adventure is a text adventure game for CraftOS. To navigate around the world of adventure, type simple instructions to the interpreter, for example: "go north", "punch tree", "craft planks", "mine coal with pickaxe", "hit creeper with sword"/rom/help/alias%alias assigns shell commands to run other programs.
 
 ex:
 "alias dir ls" will make the "dir" command run the "ls" program
 "alias dir" will remove the alias set on "dir"
-"alias" will list all current aliases.apis lists the currently loaded APIs available to programs in CraftOS.
+"alias" will list all current aliases./rom/help/apis%apis lists the currently loaded APIs available to programs in CraftOS.
 
 Type "help <api>" to see help for a specific api.
-Call os.loadAPI( path ) to load extra apis.bg is a program for Advanced Computers which opens a new tab in the background.
+Call os.loadAPI( path ) to load extra apis./rom/help/bg%bg is a program for Advanced Computers which opens a new tab in the background.
 
 ex:
 "bg" will open a background tab running the shell
-"bg worm" will open a background tab running the "worm" programFunctions in the bit manipulation API:
+"bg worm" will open a background tab running the "worm" program/rom/help/bit%Functions in the bit manipulation API:
 bit.bnot(n)          -- bitwise not (~n)
 bit.band(m, n)       -- bitwise and (m & n)
 bit.bor(m, n)        -- bitwise or (m | n)
 bit.bxor(m, n)       -- bitwise xor (m ^ n)
 bit.brshift(n, bits) -- right shift (n >> bits)
-bit.blshift(n, bits) -- left shift (n << bits)To set bundled outputs:
+bit.blshift(n, bits) -- left shift (n << bits)/rom/help/bundled%To set bundled outputs:
 c = colors.combine( colors.red, colors.blue )
 rs.setBundledOutput( "left", c )
 
@@ -2104,12 +2104,12 @@ To get bundled inputs:
 c = rs.getBundledInput( "right" )
 red = colors.test( c, colors.red )
 
-Type "help colors" for the list of wire colors.cd changes the the directory you're in.
+Type "help colors" for the list of wire colors./rom/help/cd%cd changes the the directory you're in.
 
 ex:
 "cd rom" will move to "rom" folder.
 "cd .." will move up one folder.
-"cd /" will move to the root.New Features in ComputerCraft 1.65:
+"cd /" will move to the root./rom/help/changelog%New Features in ComputerCraft 1.65:
 
 * Fixed a multiplayer-only crash with turtle.place()
 * Fixed some problems with http.post()
@@ -2370,45 +2370,45 @@ New Features in ComputerCraft 1.1:
 
 New Features in ComputerCraft 1.0:
 
-* First Release!Surf the rednet superhighway with "chat", the networked chat program for CraftOS! Host chatrooms and invite your friends! Requires a Wired or Wireless Modem on each computer. When running chat, type "/help" to see a list of available commands.
+* First Release!/rom/help/chat%Surf the rednet superhighway with "chat", the networked chat program for CraftOS! Host chatrooms and invite your friends! Requires a Wired or Wireless Modem on each computer. When running chat, type "/help" to see a list of available commands.
 
 ex:
 "chat host forgecraft" will create a chatroom with the name "forgecraft"
-"chat join forgecraft direwolf20" will connect to the chatroom with the name "forgecraft", using the nickname "direwolf20"clear clears the screen.Functions in the colors api
+"chat join forgecraft direwolf20" will connect to the chatroom with the name "forgecraft", using the nickname "direwolf20"/rom/help/clear%clear clears the screen./rom/help/colors%Functions in the colors api
 (used for redstone.setBundledOutput):
 colors.combine( color1, color2, color3, ... )
 colors.subtract( colors, color1, color2, ... )
 colors.test( colors, color )
 
 Color constants in the colors api, in ascending bit order:
-colors.white, colors.orange, colors.magenta, colors.lightBlue, colors.yellow, colors.lime, colors.pink, colors.gray, colors.lightGray, colors.cyan, colors.purple, colors.blue, colors.brown, colors.green, colors.red, colors.black.Functions in the colours api
+colors.white, colors.orange, colors.magenta, colors.lightBlue, colors.yellow, colors.lime, colors.pink, colors.gray, colors.lightGray, colors.cyan, colors.purple, colors.blue, colors.brown, colors.green, colors.red, colors.black./rom/help/colours%Functions in the colours api
 (used for redstone.setBundledOutput):
 colours.combine( colour1, colour2, colour3, ...)
 colours.subtract( colours, colour1, colour2, ...)
 colours.test( colours, colour )
 
 Colour constants in the colours api, in ascending bit order:
-colours.white, colours.orange, colours.magenta, colours.lightBlue, colours.yellow, colours.lime, colours.pink, colours.grey, colours.lightGrey, colours.cyan, colours.purple, colours.blue, colours.brown, colours.green, colours.red, colours.black.cp copies a file or directory from one location to another.
+colours.white, colours.orange, colours.magenta, colours.lightBlue, colours.yellow, colours.lime, colours.pink, colours.grey, colours.lightGrey, colours.cyan, colours.purple, colours.blue, colours.brown, colours.green, colours.red, colours.black./rom/help/copy%cp copies a file or directory from one location to another.
 
 ex:
 "cp rom myrom" copies "rom" to "myrom".
 "cp rom mystuff/rom" copies "rom" to "mystuff/rom".
-"cp disk/* disk2" copies the contents of one disk to anothercoroutine is a standard Lua5.1 API.
-Refer to http://www.lua.org/manual/5.1/ for more information.craft is a program for Crafty Turtles. Craft will craft a stack of items using the current inventory.
+"cp disk/* disk2" copies the contents of one disk to another/rom/help/coroutine%coroutine is a standard Lua5.1 API.
+Refer to http://www.lua.org/manual/5.1/ for more information./rom/help/craft%craft is a program for Crafty Turtles. Craft will craft a stack of items using the current inventory.
 
 ex:
 "craft" will craft as many items as possible
-"craft 5" will craft at most 5 timesComputerCraft was created by Daniel "dan200" Ratcliffe, with additional code by Aaron "Cloudy" Mills.
+"craft 5" will craft at most 5 times/rom/help/credits%ComputerCraft was created by Daniel "dan200" Ratcliffe, with additional code by Aaron "Cloudy" Mills.
 Thanks to nitrogenfingers, GopherATL and RamiLego for program contributions.
 Thanks to Mojang, the Forge team, and the MCP team.
 Uses LuaJ from http://luaj.sourceforge.net/
 
 Join the ComputerCraft community online at http://www.computercraft.info
-Follow @DanTwoHundred on Twitter!dance is a program for Turtles. Turtles love to get funky.rm deletes a file or a directory and its contents.
+Follow @DanTwoHundred on Twitter!/rom/help/dance%dance is a program for Turtles. Turtles love to get funky./rom/help/delete%rm deletes a file or a directory and its contents.
 
 ex:
 "rm foo" will delete the file foo.
-"rm disk/*" will delete the contents of a disk.Functions in the disk API. These functions are for interacting with disk drives:
+"rm disk/*" will delete the contents of a disk./rom/help/disk%Functions in the disk API. These functions are for interacting with disk drives:
 disk.isPresent( drive )
 disk.setLabel( drive, label )
 disk.getLabel( drive )
@@ -2424,16 +2424,16 @@ disk.getID( drive )
 Events fired by the disk API:
 "disk" when a disk or other item is inserted into a disk drive. Argument is the name of the drive
 "disk_eject" when a disk is removed from a disk drive. Argument is the name of the drive
-Type "help events" to learn about the event system.dj plays Music Discs from disk drives attached to the computer.
+Type "help events" to learn about the event system./rom/help/dj%dj plays Music Discs from disk drives attached to the computer.
 
 ex:
 "dj" or "dj play" plays a random disc.
 "dj play left" plays the disc in the drive on the left of the computer.
-"dj stop" stops the current disc.drive tells you which disk drive the current or specified directory is located in.
+"dj stop" stops the current disc./rom/help/drive%drive tells you which disk drive the current or specified directory is located in.
 
 ex:
 "drive" tell you the disk drive of the current directory.
-"drive foo" tells you the disk drive of the subdirectory "foo"The Disk Drive is a peripheral device available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Disk Drive is connected, peripheral.getType() will return "drive".
+"drive foo" tells you the disk drive of the subdirectory "foo"/rom/help/drives%The Disk Drive is a peripheral device available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Disk Drive is connected, peripheral.getType() will return "drive".
 
 Methods exposed by the Disk Drive:
 isDiskPresent()
@@ -2451,16 +2451,16 @@ getDiskID()
 Events fired by the Disk Drive:
 "disk" when a disk or other item is inserted into the drive. Argument is the name of the drive.
 "disk_eject" when a disk is removed from a  drive. Argument is the name of the drive.
-Type "help events" to learn about the event system.Mostly harmless.edit is a text editor for creating or modifying programs or text files. After creating a program with edit, type its filename in the shell to run it. You can open any of the builtin programs with edit to learn how to program.
+Type "help events" to learn about the event system./rom/help/earth%Mostly harmless./rom/help/edit%edit is a text editor for creating or modifying programs or text files. After creating a program with edit, type its filename in the shell to run it. You can open any of the builtin programs with edit to learn how to program.
 
 ex:
-"edit hello" opens a file called "hello" for editing.eject ejects the contents of an attached disk drive.
+"edit hello" opens a file called "hello" for editing./rom/help/eject%eject ejects the contents of an attached disk drive.
 
 ex:
-"eject left" ejects the contents of the disk drive to the left of the computer.equip is a program for Turtles. equip will equip an item from the Turtle's inventory for use as a tool of peripheral.
+"eject left" ejects the contents of the disk drive to the left of the computer./rom/help/equip%equip is a program for Turtles. equip will equip an item from the Turtle's inventory for use as a tool of peripheral.
 
 ex:
-"equip 5 left" will equip the item from slot 5 of the turtle onto the left side of the turtleThe function os.pullEvent() will yield the program until a system event occurs. The first return value is the event name, followed by any arguments.
+"equip 5 left" will equip the item from slot 5 of the turtle onto the left side of the turtle/rom/help/events%The function os.pullEvent() will yield the program until a system event occurs. The first return value is the event name, followed by any arguments.
 
 Some events which can occur are:
 "char" when text is typed on the keyboard. Argument is the letter typed.
@@ -2472,14 +2472,14 @@ Events only on advanced computers:
 "mouse_drag" when a user moves the mouse when held. Arguments are button, xPos, yPos.
 "mouse_scroll" when a user uses the scrollwheel on the mouse. Arguments are direction, xPos, yPos.
 
-Other APIs and peripherals will emit their own events. See their respective help pages for details.excavate is a program for Mining Turtles. When excavate is run, the turtle will mine a rectangular shaft into the ground, collecting blocks as it goes, and return to the surface once bedrock is hit.
+Other APIs and peripherals will emit their own events. See their respective help pages for details./rom/help/excavate%excavate is a program for Mining Turtles. When excavate is run, the turtle will mine a rectangular shaft into the ground, collecting blocks as it goes, and return to the surface once bedrock is hit.
 
 ex:
-"excavate 3" will mine a 3x3 shaft.exit will exit the current shell."From Russia with Fun" comes a fun, new, suspiciously-familiar falling block game for CraftOS. Only on Pocket Computers!fg is a program for Advanced Computers which opens a new tab in the foreground.
+"excavate 3" will mine a 3x3 shaft./rom/help/exit%exit will exit the current shell./rom/help/falling%"From Russia with Fun" comes a fun, new, suspiciously-familiar falling block game for CraftOS. Only on Pocket Computers!/rom/help/fg%fg is a program for Advanced Computers which opens a new tab in the foreground.
 
 ex:
 "fg" will open a foreground tab running the shell
-"fg worm" will open a foreground tab running the "worm" programFunctions in the Filesystem API:
+"fg worm" will open a foreground tab running the "worm" program/rom/help/fs%Functions in the Filesystem API:
 fs.list( path )
 fs.find( wildcard )
 fs.exists( path )
@@ -2516,12 +2516,12 @@ close()
 Functions on files opened with mode "wb" or "ab":
 write( byte )
 flush()
-close()go is a program for Turtles, used to control the turtle without programming. It accepts one or more commands as a direction followed by a distance.
+close()/rom/help/go%go is a program for Turtles, used to control the turtle without programming. It accepts one or more commands as a direction followed by a distance.
 
 ex:
 "go forward" moves the turtle 1 space forward.
 "go forward 3" moves the turtle 3 spaces forward.
-"go forward 3 up left 2" moves the turtle 3 spaces forward, 1 spaces up, then left 180 degrees.gps can be used to host a GPS server, or to determine a position using trilateration.
+"go forward 3 up left 2" moves the turtle 3 spaces forward, 1 spaces up, then left 180 degrees./rom/help/gps%gps can be used to host a GPS server, or to determine a position using trilateration.
 Type "help gpsapi" for help using GPS functions in lua programs.
 
 ex:
@@ -2530,34 +2530,34 @@ ex:
 "gps host 10 20 30" will host a GPS server, using the manually entered position 10,20,30. 
 
 Take care when manually entering host positions. If the positions entered into multiple GPS hosts
-are not consistent, the results of locate calls will be incorrect.Functions in the GPS API:
+are not consistent, the results of locate calls will be incorrect./rom/help/gpsapi%Functions in the GPS API:
 gps.locate( timeout )
 
-The locate function will send a signal to nearby gps servers, and wait for responses before the timeout. If it receives enough responses to determine this computers position then x, y and z co-ordinates will be returned, otherwise it will return nil. If GPS hosts do not have their positions configured correctly, results will be inaccurate.hello prints the text "Hello World!" to the screen.help is the help tool you're currently using.
+The locate function will send a signal to nearby gps servers, and wait for responses before the timeout. If it receives enough responses to determine this computers position then x, y and z co-ordinates will be returned, otherwise it will return nil. If GPS hosts do not have their positions configured correctly, results will be inaccurate./rom/help/hello%hello prints the text "Hello World!" to the screen./rom/help/help%help is the help tool you're currently using.
 Type "help index" to see all help topics.
 Type "help" to see the help intro.
-Type "help helpapi" for information on the help Lua API.Functions in the help API:
+Type "help helpapi" for information on the help Lua API./rom/help/helpapi%Functions in the help API:
 help.setPath( path )
 help.lookup( topic )
-help.topics()Functions in the HTTP API:
+help.topics()/rom/help/http%Functions in the HTTP API:
 http.checkURL( url )
 http.request( url, [postData], [headers] )
 http.get( url, [headers] )
 http.post( url, postData, [headers] )
 
 The HTTP API may be disabled in ComputerCraft.cfg
-A period of time after a http.request() call is made, a "http_success" or "http_failure" event will be raised. Arguments are the url and a file handle if successful. http.get() and http.post() block until this event fires instead.id prints the unique identifier of this computer, or a Disk in an attached Disk Drive.
+A period of time after a http.request() call is made, a "http_success" or "http_failure" event will be raised. Arguments are the url and a file handle if successful. http.get() and http.post() block until this event fires instead./rom/help/id%id prints the unique identifier of this computer, or a Disk in an attached Disk Drive.
 
 ex:
 "id" will print this Computers ID and label
-"id left" will print the ID and label of the disk in the Disk Drive on the leftWelcome to CraftOS!
+"id left" will print the ID and label of the disk in the Disk Drive on the left/rom/help/intro%Welcome to CraftOS!
 Type "programs" to see the programs you can run.
 Type "help <program>" to see help for a specific program.
 Type "help programming" to learn about programming.
 Type "help whatsnew" to find out about new features.
 Type "help credits" to learn who made all this.
-Type "help index" to see all help topics.io is a standard Lua5.1 API, reimplemented for CraftOS. Not all the features are availiable.
-Refer to http://www.lua.org/manual/5.1/ for more information.The keys API contains constants for all the key codes that can be returned by the "key" event:
+Type "help index" to see all help topics./rom/help/io%io is a standard Lua5.1 API, reimplemented for CraftOS. Not all the features are availiable.
+Refer to http://www.lua.org/manual/5.1/ for more information./rom/help/keys%The keys API contains constants for all the key codes that can be returned by the "key" event:
 
 Example usage:
 local sEvent, nKey = os.pullEvent()
@@ -2565,7 +2565,7 @@ if sEvent == "key" and nKey == keys.enter then
    -- Do something  
 end
 
-See http://www.minecraftwiki.net/wiki/Key_codes, or the source code, for a complete reference.label gets or sets the label of the Computer, or of Floppy Disks in attached disk drives.
+See http://www.minecraftwiki.net/wiki/Key_codes, or the source code, for a complete reference./rom/help/label%label gets or sets the label of the Computer, or of Floppy Disks in attached disk drives.
 
 ex:
 "label get" prints the label of the computer.
@@ -2573,12 +2573,12 @@ ex:
 "label set "My Computer"" set the label of the computer to "My Computer".
 "label set left "My Programs"" - sets the label of the disk in the left drive to "My Programs".
 "label clear" clears the label of the computer.
-"label clear left" clears the label of the disk in the left drive.ls will list all the directories and files in the current location. Use "type" to find out if an item is a file or a directory.lua is an interactive prompt for the lua programming language. It's a useful tool for learning the language.math is a standard Lua5.1 API.
-Refer to http://www.lua.org/manual/5.1/ for more information.mkdir creates a directory in the current location.
+"label clear left" clears the label of the disk in the left drive./rom/help/list%ls will list all the directories and files in the current location. Use "type" to find out if an item is a file or a directory./rom/help/lua%lua is an interactive prompt for the lua programming language. It's a useful tool for learning the language./rom/help/math%math is a standard Lua5.1 API.
+Refer to http://www.lua.org/manual/5.1/ for more information./rom/help/mkdir%mkdir creates a directory in the current location.
 
 ex:
 "mkdir foo" creates a directory named "foo".
-"mkdir ../foo" creates a directory named "foo" in the directory above the current directory.Wired and Wireless Modems are peripheral devices available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Modem is connected, peripheral.getType() will return "modem".
+"mkdir ../foo" creates a directory named "foo" in the directory above the current directory./rom/help/modems%Wired and Wireless Modems are peripheral devices available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Modem is connected, peripheral.getType() will return "modem".
 
 Methods exposed by Modems:
 open( channel )
@@ -2589,11 +2589,11 @@ transmit( channel, replyChannel, message )
 isWireless()
 
 Events fired by Modems:
-"modem_message" when a message is received on an open channel. Arguments are name, channel, replyChannel, message, distancemonitor will connect to an attached Monitor peripheral, and run a program on its display.
+"modem_message" when a message is received on an open channel. Arguments are name, channel, replyChannel, message, distance/rom/help/monitor%monitor will connect to an attached Monitor peripheral, and run a program on its display.
 
 ex:
 "monitor left hello" will run the "hello" program on the monitor to the left of the computer.
-"monitor top edit foo" will run the edit program on the top monitor, editing the file "foo".The Monitor is a peripheral device available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Monitor is connected, peripheral.getType() will return "monitor". A wrapped monitor can be used with term.redirect() to send all terminal output to the monitor.
+"monitor top edit foo" will run the edit program on the top monitor, editing the file "foo"./rom/help/monitors%The Monitor is a peripheral device available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Monitor is connected, peripheral.getType() will return "monitor". A wrapped monitor can be used with term.redirect() to send all terminal output to the monitor.
 
 Methods exposed by the Monitor:
 write( text )
@@ -2610,13 +2610,13 @@ scroll( n )
 
 Events fired by the Monitor:
 "monitor_touch" when an Advanced Monitor is touched by the player. Arguments are name, x, y
-"monitor_resize" when the size of a Monitor changes. Argument is the name of the monitor.mv moves a file or directory from one location to another.
+"monitor_resize" when the size of a Monitor changes. Argument is the name of the monitor./rom/help/move%mv moves a file or directory from one location to another.
 
 ex:
 "mv foo bar" renames the file "foo" to "bar".
 "mv foo bar/foo" moves the file "foo" to a folder called "bar".
-"mv disk/* disk2" moves the contents of one disk to anothermultishell is the toplevel program on Advanced Computers which manages background tabs.
-Type "help shellapi" for information about the shell lua api.Functions in the os (Operating System) API:
+"mv disk/* disk2" moves the contents of one disk to another/rom/help/multishell%multishell is the toplevel program on Advanced Computers which manages background tabs.
+Type "help shellapi" for information about the shell lua api./rom/help/os%Functions in the os (Operating System) API:
 os.version()
 os.getComputerID()
 os.getComputerLabel()
@@ -2640,25 +2640,25 @@ os.reboot()
 Events emitted by the os API:
 "timer" when a timeout started by os.startTimer() completes. Argument is the token returned by os.startTimer().
 "alarm" when a time passed to os.setAlarm() is reached. Argument is the token returned by os.setAlarm().
-Type "help events" to learn about the event system.paint is a program for creating images on Advanced Computers. Select colors from the color pallette on the right, and click on the canvas to draw. Press Ctrl to access the menu and save your pictures.
+Type "help events" to learn about the event system./rom/help/paint%paint is a program for creating images on Advanced Computers. Select colors from the color pallette on the right, and click on the canvas to draw. Press Ctrl to access the menu and save your pictures.
 
 ex:
-"edit mario" opens an image called "mario" for editing.Functions in the Paint Utilities API:
+"edit mario" opens an image called "mario" for editing./rom/help/paintutils%Functions in the Paint Utilities API:
 paintutils.drawPixel( x, y, colour )
 paintutils.drawLine( startX, startY, endX, endY, colour )
 paintutils.drawBox( startX, startY, endX, endY, colour )
 paintutils.drawFilledBox( startX, startY, endX, endY, colour )
 paintutils.loadImage( path )
-paintutils.drawImage( image, x, y )Functions in the Parallel API:
+paintutils.drawImage( image, x, y )/rom/help/parallel%Functions in the Parallel API:
 parallel.waitForAny( function1, function2, ... )
 parallel.waitForAll( function1, function2, ... )
-These methods provide an easy way to run multiple lua functions simultaneously.pastebin is a program for uploading files to and downloading files from pastebin.com. This is useful for sharing programs with other players.
+These methods provide an easy way to run multiple lua functions simultaneously./rom/help/pastebin%pastebin is a program for uploading files to and downloading files from pastebin.com. This is useful for sharing programs with other players.
 The HTTP API must be enabled in ComputerCraft.cfg to use this program.
 
 ex:
 "pastebin put foo" will upload the file "foo" to pastebin.com, and print the URL.
 "pastebin get xq5gc7LB foo" will download the file from the URL http://pastebin.com/xq5gc7LB, and save it as "foo".
-"pastebin run CxaWmPrX" will download the file from the URL http://pastebin.com/CxaWmPrX, and immediately run it.The peripheral API is for interacting with external peripheral devices. Type "help peripherals" to learn about the peripherals available.
+"pastebin run CxaWmPrX" will download the file from the URL http://pastebin.com/CxaWmPrX, and immediately run it./rom/help/peripheral%The peripheral API is for interacting with external peripheral devices. Type "help peripherals" to learn about the peripherals available.
 
 Functions in the peripheral API:
 peripheral.getNames()
@@ -2672,12 +2672,12 @@ peripheral.find( type, [fnFilter] )
 Events fired by the peripheral API:
 "peripheral" when a new peripheral is attached. Argument is the name.
 "peripheral_detach" when a peripheral is removed. Argument is the name.
-Type "help events" to learn about the event system.Peripherals are external devices which CraftOS Computers and Turtles can interact with using the peripheral API.
+Type "help events" to learn about the event system./rom/help/peripherals%Peripherals are external devices which CraftOS Computers and Turtles can interact with using the peripheral API.
 Type "help peripheral" to learn about using the peripheral API.
 Type "help drives" to learn about using Disk Drives.
 Type "help modems" to learn about using Wireless Modems.
 Type "help monitors" to learn about using Monitors.
-Type "help printers" to learn about using Printers.The Printer is a peripheral device available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Printer is connected, peripheral.getType() will return "printer".
+Type "help printers" to learn about using Printers./rom/help/printers%The Printer is a peripheral device available for CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a Printer is connected, peripheral.getType() will return "printer".
 
 Methods exposed by the Printer:
 getInkLevel()
@@ -2688,7 +2688,7 @@ getPageSize()
 setCursorPos( x, y )
 getCursorPos()
 write( text )
-endPage()To learn the lua programming language, visit http://lua-users.org/wiki/TutorialDirectory.
+endPage()/rom/help/programming%To learn the lua programming language, visit http://lua-users.org/wiki/TutorialDirectory.
 
 To experiment with lua in CraftOS, run the "lua" program and start typing code.
 To create programs, use "edit" to create files, then type their names in the shell to run them. If you name a program "startup" and place it in the root or on a disk drive, it will run automatically when the computer starts.
@@ -2698,9 +2698,9 @@ To quickly shutdown a computer, hold Ctrl+S for 1 second.
 To quickly reboot a computer, hold Ctrl+R for 1 second.
 
 To learn about the programming APIs availiable, type "apis" or "help apis".
-If you get stuck, visit the forums at http://www.computercraft.info/ for advice and tutorials.programs lists all the programs on the rom of the computer.reboot will turn the computer off and on again.
-You can also hold Ctrl+R at any time to quickly reboot.Redirection ComputerCraft Edition is the CraftOS version of a fun new puzzle game by Dan200, the author of ComputerCraft.
-Play it on any Advanced Computer, then visit http://www.redirectiongame.com to play the full game!The rednet API provides a simple computer networking model using modems.
+If you get stuck, visit the forums at http://www.computercraft.info/ for advice and tutorials./rom/help/programs%programs lists all the programs on the rom of the computer./rom/help/reboot%reboot will turn the computer off and on again.
+You can also hold Ctrl+R at any time to quickly reboot./rom/help/redirection%Redirection ComputerCraft Edition is the CraftOS version of a fun new puzzle game by Dan200, the author of ComputerCraft.
+Play it on any Advanced Computer, then visit http://www.redirectiongame.com to play the full game!/rom/help/rednet%The rednet API provides a simple computer networking model using modems.
 
 Functions in the rednet API:
 rednet.open( side )
@@ -2717,7 +2717,7 @@ Events fired by the rednet API:
 "rednet_message" when a message is received. Arguments are senderID, message, protocol
 Type "help events" to learn about the event system.
 
-Rednet is not the only way to use modems for networking. Interfacing with the modem directly using the peripheral API and listening for the "modem_message" event allows for lower level control, at the expense of powerful high level networking features.The redstone program can be used to get, set or pulse redstone inputs and outputs from the computer.
+Rednet is not the only way to use modems for networking. Interfacing with the modem directly using the peripheral API and listening for the "modem_message" event allows for lower level control, at the expense of powerful high level networking features./rom/help/redstone%The redstone program can be used to get, set or pulse redstone inputs and outputs from the computer.
 
 ex:
 "redstone probe" will list all the redstone inputs to the computer
@@ -2725,7 +2725,7 @@ ex:
 "redstone set right blue false" turns off the blue wire in the bundled cable on the right redstone output.
 "redstone pulse front 10 1" emits 10 one second redstone pulses on the front redstone output.
 
-Type "help redstoneapi" or "help rs" for information on the redstone Lua API.Functions in the Redstone API:
+Type "help redstoneapi" or "help rs" for information on the redstone Lua API./rom/help/redstoneapi%Functions in the Redstone API:
 redstone.getSides( )
 redstone.getInput( side )
 redstone.setOutput( side, boolean )
@@ -2743,15 +2743,15 @@ Type "help bundled" for usage examples.
 
 Events emitted by the redstone API:
 "redstone", when the state of any redstone input changes. Use getInput() or getBundledInput() to inspect the changes
-Type "help events" to learn about the event system.refuel is a program for Turtles. Refuel will consume items from the inventory as fuel for turtle.
+Type "help events" to learn about the event system./rom/help/refuel%refuel is a program for Turtles. Refuel will consume items from the inventory as fuel for turtle.
 
 ex:
 "refuel" will refuel with at most one fuel item
 "refuel 10" will refuel with at most 10 fuel items
-"refuel all" will refuel with as many fuel items as possiblerename renames a file or directory.
+"refuel all" will refuel with as many fuel items as possible/rom/help/rename%rename renames a file or directory.
 
 ex:
-"rename foo bar" renames the file "foo" to "bar".repeat is a program for repeating rednet messages across long distances. To use, connect 2 or more modems to a computer and run the "repeat" program; from then on, any rednet message sent from any computer in wireless range or connected by networking cable to either of the modems will be repeated to those on the other side.Functions in the Redstone API:
+"rename foo bar" renames the file "foo" to "bar"./rom/help/repeat%repeat is a program for repeating rednet messages across long distances. To use, connect 2 or more modems to a computer and run the "repeat" program; from then on, any rednet message sent from any computer in wireless range or connected by networking cable to either of the modems will be repeated to those on the other side./rom/help/rs%Functions in the Redstone API:
 rs.getSides( )
 rs.getInput( side )
 rs.setOutput( side, boolean )
@@ -2769,8 +2769,8 @@ Type "help bundled" for usage examples.
 
 Events emitted by the redstone API:
 "redstone", when the state of any redstone input changes. Use getInput() or getBundledInput() to inspect the changes
-Type "help events" to learn about the event system.shell is the toplevel program which interprets commands and runs program.
-Type "help shellapi" for information about the shell lua api.Functions in the Shell API:
+Type "help events" to learn about the event system./rom/help/shell%shell is the toplevel program which interprets commands and runs program.
+Type "help shellapi" for information about the shell lua api./rom/help/shellapi%Functions in the Shell API:
 shell.exit()
 shell.dir()
 shell.setDir( path )
@@ -2785,12 +2785,12 @@ shell.programs()
 shell.run( program, arguments )
 shell.getRunningProgram()
 shell.openTab( program, arguments ) (Advanced Computer required)
-shell.switchTab( n ) (Advanced Computer required)shutdown will turn off the computer.sleep makes the computer idle for a specific number of seconds.
+shell.switchTab( n ) (Advanced Computer required)/rom/help/shutdown%shutdown will turn off the computer./rom/help/sleep%sleep makes the computer idle for a specific number of seconds.
 
 ex:
-"sleep 10" puts the computer to sleep for 10 secondsstring is a standard Lua5.1 API.
-Refer to http://www.lua.org/manual/5.1/ for more information.table is a standard Lua5.1 API.
-Refer to http://www.lua.org/manual/5.1/ for more information.Functions in the Terminal API:
+"sleep 10" puts the computer to sleep for 10 seconds/rom/help/string%string is a standard Lua5.1 API.
+Refer to http://www.lua.org/manual/5.1/ for more information./rom/help/table%table is a standard Lua5.1 API.
+Refer to http://www.lua.org/manual/5.1/ for more information./rom/help/term%Functions in the Terminal API:
 term.write( text )
 term.clear()
 term.clearLine()
@@ -2806,22 +2806,22 @@ term.redirect( object )
 term.current()
 
 Events emitted by the terminals:
-"term_resize", when the size of a terminal changes. This can happen in multitasking environments, or when the terminal out is being redirected by the "monitor" program.Functions in the Text Utilities API:
+"term_resize", when the size of a terminal changes. This can happen in multitasking environments, or when the terminal out is being redirected by the "monitor" program./rom/help/textutils%Functions in the Text Utilities API:
 textutils.slowPrint( text )
 textutils.tabulate( table, table2, ... )
 textutils.pagedTabulate( table, table2, ... )
 textutils.formatTime( time, bTwentyFourHour )
 textutils.serialize( table )
 textutils.unserialize( string )
-textutils.urlEncode( string )time prints the current time of day.tunnel is a program for Mining Turtles. Tunnel will mine a 3x2 tunnel of the depth specified.
+textutils.urlEncode( string )/rom/help/time%time prints the current time of day./rom/help/tunnel%tunnel is a program for Mining Turtles. Tunnel will mine a 3x2 tunnel of the depth specified.
 
 ex:
-"tunnel 20" will tunnel a tunnel 20 blocks long.turn is a program for Turtles, used to turn the turtle around without programming. It accepts one or more commands as a direction and a number of turns. The "go" program can also be used for turning.
+"tunnel 20" will tunnel a tunnel 20 blocks long./rom/help/turn%turn is a program for Turtles, used to turn the turtle around without programming. It accepts one or more commands as a direction and a number of turns. The "go" program can also be used for turning.
 
 ex:
 "turn left" turns the turtle 90 degrees left.
 "turn right 2" turns the turtle 180 degrees right.
-"turn left 2 right" turns left 180 degrees, then right 90 degrees.turtle is an api availiable on Turtles, which controls their movement.
+"turn left 2 right" turns left 180 degrees, then right 90 degrees./rom/help/turtle%turtle is an api availiable on Turtles, which controls their movement.
 Functions in the Turtle API:
 turtle.forward()
 turtle.back()
@@ -2869,10 +2869,10 @@ turtle.refuel( [quantity] )
 turtle.craft( [quantity] ) (requires Crafty Turtle)
 
 Events fired by the Turtle API:
-"turtle_inventory" when any of the items in the inventory are changed. Use comparison operations to inspect the changes.type determines the type of a file or directory. Prints "file", "directory" or "does not exist".unequip is a program for Turtles. unequip will remove tools of peripherals from the specified side of the turtle.
+"turtle_inventory" when any of the items in the inventory are changed. Use comparison operations to inspect the changes./rom/help/type%type determines the type of a file or directory. Prints "file", "directory" or "does not exist"./rom/help/unequip%unequip is a program for Turtles. unequip will remove tools of peripherals from the specified side of the turtle.
 
 ex:
-"unequip left" will remove the item on the left side of the turtleFunctions in the 3D Vector Math API:
+"unequip left" will remove the item on the left side of the turtle/rom/help/vector%Functions in the 3D Vector Math API:
 vector.new( x,y,z )
 
 Vectors returned by vector.new() have the following fields and methods:
@@ -2888,13 +2888,13 @@ vector:length()
 vector:normalize()
 vector:round()
 vector:tostring()
-The +, - and * operators can also be used on vectors.New Features in ComputerCraft 1.65:
+The +, - and * operators can also be used on vectors./rom/help/whatsnew%New Features in ComputerCraft 1.65:
 
 * Fixed a multiplayer-only crash with turtle.place()
 * Fixed some problems with http.post()
 * Fixed fs.getDrive() returning incorrect results on remote peripherals
 
-Type "help changelog" to see the full version history.Functions in the window API:
+Type "help changelog" to see the full version history./rom/help/window%Functions in the window API:
 window.create( parent, x, y, width, height, visible )
 
 Windows created with the window API have the following methods:
@@ -2913,10 +2913,10 @@ setVisible( bVisible )
 redraw()
 restoreCursor()
 getPosition()
-reposition( x, y, width, height )Workbenches are peripheral devices found on Crafty Turtles running CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a workbench is attached to a turtle, peripheral.getType() will return "workbench".
+reposition( x, y, width, height )/rom/help/workbench%Workbenches are peripheral devices found on Crafty Turtles running CraftOS. Type "help peripheral" to learn about using the Peripheral API to connect with peripherals. When a workbench is attached to a turtle, peripheral.getType() will return "workbench".
 
 Methods exposed by Workbenches:
-craft( channel )You've played it in the arcades, now experience the high-octane thrills of the hit game "WORM!" on your home computer! Only on CraftOS!Copyright (c) 2007 LuaJ. All rights reserved.
+craft( channel )/rom/help/worm%You've played it in the arcades, now experience the high-octane thrills of the hit game "WORM!" on your home computer! Only on CraftOS!/rom/help/licenses/luaj%Copyright (c) 2007 LuaJ. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -2934,7 +2934,7 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE./rom/help/licenses/rom/help
+THE SOFTWARE./rom/help/licenses/rom/help/rom/programs/alias%
 local tArgs = { ... }
 if #tArgs > 2 then
 	print( "Usage: alias <alias> <program>" )
@@ -2960,7 +2960,7 @@ else
 	table.sort( tList )
 	textutils.pagedTabulate( tList )
 end
-	
+	/rom/programs/apis%
 local tApis = {}
 for k,v in pairs( _G ) do
 	if type(k) == "string" and type(v) == "table" and k ~= "_G" then
@@ -2970,7 +2970,7 @@ end
 table.insert( tApis, "shell" )
 table.sort( tApis )
 
-textutils.pagedTabulate( tApis )
+textutils.pagedTabulate( tApis )/rom/programs/cd%
 local tArgs = { ... }
 if #tArgs < 1 then
 	print( "Usage: cd <path>" )
@@ -2983,8 +2983,8 @@ if fs.isDir( sNewDir ) then
 else
   	print( "Not a directory" )
   	return
-endterm.clear()
-term.setCursorPos( 1, 1 )
+end/rom/programs/clear%term.clear()
+term.setCursorPos( 1, 1 )/rom/programs/copy%
 local tArgs = { ... }
 if #tArgs < 2 then
 	print( "Usage: cp <source> <destination>" )
@@ -3007,7 +3007,7 @@ if #tFiles > 0 then
     end
 else
     printError( "No matching files" )
-end
+end/rom/programs/delete%
 local tArgs = { ... }
 if #tArgs < 1 then
 	print( "Usage: rm <path>" )
@@ -3022,7 +3022,7 @@ if #tFiles > 0 then
     end
 else
     printError( "No matching files" )
-endlocal tArgs = { ... }
+end/rom/programs/drive%local tArgs = { ... }
 
 -- Get where a directory is mounted
 local sPath = shell.dir()
@@ -3042,7 +3042,7 @@ if fs.exists( sPath ) then
 	end
 else
 	print( "No such path" )
-end-- Get file to edit
+end/rom/programs/edit%-- Get file to edit
 local tArgs = { ... }
 if #tArgs == 0 then
 	print( "Usage: edit <path>" )
@@ -3664,7 +3664,7 @@ end
 -- Cleanup
 term.clear()
 term.setCursorBlink( false )
-term.setCursorPos( 1, 1 )
+term.setCursorPos( 1, 1 )/rom/programs/eject%
 -- Get arguments
 local tArgs = { ... }
 if #tArgs == 0 then
@@ -3681,7 +3681,7 @@ if not bPresent then
 	return
 end
 
-disk.eject( sDrive )shell.exit()
+disk.eject( sDrive )/rom/programs/exit%shell.exit()/rom/programs/gps%
 local function printUsage()
 	print( "Usages:" )
 	print( "gps host" )
@@ -3783,7 +3783,7 @@ else
 	-- Error
 	printUsage()
 	
-endtArgs = { ... }
+end/rom/programs/help%tArgs = { ... }
 if #tArgs > 0 then
 	sTopic = tArgs[1]
 else
@@ -3811,7 +3811,7 @@ if file then
 	file:close()
 else
 	print( "No help available" )
-end
+end/rom/programs/id%
 local sDrive = nil
 local tArgs = { ... }
 if #tArgs > 0 then
@@ -3840,7 +3840,7 @@ else
 		print( "The disk is labelled \""..label.."\"" )
 	end
 end
-
+/rom/programs/label%
 local function printUsage()
 	print( "Usages:" )
 	print( "label get" )
@@ -3939,7 +3939,7 @@ elseif sCommand == "clear" then
     end
 else
     printUsage()
-end
+end/rom/programs/list%
 local tArgs = { ... }
 
 -- Get all the files in the directory
@@ -3970,7 +3970,7 @@ if term.isColour() then
 	textutils.pagedTabulate( colors.green, tDirs, colors.white, tFiles )
 else
 	textutils.pagedTabulate( tDirs, tFiles )
-end
+end/rom/programs/lua%
 local tArgs = { ... }
 if #tArgs > 0 then
 	print( "This is an interactive Lua prompt." )
@@ -4048,7 +4048,7 @@ while bRunning do
     	printError( e )
     end
     
-endlocal tArgs = { ... }
+end/rom/programs/mkdir%local tArgs = { ... }
 if #tArgs < 1 then
 	print( "Usage: mkdir <path>" )
 	return
@@ -4056,7 +4056,7 @@ end
 
 local sNewDir = shell.resolve( tArgs[1] )
 fs.makeDir( sNewDir )
-
+/rom/programs/monitor%
 function printUsage()
 	print( "Usage: monitor <name> <program> <arguments>" )
 	return
@@ -4122,7 +4122,7 @@ term.redirect( previousTerm )
 if not ok then
 	printError( param )
 end
-	
+	/rom/programs/move%
 local tArgs = { ... }
 if #tArgs < 2 then
 	print( "Usage: mv <source> <destination>" )
@@ -4145,7 +4145,7 @@ if #tFiles > 0 then
     end
 else
     printError( "No matching files" )
-end
+end/rom/programs/programs%
 local bAll = false
 local tArgs = { ... }
 if #tArgs > 0 and tArgs[1] == "all" then
@@ -4153,14 +4153,14 @@ if #tArgs > 0 and tArgs[1] == "all" then
 end
 
 local tPrograms = shell.programs( bAll )
-textutils.pagedTabulate( tPrograms )if term.isColour() then
+textutils.pagedTabulate( tPrograms )/rom/programs/reboot%if term.isColour() then
 	term.setTextColour( colours.yellow )
 end
 print( "Goodbye" )
 term.setTextColour( colours.white )
 
 sleep( 1 )
-os.reboot()
+os.reboot()/rom/programs/redstone%
 local tArgs = { ... }
 
 local function printUsage()
@@ -4277,7 +4277,7 @@ else
     -- Something else
     printUsage()
 
-endlocal tArgs = { ... }
+end/rom/programs/rename%local tArgs = { ... }
 if #tArgs < 2 then
 	print( "Usage: rename <source> <destination>" )
 	return
@@ -4285,7 +4285,7 @@ end
 
 local sSource = shell.resolve( tArgs[1] )
 local sDest = shell.resolve( tArgs[2] )
-fs.move( sSource, sDest )
+fs.move( sSource, sDest )/rom/programs/shell%
 local multishell = multishell
 local parentShell = shell
 local parentTerm = term.current()
@@ -4528,16 +4528,16 @@ else
         table.insert( tCommandHistory, sLine )
         shell.run( sLine )
     end
-endif term.isColour() then
+end/rom/programs/shutdown%if term.isColour() then
 	term.setTextColour( colours.yellow )
 end
 print( "Goodbye" )
 term.setTextColour( colours.white )
 
 sleep( 1 )
-os.shutdown()local nTime = os.time()
+os.shutdown()/rom/programs/time%local nTime = os.time()
 local nDay = os.day()
-print( "The time is "..textutils.formatTime( nTime, false ).." on Day "..nDay )
+print( "The time is "..textutils.formatTime( nTime, false ).." on Day "..nDay )/rom/programs/type%
 local tArgs = { ... }
 if #tArgs < 1 then
 	print( "Usage: type <path>" )
@@ -4554,13 +4554,13 @@ if fs.exists( sPath ) then
 else
 	print( "No such path" )
 end
-
+/rom/programs/advanced/bg%
 local tArgs = { ... }
 if #tArgs > 0 then
     shell.openTab( unpack( tArgs ) )
 else
     shell.openTab( "shell" )
-end
+end/rom/programs/advanced/fg%
 local tArgs = { ... }
 if #tArgs > 0 then
     local nTask = shell.openTab( unpack( tArgs ) )
@@ -4572,7 +4572,7 @@ else
     if nTask then
         shell.switchTab( nTask )
     end
-end
+end/rom/programs/advanced/multishell%
 -- Setup process switching
 local parentTerm = term.current()
 local w,h = parentTerm.getSize()
@@ -4877,7 +4877,7 @@ while #tProcesses > 0 do
 end
 
 -- Shutdown
-term.redirect( parentTerm )/rom/programs/advanced
+term.redirect( parentTerm )/rom/programs/advanced/rom/programs/fun/adventure%
 local tBiomes = {
 	"in a forest",
 	"in a pine forest",
@@ -6219,7 +6219,7 @@ while bRunning do
     if bRunning then
 	    simulate()
 	end
-endlocal tArgs = { ... }
+end/rom/programs/fun/dj%local tArgs = { ... }
 
 local function printUsage()
 	print( "Usages:")
@@ -6268,11 +6268,11 @@ elseif sCommand == "play" or sCommand == nil then
 else
 	printUsage()
 	
-endif term.isColour() then
+end/rom/programs/fun/hello%if term.isColour() then
 	term.setTextColour( 2^math.random(0,15) )
 end
 textutils.slowPrint( "Hello World!" )
-term.setTextColour( colours.white )
+term.setTextColour( colours.white )/rom/programs/fun/worm%
 -- Display the start screen
 local w,h = term.getSize()
 
@@ -6562,7 +6562,7 @@ until e == "char"
 term.clear()
 term.setCursorPos(1,1)
 
-		-- Paint created by nitrogenfingers (edited by dan200)
+		/rom/programs/fun/advanced/paint%-- Paint created by nitrogenfingers (edited by dan200)
 -- http://www.youtube.com/user/NitrogenFingers
 
 ------------
@@ -6955,7 +6955,7 @@ handleEvents()
 term.setBackgroundColour(colours.black)
 term.setTextColour(colours.white)
 term.clear()
-term.setCursorPos(1,1)--CCRedirection by : RamiLego4Game and Dan200--
+term.setCursorPos(1,1)/rom/programs/fun/advanced/redirection%--CCRedirection by : RamiLego4Game and Dan200--
 --Based on Redirection by Dan200: http://www.redirectiongame.com--
 --Clearing Screen--
 
@@ -7658,20 +7658,20 @@ if not ok then
     else
         printError( err )
     end
-end0
+end/rom/programs/fun/advanced/levels/0%0
 77     77
 718888887
  8     8
  8     8
  8     8
 788888897
-77     771
+77     77/rom/programs/fun/advanced/levels/1%1
      777
      7b7
      787
 7777778777
 7188888887
-77777777775
+7777777777/rom/programs/fun/advanced/levels/10%5
  777    77777
  727777778837
  788888878787
@@ -7681,7 +7681,7 @@ end0
 7787787b777877
  777887887887
    7487807487
-   77777777774
+   7777777777/rom/programs/fun/advanced/levels/11%4
    777777777
    727872787
    787878787
@@ -7690,7 +7690,7 @@ end0
 777787878787777
    787878787
    787478747
-   7777777776
+   777777777/rom/programs/fun/advanced/levels/12%6
 77  777  77
 72888888897
  8   8   8
@@ -7701,7 +7701,7 @@ end0
  8 888b8 8
  8   8   8
 75888888807
-77  777  771
+77  777  77/rom/programs/fun/advanced/levels/2%1
 777777777
 7888888b7
 787778887
@@ -7710,7 +7710,7 @@ end0
 7888887
 7777787
     707
-    7772
+    777/rom/programs/fun/advanced/levels/3%2
   77777777
 777888188777
 7b78777787b7
@@ -7719,7 +7719,7 @@ end0
 78887  78887
 777877778777
   78838887
-  777777772
+  77777777/rom/programs/fun/advanced/levels/4%2
     77777777
 777778888887
 788888777787
@@ -7728,7 +7728,7 @@ end0
 7b77787  787
 7888887  787
 7777707  707
-    777  7773
+    777  777/rom/programs/fun/advanced/levels/5%3
 777777777
 788888887
 787787787
@@ -7737,7 +7737,7 @@ end0
 787787787
 787787787
 78e748887
-7777777774
+777777777/rom/programs/fun/advanced/levels/6%4
 7777777777
 7288888837
 78      87
@@ -7747,7 +7747,7 @@ end0
 788888b 87
 78      87
 7188888807
-77777777773
+7777777777/rom/programs/fun/advanced/levels/7%3
 728777778b7
 78888888887
 78777877787
@@ -7756,7 +7756,7 @@ end0
 787 7888889
 88777877777
 e888887
-77778874
+7777887/rom/programs/fun/advanced/levels/8%4
 777777 7777
 7287b7 7867
 788787 7887
@@ -7765,7 +7765,7 @@ e888887
  77877787877
  7887 787887
  7487 7e7807
- 7777 7777772
+ 7777 777777/rom/programs/fun/advanced/levels/9%2
     777  777
   777877778777
   788838888887
@@ -7776,7 +7776,7 @@ e888887
 7778bbbbbbbb8777
   788888818887
   777877778777
-    777  777/rom/programs/fun/advanced/levels/rom/programs/fun/advanced/rom/programs/fun
+    777  777/rom/programs/fun/advanced/levels/rom/programs/fun/advanced/rom/programs/fun/rom/programs/http/pastebin%
 local function printUsage()
     print( "Usages:" )
     print( "pastebin put <filename>" )
@@ -7900,7 +7900,7 @@ elseif sCommand == "run" then
 else
     printUsage()
     return
-end/rom/programs/http--[[
+end/rom/programs/http/rom/programs/pocket/falling%--[[
 Falling - Based on Tetris by Alexey Pajitnov
 This version written by Gopher, at the request of Dan200, for
 ComputerCraft v1.6. No particular rights are reserved.
@@ -8550,7 +8550,7 @@ end
 term.setTextColor(colors.white)
 term.setBackgroundColor(colors.black)
 term.clear()
-term.setCursorPos(1,1)/rom/programs/pocket
+term.setCursorPos(1,1)/rom/programs/pocket/rom/programs/rednet/chat%
 local tArgs = { ... }
 
 local function printUsage()
@@ -8984,7 +8984,7 @@ else
     -- "chat somethingelse"
     printUsage()
 
-end
+end/rom/programs/rednet/repeat%
 -- Find modems
 local tModems = {}
 for n,sModem in ipairs( peripheral.getNames() ) do
@@ -9074,7 +9074,7 @@ if not ok then
 end
 
 -- Close channels
-close( rednet.CHANNEL_REPEAT )/rom/programs/rednet
+close( rednet.CHANNEL_REPEAT )/rom/programs/rednet/rom/programs/turtle/craft%
 if not turtle.craft then
     print( "Requires a Crafty Turtle" )
     return
@@ -9106,7 +9106,7 @@ elseif nCrafted == 1 then
     print( "1 item crafted" )
 else
     print( "No items crafted" )
-end
+end/rom/programs/turtle/dance%
 local tMoves = {
 	function()
 		turtle.up()
@@ -9217,7 +9217,7 @@ parallel.waitForAll(
 
 if sAudio then
 	disk.stopAudio( sAudio )
-end
+end/rom/programs/turtle/equip%
 local tArgs = { ... }
 local function printUsage()
 	print( "Usage: equip <slot> <side>" )
@@ -9254,7 +9254,7 @@ elseif sSide == "right" then
 else
     printUsage()
     return
-end
+end/rom/programs/turtle/excavate%
 local tArgs = { ... }
 if #tArgs ~= 1 then
 	print( "Usage: excavate <diameter>" )
@@ -9606,7 +9606,7 @@ if reseal then
 	turtle.placeDown()
 end
 
-print( "Mined "..(collected + unloaded).." items total." )local tArgs = { ... }
+print( "Mined "..(collected + unloaded).." items total." )/rom/programs/turtle/go%local tArgs = { ... }
 if #tArgs < 1 then
 	print( "Usage: go <direction> <distance>" )
 	return
@@ -9658,7 +9658,7 @@ while nArg <= #tArgs do
 		return
 	end
 
-end
+end/rom/programs/turtle/refuel%
 local tArgs = { ... }
 local nLimit = 1
 if #tArgs > 1 then
@@ -9690,7 +9690,7 @@ if turtle.getFuelLevel() ~= "unlimited" then
     end
 else
     print( "Fuel level is unlimited" )
-end
+end/rom/programs/turtle/tunnel%
 local tArgs = { ... }
 if #tArgs ~= 1 then
 	print( "Usage: tunnel <length>" )
@@ -9873,7 +9873,7 @@ turtle.turnRight()
 ]]
 
 print( "Tunnel complete." )
-print( "Mined "..collected.." items total." )local tArgs = { ... }
+print( "Mined "..collected.." items total." )/rom/programs/turtle/turn%local tArgs = { ... }
 if #tArgs < 1 then
 	print( "Usage: turn <direction> <turns>" )
 	return
@@ -9910,7 +9910,7 @@ while nArg <= #tArgs do
 		return
 	end
 	
-end
+end/rom/programs/turtle/unequip%
 local tArgs = { ... }
 local function printUsage()
 	print( "Usage: unequip <side>" )
@@ -9949,4 +9949,4 @@ elseif sSide == "right" then
 else
     printUsage()
     return
-end/rom/programs/turtle/rom/programs/romX265308F0F1734F2284F2715F4181F8403F9338F12755F15071F20313F21724F24985F33240F34641F40700F42147F54710D55598D55614F55623D55812F55824F56065F56271F56436F56634F56939F57327F57470F70804F71248F71272F71749F72254F72471F72568F72756F73138F73196F73334F73943F74156F74364F75046F75062F75346F75483F75699F76588F76827F76860F76980F77178F77913F78258F78864F79254F79305F79484F79566F80003F80218F80539F80693F81007F81497F81624F81732F81824F82017F82544F82825F83563F83796F83945F84678F84939F85256F85464F85993F86620F87010F87401F88149F88208F88311F88531F89462F89974F90680F90942F91032F91357F92006F92141F92570F92606F92727F92821F92914F93417F93705F93741F93888F94256F95575F95671F95856F96241F96497F96916F97221F97356D98425D98443F98452F98959F99189F99416F99454F100064F100360F100885F114359F114653F114665F117091F117686F118250F120554F121239F123018F123168F124773F125383F125561F125705F129205F129415F135264F135410F135535F135803F135919F136181D145210F145232F176259F177262F177406F183948F192699F212581F212649F212710F212854F212981F213110F213191F213303F213421F213512F213623F213724F213837D214009D214042D214068F214085D217209F217227D231903F231923F246333D249481F249501F250193F252053F252887F258913F259973F260801F263659F264357D265271D265291D265304
+end/rom/programs/turtle/rom/programs/rom?F0F1747F2314F2763F4244F8480F9430F12860F15191F20454F21884F25166F33438F34854F40933F42397F54977D55889D55905F55914D56126F56138F56399F56621F56801F57012F57331F57737F57893F71247F71706F71746F72240F72763F72995F73112F73316F73716F73790F73945F74569F74795F75019F75718F75750F76049F76202F76434F77340F77598F77646F77784F77995F78743F79101F79721F80128F80195F80389F80489F80941F81169F81506F81673F82002F82508F82650F82772F82879F83088F83632F83931F84688F84936F85106F85852F86129F86467F86694F87242F87890F88302F88712F89482F89560F89680F89922F90870F91401F92129F92408F92515F92857F93519F93670F94118F94173F94310F94421F94530F95048F95356F95407F95571F95954F97290F97401F97604F98006F98281F98717F99042F99192D100285D100303F100312F100839F101088F101332F101390F102019F102336F102881F116374F116688F116719F119163F119777F120358F122682F123386F125183F125353F126980F127609F127810F127975F131498F131729F137598F137767F137911F138198F138340F138628D147691F147713F178768F179792F179960F186525F195309F215230F215334F215431F215612F215776F215942F216059F216207F216361F216488F216635F216772F216921D217129D217162D217188F217205D220357F220375D235080F235100F249536D252712F252732F253451F255338F256199F262255F263339F264195F267081F267805D268748D268768D268781
