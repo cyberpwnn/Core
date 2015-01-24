@@ -35,6 +35,7 @@ There are many objectives in this project. The issue is trying to address all of
   - [x] Add and Delete files including entire folders
   - [ ] Output and extracting files for actual usefulness.
   - [ ] Decide weather it is a good idea for an entire algorithm, or simply text conjunction.
+  - [ ] Ability to crunch spaces and other things that are repeated.
 - [x] Hooks into the event system.
   - [x] Force Closes unclosed files on stop
   - [ ] Flush Saves any files before closed
@@ -97,4 +98,5 @@ There are many objectives in this project. The issue is trying to address all of
   - [ ] Text wrapping determined by the length of the string
   - [ ] Text splitting and matching
   - [ ] Separation by words
+  - [ ] Char splitting
 - [ ] Use for filesystem when dealing with directories
