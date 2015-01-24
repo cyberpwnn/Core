@@ -34,6 +34,7 @@ There are many objectives in this project. The issue is trying to address all of
 - [x] Archiving files in an objective way
   - [x] Add and Delete files including entire folders
   - [ ] Output and extracting files for actual usefulness.
+  - [ ] Decide weather it is a good idea for an entire algorithm, or simply text conjunction.
 - [x] Hooks into the event system.
   - [x] Force Closes unclosed files on stop
   - [ ] Flush Saves any files before closed

@@ -21,16 +21,18 @@ function open(d, m)
   self.i = #loaded +1
   
   table.insert(loaded, {self.d, fs.open(d,m)})
+  CPI.wrn("Opened " .. d)
   
   return self
 end
 
-function File:write(s) loaded[self.i][2].write(s) end
-function File:writeLine(s) loaded[self.i][2].writeLine(s) end
-function File:read(s) loaded[self.i][2].read() end
-function File:readLine(s) loaded[self.i][2].readLine() end
+function File:write(s) loaded[self.i][2].write(s) return self end
+function File:writeLine(s) loaded[self.i][2].writeLine(s) return self end
+function File:read() return loaded[self.i][2].read() end
+function File:readAll() return loaded[self.i][2].readAll() end
+function File:readLine() return loaded[self.i][2].readLine() end
 function File:close(s) loaded[self.i][2].close() loaded[self.i] = nil end
-function File:flush(s) loaded[self.i][2].flush() end
+function File:flush(s) loaded[self.i][2].flush() return self end
 
 function closeAll()
   local loadedv = loaded
@@ -59,14 +61,17 @@ function Archive:add(l)
       end
     end
     if not self:is(l) then
-      table.insert(self.l, l)
+      if l:sub(1,2) == "//" then table.insert(self.l, l:sub(2)) else table.insert(self.l, l) end
     end
   end
 end
 
 function Archive:output(l)
-  local f = open(l)
-  for i,v in ipairs(self.l)
+  
+end
+
+function Archive:extract()
+  
 end
 
 function Archive:is(l)
