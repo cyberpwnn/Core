@@ -65,52 +65,56 @@ end
 function Collection:output(l)
   local f = open(l..".col", "w")
   local s = ""
-  local d = "?"
+  local d = {}
   local n = 0
+  
+  local idNewLine = "`n"
+  local idExit = "``"
+  local idIgnore = "`"
   
   for i,v in ipairs(self.l) do
     -- Gather Data and store it to s,d,n
     if fs.isDir(v) then
-      d = d .. "D"..n
-      s = s .. v
+      table.insert(d, v)
     else
-      d = d .. "F"..n
-      local fv = open(v, "r")
-      local fd = ""
-      if fv then
-        fd = fv:readAll()
-        if fd then s = s .. v.."%"..fd end
-        fv:close()
+      local fd = open(v, "r")
+      local fl = {}
+      
+      while true do
+        local rc = fd:readLine()
+        if rc then
+          table.insert(fl, rc)
+        else break end
       end
+      
+      table.insert(d,fl)
     end
-    n = s:len()
   end
   
   -- Additional Processing
-  
+  for i,v in ipairs(d) do
+    if s ~= "" then s = s .. idNewLine end
+    if type(v) == "string" then
+      s = s .. v
+    elseif type(v) == "table" then
+      for j,w in ipairs(v) do
+      -- Line processing
+        for k = 1, w:len() do
+        -- Char Processing
+          w:gsub(idIgnore, idExit)
+        end
+        
+        s = s .. w
+      end
+    end
+  end
   
   -- Output
-  f:write(s..d):flush():close()
+  f:write(s):flush():close()
 end
 
 function Collection:extract(l)
-  local f = open(l, "r")
-  local d = f:readAll()
-  local k = ""
   
-  if d == "" or d == nil then return false end
-  f:close()
-  
-  for i = d:len(), 1, -1 do
-    term.write(d:sub(i,i))
-    if d:sub(i,i) == "?" then
-      k = d:sub(i, i)
-      break
-    end
-  end
-  os.sleep(1)
-  CPI.inf(k)
-  os.sleep(1)
 end
 
 function Collection:is(l)
