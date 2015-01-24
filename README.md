@@ -86,3 +86,14 @@ There are many objectives in this project. The issue is trying to address all of
 ### Math
 - [ ] A mathematical api used for many different things
 - [ ] The ability to get simple functions like sin, and cos, along with heavy calculations. Possibly including objective approaches to this also.
+
+### Table
+- [ ] An api used for help in table building, and modifications
+- [ ] The ability to create multidimensional tables
+
+### String
+- [ ] An api used for manipulating strings in ways that otherwise require lots of work
+  - [ ] Text wrapping determined by the length of the string
+  - [ ] Text splitting and matching
+  - [ ] Separation by words
+- [ ] Use for filesystem when dealing with directories
