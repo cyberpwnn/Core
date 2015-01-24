@@ -69,8 +69,11 @@ function Collection:output(l)
   local n = 0
   
   local idNewLine = "`n"
+  local idSource = "/@/"
   local idExit = "``"
-  local idIgnore = "`"
+  local idIgnore = "'"
+  
+  local iLimit = 1000000
   
   for i,v in ipairs(self.l) do
     -- Gather Data and store it to s,d,n
@@ -80,10 +83,12 @@ function Collection:output(l)
       local fd = open(v, "r")
       local fl = {}
       
-      while true do
+      for i = 1, iLimit do
         local rc = fd:readLine()
         if rc then
-          table.insert(fl, rc)
+          if i == 1 then table.insert(fl, v..idSource..rc) else
+            table.insert(fl, rc)
+          end
         else break end
       end
       
@@ -99,11 +104,20 @@ function Collection:output(l)
     elseif type(v) == "table" then
       for j,w in ipairs(v) do
       -- Line processing
+        local space = 0
+      
+        w:gsub(idIgnore, idExit) -- NULLIFY PREEXISTING NEWLINE TAGS
         for k = 1, w:len() do
         -- Char Processing
-          w:gsub(idIgnore, idExit)
+          if w:sub(k,k) == " " then space = space + 1 
+            else 
+              if space > 3 then
+                
+              else space = 0 end
+            end
         end
         
+        if s ~= "" then s = s .. idNewLine end
         s = s .. w
       end
     end
