@@ -4,14 +4,11 @@ local w = "w"
 local a = "a"
 local b = "b"
 
-local n = true
-
 local loaded = {}
 
 local File = CPI.object()
-local Archive = CPI.object()
+local Collection = CPI.object()
 
--- Remove safeguard when issue #2 is fixed
 CPI.onStop(function() closeAll() end)
 
 function open(d, m)
@@ -21,7 +18,7 @@ function open(d, m)
   self.i = #loaded +1
   
   table.insert(loaded, {self.d, fs.open(d,m)})
-  CPI.wrn("Opened " .. d)
+  CPI.inf("FS: Opened " .. d)
   
   return self
 end
@@ -36,24 +33,23 @@ function File:flush(s) loaded[self.i][2].flush() return self end
 
 function closeAll()
   local loadedv = loaded
-  CPI.inf("Filesystem: Closing "..#loadedv .. " Files")
+  if #loadedv == 0 then return false end
+  CPI.inf("FS: Closing "..#loadedv .. " Files")
   for i,v in ipairs(loadedv) do
-    CPI.vrb("Filesystem: Closing File " .. v[1])
+    CPI.wrn("FS: Closing File " .. v[1])
     v[2].close()
   end
+  loaded = {}
 end
 
-function newArchive(d)
-  local self = CPI.object(Archive)
+function newCollection(d)
+  local self = CPI.object(Collection)
   self.l = {}
-  
   self:add(d)
-
-  
   return self
 end
 
-function Archive:add(l)
+function Collection:add(l)
   if fs.exists(l) then
     if fs.isDir(l) then
       for i,v in ipairs(fs.list(l)) do
@@ -66,21 +62,48 @@ function Archive:add(l)
   end
 end
 
-function Archive:output(l)
+function Collection:output(l)
+  local f = open(l..".col", "w")
+  local s = ""
+  local d = ""
+  local n = 0
+  
+  for i,v in ipairs(self.l) do
+    -- Gather Data and store it to s,d,n
+    if fs.isDir(v) then
+      d = d .. "D"..n
+      s = s .. v
+    else
+      d = d .. "F"..n
+      local fv = open(v, "r")
+      local fd = ""
+      if fv then
+        fd = fv:readAll()
+        if fd then s = s .. fd end
+        fv:close()
+      end
+    end
+    n = s:len()
+  end
+  
+  -- Additional Processing
+  d = "X"..n..d
+  
+  -- Output
+  f:write(s..d):flush():close()
+end
+
+function Collection:extract()
   
 end
 
-function Archive:extract()
-  
-end
-
-function Archive:is(l)
+function Collection:is(l)
   for i,v in ipairs(self.l) do
     if v == l then return true end
   end
   return false
 end
 
-function Archive:list()
+function Collection:list()
   return self.l
 end

@@ -31,10 +31,11 @@ There are many objectives in this project. The issue is trying to address all of
 ### Filesystem
 - [x] A way for libraries to plug in for file creation
 - [ ] Ability to create files with ease, better tools and more.
-- [x] Archiving files in an objective way
+- [x] ~~Archiving files in an objective way~~
+- [ ] Combining files into Collections
   - [x] Add and Delete files including entire folders
   - [ ] Output and extracting files for actual usefulness.
-  - [ ] Decide weather it is a good idea for an entire algorithm, or simply text conjunction.
+  - [ ] ~~Decide weather it is a good idea for an entire algorithm, or~~ simply text conjunction.
 - [x] Hooks into the event system.
   - [x] Force Closes unclosed files on stop
   - [ ] Flush Saves any files before closed
