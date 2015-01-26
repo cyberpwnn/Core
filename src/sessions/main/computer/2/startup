@@ -1,0 +1,11 @@
+local CNAME = "Core"
+local CVERSION = "1.0"
+local CBUILD = 42
+
+function launch()
+  term.clear() term.setCursorPos(1,1)
+  print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
+  term.write("Establishing a connection with repository...")
+end
+
+launch()
