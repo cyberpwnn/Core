@@ -8,14 +8,44 @@ local CBASE = "https://raw.githubusercontent.com/danielmills/Core/master/src/ses
 local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
 
 local ww,hh = term.getSize()
+local spc = " "
+local sppc = spc:rep(ww)
 
 function launch()
   term.setBackgroundColor(colors.cyan)
   term.clear()
   term.setBackgroundColor(colors.blue)
-  term.write("Installing Core")
   term.setCursorPos(1,1)
-  if needsStructure() then git() end
+  
+  term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(2, 2) term.setBackgroundColor(colors.blue)
+                           term.write("                 Installing Core                ") term.setBackgroundColor(colors.white) term.setTextColor(colors.black)
+  term.setCursorPos(2, 3)  term.write("                                                ") term.setTextColor(colors.red)
+  term.setCursorPos(2, 4)  term.write("  NETWORK REQUIRED FOR INSTALL. READ BELOW!!!!  ") term.setTextColor(colors.black)
+  term.setCursorPos(2, 13)  term.write("                                                ")
+  term.setCursorPos(2, 14)  term.write("                                                ")
+  term.setCursorPos(2, 15)  term.write("                                                ")
+  term.setCursorPos(2, 5)  term.write(" CORE TERM LICENSE AGREEMENT. YOU MUST AGREE TO ")
+  term.setCursorPos(2, 6)  term.write(" CONTINUE. THE INSTALLATION WILL EXECUTE A FEW  ")
+  term.setCursorPos(2, 7) term.write(" TASKS THAT WILL FIRST (1) DOWNLOAD A FILE FROM ")
+  term.setCursorPos(2, 8) term.write(" GITHUB HTTPS SERVERS. THIS WILL CHECK FOR THE  ")
+  term.setCursorPos(2, 9) term.write(" LATEST FILESYSTEM. CORE WILL THEN DOWNLOAD ALL ")
+  term.setCursorPos(2, 10) term.write(" OF THE FILES NEEDED. BEFORE ANY NETWORK ACTION ")
+  term.setCursorPos(2, 11) term.write(" IT WILL CHECK THE FILESYSTEM. IF ITS OK, THERE ")
+  term.setCursorPos(2, 12) term.write("      WILL BE NO DOWNLOADS OR NET ACTIVITY.     ")
+  term.setCursorPos(2, 16) term.write("                                                ")
+  term.setCursorPos(2, 17) term.write("                                                ") term.setBackgroundColor(colors.blue) term.setTextColor(colors.white)
+  term.setCursorPos(15, 17) term.write("I Agree") term.setCursorPos(30, 17) term.write("Cancel") term.setBackgroundColor(colors.white)
+  term.setCursorPos(2, 18) term.write("                                                ")
+  term.setBackgroundColor(colors.cyan) term.setCursorPos(1,hh) write(sppc)
+  
+  if needsStructure() then
+    while true do
+      local ee,bb,xx,yy = os.pullEvent("mouse_click")
+      if bb == 1 and xx >= 15 and xx <= 22 and yy == 17 then break end
+    end
+    
+    git()
+  end
   
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
   shell.run("/launcher")
@@ -23,35 +53,26 @@ end
 
 function needsStructure()
   local u = false
-  print("Checking structure... ")
   for i,v in ipairs(CSTRUCTURE) do
-    write(v.."... ")
     if fs.exists(v) then
-      term.setTextColor(colors.green) write(" EXISTS. ") term.setTextColor(colors.white)
       if fs.isDir(v) then
         local list = fs.list(v)
         if list then
           if #list > 0 then
-            term.setTextColor(colors.green) print(" FILLED.") term.setTextColor(colors.white)
           else
-            term.setTextColor(colors.red) print(" EMPTY.") term.setTextColor(colors.white)
             u = true
           end
         else
-          term.setTextColor(colors.red) print(" EMPTY.") term.setTextColor(colors.white)
           u = true
         end
       end
     else 
-      term.setTextColor(colors.red) print(" NOTFOUND.") term.setTextColor(colors.white)
       u = true
     end
   end
   
   if u then
-    term.setTextColor(colors.orange) print("Invalid Structure. First Time?") term.setTextColor(colors.white)
   else
-    term.setTextColor(colors.green) print("Valid Structure. Good to go.") term.setTextColor(colors.white)
   end
   return u
 end
@@ -59,23 +80,31 @@ end
 function git()
   local u = false
   local p = 0.0
-  term.setTextColor(colors.orange) print("Gathering requirements from repository... ") term.setTextColor(colors.white)
   local required = get(CURL)
-  local spc = " "
-  local sppc = spc:rep(ww)
   
   if required then
     for i,v in ipairs(required) do
       p = i / #required *100
       term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(2, 2) term.setBackgroundColor(colors.blue)
-                              term.write("                 Installing Core                ") term.setBackgroundColor(colors.white)
-      term.setCursorPos(2, 3) term.write("                                                ")
-      term.setCursorPos(2, 4) term.write("                                                ")
-      term.setCursorPos(2, 5) term.write("                                                ")
-      term.setCursorPos(2, 6) term.write("                                                ")
-      term.setCursorPos(2, 7) term.write("                                                ")
-      term.setCursorPos(2, 8) term.write("                                                ")
-      term.setCursorPos(2, 9) term.write("                                                ")
+                               term.write("                 Installing Core                ") term.setBackgroundColor(colors.white)
+      term.setCursorPos(2, 3)  term.write("                                                ")
+      term.setCursorPos(2, 4)  term.write("                                                ")
+      term.setCursorPos(2, 5)  term.write("                                                ")
+      term.setCursorPos(2, 6)  term.write("                                                ")
+      term.setCursorPos(2, 7)  term.write("                                                ")
+      term.setCursorPos(2, 8)  term.write(" CORE TERM LICENSE AGREEMENT. YOU MUST AGREE TO ")
+      term.setCursorPos(2, 9)  term.write(" CONTINUE. THE INSTALLATION WILL EXECUTE A FEW  ")
+      term.setCursorPos(2, 10) term.write(" TASKS THAT WILL FIRST (1) DOWNLOAD A FILE FROM ")
+      term.setCursorPos(2, 11) term.write(" GITHUB HTTPS SERVERS. THIS WILL CHECK FOR THE  ")
+      term.setCursorPos(2, 12) term.write(" LATEST FILESYSTEM. CORE WILL THEN DOWNLOAD ALL ")
+      term.setCursorPos(2, 13) term.write(" OF THE FILES NEEDED. BEFORE ANY NETWORK ACTION ")
+      term.setCursorPos(2, 14) term.write(" IT WILL CHECK THE FILESYSTEM. IF ITS OK, THERE ")
+      term.setCursorPos(2, 15) term.write("      WILL BE NO DOWNLOADS OR NET ACTIVITY.     ")
+      term.setCursorPos(2, 16) term.write("                                                ")
+      term.setCursorPos(2, 17) term.write("                                                ") term.setBackgroundColor(colors.lightGray) term.setTextColor(colors.black)
+      term.setCursorPos(15, 17) term.write("Agreed!") term.setCursorPos(30, 17) term.write("Cancel") term.setBackgroundColor(colors.white)
+      term.setCursorPos(2, 18) term.write("                                                ")
+      
       
       term.setBackgroundColor(colors.lightGray)
       term.setTextColor(colors.black)
@@ -83,9 +112,9 @@ function git()
       write(spc:rep(46)) --term.scroll(1)
       term.setBackgroundColor(colors.green) term.setCursorPos(3,5)
       write(spc:rep(46*p/100))
-      term.setCursorPos(3,7)
+      term.setCursorPos(44,4)
       term.setTextColor(colors.black) term.setBackgroundColor(colors.white)
-      write(p)
+      write(tostring(p):sub(1,4).."%")
       
       term.setTextColor(colors.black)
       term.setBackgroundColor(1)
@@ -97,18 +126,19 @@ function git()
           local f = fs.open(v:sub(CBASE:len()), "w")
           local d = get(v)
           term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-          write("DOWNLOAD: "..v:sub(1,35).."...")
+          --write("DOWNLOAD: "..v:sub(1,20).."...")
           if d and f then
-            write("DOWNLOADED: "..v:sub(1,31).."...")
+            term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
+            --write("DOWNLOADED: "..v:sub(1,20).."...")
             for j,w in ipairs(d) do
               f.writeLine(w)
               term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-              write("WRITE: "..w:sub(1,35).."...")
+              write("WRITE: "..w:sub(1,20).."...")
             end
             term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-            write("SAVE: "..v:sub(1,35).."...")
+            write("SAVE: "..v:sub(1,20).."...")
             f.flush()
-            write("CLOSE: "..v:sub(1,35).."...")
+            write("CLOSE: "..v:sub(1,20).."...")
             f.close()            
           end
         end

@@ -2,7 +2,7 @@
   "storage-limit" : 104857600,
   "label" : "User",
   "advanced" : true,
-  "on" : true,
+  "on" : false,
   "screen-x" : 106,
   "screen-y" : 78,
   "side-data" : {
