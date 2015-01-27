@@ -4,6 +4,7 @@ local CBUILD = 44
 local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
 local CDATA = {}
 local CLOCAL
+local CBASE = "https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0/"
 local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
 
 function launch()
@@ -55,11 +56,14 @@ function git()
   local required = get(CURL)
   
   if required then
+    print("Creating Temp folder for GIT")
+    fs.makeDir("_tmp")
     for i,v in ipairs(required) do
-      if v:sub(1,1) == "B" then CBUILD = v:sub(2)
-      elseif v:sub(1,1) == "V" then CVERSION = v:sub(2)
-      else
-        
+      if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
+      elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
+      elseif v:sub(1,1) == "$" then CBASE = v:sub(2) else
+        if v:sub(2,CBASE:len()) == CBASE then print("balls") end
+        --local b = fs.open("")
       end
     end
   else
