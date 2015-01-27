@@ -62,6 +62,7 @@ function git()
       if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
       elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
       elseif v:sub(1,1) == "$" then CBASE = v:sub(2) else
+        print(v:sub(2,CBASE:len()))
         if v:sub(2,CBASE:len()) == CBASE then print("balls") end
         --local b = fs.open("")
       end
