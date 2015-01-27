@@ -7,8 +7,14 @@ local CLOCAL
 local CBASE = "https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0/"
 local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
 
+local ww,hh = term.getSize()
+
 function launch()
-  term.clear() term.setCursorPos(1,1)
+  term.setBackgroundColor(colors.cyan)
+  term.clear()
+  term.setBackgroundColor(colors.blue)
+  term.write("Installing Core")
+  term.setCursorPos(1,1)
   if needsStructure() then git() end
   
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
@@ -52,11 +58,38 @@ end
 
 function git()
   local u = false
+  local p = 0.0
   term.setTextColor(colors.orange) print("Gathering requirements from repository... ") term.setTextColor(colors.white)
   local required = get(CURL)
+  local spc = " "
+  local sppc = spc:rep(ww)
   
   if required then
     for i,v in ipairs(required) do
+      p = i / #required *100
+      term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(2, 2) term.setBackgroundColor(colors.blue)
+                              term.write("                 Installing Core                ") term.setBackgroundColor(colors.white)
+      term.setCursorPos(2, 3) term.write("                                                ")
+      term.setCursorPos(2, 4) term.write("                                                ")
+      term.setCursorPos(2, 5) term.write("                                                ")
+      term.setCursorPos(2, 6) term.write("                                                ")
+      term.setCursorPos(2, 7) term.write("                                                ")
+      term.setCursorPos(2, 8) term.write("                                                ")
+      term.setCursorPos(2, 9) term.write("                                                ")
+      
+      term.setBackgroundColor(colors.lightGray)
+      term.setTextColor(colors.black)
+      term.setCursorPos(3,5)
+      write(spc:rep(46)) --term.scroll(1)
+      term.setBackgroundColor(colors.green) term.setCursorPos(3,5)
+      write(spc:rep(46*p/100))
+      term.setCursorPos(3,7)
+      term.setTextColor(colors.black) term.setBackgroundColor(colors.white)
+      write(p)
+      
+      term.setTextColor(colors.black)
+      term.setBackgroundColor(1)
+      
       if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
       elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
       elseif v:sub(1,1) == "$" then CBASE = v:sub(2) else
@@ -66,10 +99,10 @@ function git()
           if d and f then
             for j,w in ipairs(d) do
               f.writeLine(w)
+              term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
+              write("WRITE: "..w)
             end
-            f.close()
-          else
-            
+            f.close()            
           end
         end
       end
@@ -83,12 +116,12 @@ function git()
 end
 
 function get(url)
-  write("~ "..url..": ")
+  term.setCursorPos(3,4)
+  write(url:sub(CBASE:len()))
+  --term.scroll(1)
   local resp = http.get(url)
   
-  if resp then
-    term.setTextColor(colors.green) print(" DONE") term.setTextColor(colors.white)
-    
+  if resp then  
     local mResp = {}
     
     while true do
@@ -99,7 +132,7 @@ function get(url)
     resp.close()
     return mResp
   else
-    term.setTextColor(colors.red) print(" FAIL") term.setTextColor(colors.white)
+
   end
 end
 
