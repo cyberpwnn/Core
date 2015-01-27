@@ -1,0 +1,22 @@
+local url = "https://raw.githubusercontent.com/danielmills/Core/master/release/startup"
+
+print("Loading Core installation...")
+print("This will require an internet connection!")
+print("QUEUE: "..url)
+print("Press Enter to start Download & Install Stream")
+read(" ")
+
+print("GIT: " .. url)
+local response = http.get(url)
+
+if response then
+  print("Downloaded... Creating file")
+  local sResponse = response.readAll()
+  response.close()
+  local f = fs.open("/startup", "w")
+  if f then f.write(sResponse) f.flush() f.close() print("/startup created. REBOOTING") os.reboot() end
+else
+  printError("Download failed. Cancel Install......")
+  os.sleep(3)
+  os.shutdown()
+end
