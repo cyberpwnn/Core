@@ -96,12 +96,19 @@ function git()
         if v:sub(1,CBASE:len()) == CBASE then 
           local f = fs.open(v:sub(CBASE:len()), "w")
           local d = get(v)
+          term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
+          write("DOWNLOAD: "..v:sub(1,35).."...")
           if d and f then
+            write("DOWNLOADED: "..v:sub(1,31).."...")
             for j,w in ipairs(d) do
               f.writeLine(w)
               term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-              write("WRITE: "..w)
+              write("WRITE: "..w:sub(1,35).."...")
             end
+            term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
+            write("SAVE: "..v:sub(1,35).."...")
+            f.flush()
+            write("CLOSE: "..v:sub(1,35).."...")
             f.close()            
           end
         end

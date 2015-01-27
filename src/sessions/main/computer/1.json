@@ -1,5 +1,5 @@
 {
-  "storage-limit" : 1048576,
+  "storage-limit" : 104857600,
   "label" : "Debugger",
   "advanced" : true,
   "on" : false,
