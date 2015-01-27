@@ -56,15 +56,22 @@ function git()
   local required = get(CURL)
   
   if required then
-    print("Creating Temp folder for GIT")
-    fs.makeDir("_tmp")
     for i,v in ipairs(required) do
       if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
       elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
       elseif v:sub(1,1) == "$" then CBASE = v:sub(2) else
-        print(v:sub(1,CBASE:len()))
-        if v:sub(1,CBASE:len()) == CBASE then print("balls") end
-        --local b = fs.open("")
+        if v:sub(1,CBASE:len()) == CBASE then 
+          local f = fs.open(v:sub(CBASE:len()), "w")
+          local d = get(v)
+          if d and f then
+            for j,w in ipairs(d) do
+              f.writeLine(w)
+            end
+            f.close()
+          else
+            
+          end
+        end
       end
     end
   else

@@ -50,7 +50,19 @@ loadAPI(PATH.."/lib/CPI")
 CPI.launch(PATH, APIStored)
 local C = Terminal.getColors()
 
+function makeListing()
+  local f = fs.open("tf", "w")
+
+  for i,v in ipairs(Filesystem.listAll("/")) do
+  f.writeLine("https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0"..v)
+  end
+
+  f.flush()
+  f.close()
+end
+
 -- Start Debugs (Use for all apis) They are all loaded at this point
+
 
 
 -- End Debugs

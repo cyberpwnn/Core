@@ -57,9 +57,15 @@ function Collection:add(l)
       end
     end
     if not self:is(l) then
-      if l:sub(1,2) == "//" then table.insert(self.l, l:sub(2)) else table.insert(self.l, l) end
+      if not fs.isDir(l) then
+        if l:sub(1,2) == "//" then table.insert(self.l, l:sub(2)) else table.insert(self.l, l) end
+      end
     end
   end
+end
+
+function Collection:list()
+  return self.l
 end
 
 function Collection:output(l)
@@ -143,10 +149,5 @@ function Collection:list()
 end
 
 function listAll(d)
-  local list = {}
-  if fs.exists(d)
-    if fs.isDir(d) then
-      local mlist = listAll(v)
-    end
-  end
+  return newCollection(d):list()
 end

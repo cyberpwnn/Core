@@ -1,91 +1,37 @@
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.0 started on windows...
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] Current time is Jan 26, 2015 4:48:08 PM
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\Daniel\Documents\GitHub\Core\src
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 8'
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '6.2'
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.7.0_51'
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
-2015-01-26 16:48:08 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
-2015-01-26 16:48:09 [WARNING] [CCEmuRedux Launcher] Unexpected exception while fetching remote manifest!
-java.net.UnknownHostException: dl.xtansia.com
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at sun.net.NetworkClient.doConnect(Unknown Source)
-	at sun.net.www.http.HttpClient.openServer(Unknown Source)
-	at sun.net.www.http.HttpClient.openServer(Unknown Source)
-	at sun.net.www.http.HttpClient.<init>(Unknown Source)
-	at sun.net.www.http.HttpClient.New(Unknown Source)
-	at sun.net.www.http.HttpClient.New(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
-	at com.xtansia.ccemu.launcher.util.HttpUtils.performGet(HttpUtils.java:28)
-	at com.xtansia.ccemu.launcher.Updater.getRemoteContent(Updater.java:202)
-	at com.xtansia.ccemu.launcher.Updater.fetchRemoteManifest(Updater.java:50)
-	at com.xtansia.ccemu.launcher.Launcher$1.run(Launcher.java:49)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com') but have local file, assuming it's good
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.039)
-2015-01-26 16:48:09 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre7\bin\javaw.exe -Xmx512M -cp C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
-2015-01-26 16:48:09 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
-2015-01-26 16:48:11 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
-2015-01-26 16:48:13 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> Exception in thread "Thread-297" java.lang.IllegalArgumentException: protocol = http host = null
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.spi.DefaultProxySelector.select(Unknown Source)
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> 	at dan200.computercraft.core.apis.HTTPRequest$1.run(HTTPRequest.java:119)
-2015-01-26 16:56:26 [INFO] [CCEmuRedux Launcher] Emulator> 	at java.lang.Thread.run(Unknown Source)
-2015-01-26 17:55:36 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 3536417ms, proc-time: 0ms]
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> Exception in thread "Thread-305" java.lang.IllegalArgumentException: protocol = http host = null
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.spi.DefaultProxySelector.select(Unknown Source)
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> 	at dan200.computercraft.core.apis.HTTPRequest$1.run(HTTPRequest.java:119)
-2015-01-26 17:55:50 [INFO] [CCEmuRedux Launcher] Emulator> 	at java.lang.Thread.run(Unknown Source)
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> Exception in thread "Thread-308" java.lang.IllegalArgumentException: protocol = http host = null
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.spi.DefaultProxySelector.select(Unknown Source)
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> 	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> 	at dan200.computercraft.core.apis.HTTPRequest$1.run(HTTPRequest.java:119)
-2015-01-26 17:56:19 [INFO] [CCEmuRedux Launcher] Emulator> 	at java.lang.Thread.run(Unknown Source)
-2015-01-26 18:01:29 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 269675ms, proc-time: 0ms]
-2015-01-26 18:39:30 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 1077732ms, proc-time: 0ms]
-2015-01-26 18:58:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 19634ms, proc-time: 0ms]
-2015-01-26 20:40:25 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 6014076ms, proc-time: 0ms]
-2015-01-26 21:28:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 2867661ms, proc-time: 0ms]
-2015-01-26 21:28:41 [INFO] [CCEmuRedux Launcher] Emulator> AL lib: (EE) MMDevApiProc: WaitForSingleObjectEx error: 0x102
-2015-01-26 21:28:43 [INFO] [CCEmuRedux Launcher] Emulator> AL lib: (EE) MMDevApiProc: WaitForSingleObjectEx error: 0x102
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.0 started on windows...
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] Current time is Jan 27, 2015 12:06:13 AM
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\Daniel\Documents\GitHub\Core\src
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 8'
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '6.2'
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.7.0_51'
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
+2015-01-27 00:06:13 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:14 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:17 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:17 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-27 00:06:17 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:03.366)
+2015-01-27 00:06:17 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre7\bin\javaw.exe -Xmx512M -cp C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
+2015-01-27 00:06:18 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
+2015-01-27 00:06:20 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
+2015-01-27 00:06:21 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
