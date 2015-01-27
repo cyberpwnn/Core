@@ -201,6 +201,10 @@ function onStart(f) table.insert(eventStart, f) end
 function onStop(f) table.insert(eventStop, f) end
 function onCrash(f) table.insert(eventCrash, f) end
 
+function outputStructure(d, c)
+  local f = fs.open(d, "w")
+end
+
 function object(o)
   if o then 
     o = setmetatable({}, o)

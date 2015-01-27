@@ -141,3 +141,12 @@ end
 function Collection:list()
   return self.l
 end
+
+function listAll(d)
+  local list = {}
+  if fs.exists(d)
+    if fs.isDir(d) then
+      local mlist = listAll(v)
+    end
+  end
+end

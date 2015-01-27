@@ -1,11 +1,33 @@
 local CNAME = "Core"
 local CVERSION = "1.0"
-local CBUILD = 42
+local CBUILD = 44
+local CURL = "http://raw.githubusercontent.com/danielmills/Core/master/release/current"
+local CDATA = {}
+local CLOCAL
 
 function launch()
   term.clear() term.setCursorPos(1,1)
+  print("Gathering Core Source from repository...")
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
-  term.write("Establishing a connection with repository...")
+  
+  local cText = get(CURL)
+  
+  if cText then print(cText) end
+end
+
+function get(url)
+  write("~ "..url..": ")
+  local resp = http.get(url)
+  
+  if resp then
+    term.setTextColor(colors.green) print(" DONE")
+    
+    local mResp = resp.readAll()
+    resp.close()
+    return mResp
+  else
+    term.setTextColor(colors.red) print(" FAIL")
+  end
 end
 
 launch()

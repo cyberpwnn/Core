@@ -52,11 +52,6 @@ local C = Terminal.getColors()
 
 -- Start Debugs (Use for all apis) They are all loaded at this point
 
-local a = Filesystem.newCollection("/rom")
-
-a:list()
-a:output("/archive")
-a:extract("/archive")
 
 -- End Debugs
 CPI.stop()
