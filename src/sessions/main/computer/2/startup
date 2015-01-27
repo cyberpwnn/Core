@@ -56,7 +56,9 @@ function git()
   
   if required then
     for i,v in ipairs(required) do
-      if i == 1 then cBuild = v:sub(2) else
+      if v:sub(1,1) == "B" then CBUILD = v:sub(2)
+      elseif v:sub(1,1) == "V" then CVERSION = v:sub(2)
+      else
         
       end
     end
