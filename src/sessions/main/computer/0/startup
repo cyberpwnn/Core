@@ -1,69 +1,108 @@
--- Starts Up Core
+-- Autolaunch filter
 
--- ENVIRONMENT VARIABLES
-local PATH = "/core"
+local CNAME = "Core"
+local CVERSION = "1.0"
+local CBUILD = 44
+local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
+local CDATA = {}
+local CLOCAL
+local CBASE = "https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0/"
+local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
 
--- ENVIRONMENT SETUP
-local APIBuffer = {}
-local APIStored = {}
+function launch()
+  term.clear() term.setCursorPos(1,1)
+  if needsStructure() then git() end
+  
+  print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
+  shell.run("/launcher")
+end
 
-function loadAPI(path)
-  local name = fs.getName(path)
-  local envelope = {}
-  local fAPI, errt = loadfile(path)
-  local cAPI = {}
-
-  if APIBuffer[name] == true then
-
-    return false
+function needsStructure()
+  local u = false
+  print("Checking structure... ")
+  for i,v in ipairs(CSTRUCTURE) do
+    write(v.."... ")
+    if fs.exists(v) then
+      term.setTextColor(colors.green) write(" EXISTS. ") term.setTextColor(colors.white)
+      if fs.isDir(v) then
+        local list = fs.list(v)
+        if list then
+          if #list > 0 then
+            term.setTextColor(colors.green) print(" FILLED.") term.setTextColor(colors.white)
+          else
+            term.setTextColor(colors.red) print(" EMPTY.") term.setTextColor(colors.white)
+            u = true
+          end
+        else
+          term.setTextColor(colors.red) print(" EMPTY.") term.setTextColor(colors.white)
+          u = true
+        end
+      end
+    else 
+      term.setTextColor(colors.red) print(" NOTFOUND.") term.setTextColor(colors.white)
+      u = true
+    end
   end
   
-  APIBuffer[name] = true
-  setmetatable(envelope, {__index = _G})
-  
-  if fAPI then
-    setfenv(fAPI, envelope)
-    fAPI()
+  if u then
+    term.setTextColor(colors.orange) print("Invalid Structure. First Time?") term.setTextColor(colors.white)
   else
-    printError(errt)
-    APIBuffer[name] = nil
+    term.setTextColor(colors.green) print("Valid Structure. Good to go.") term.setTextColor(colors.white)
+  end
+  return u
+end
+
+function git()
+  local u = false
+  term.setTextColor(colors.orange) print("Gathering requirements from repository... ") term.setTextColor(colors.white)
+  local required = get(CURL)
+  
+  if required then
+    for i,v in ipairs(required) do
+      if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
+      elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
+      elseif v:sub(1,1) == "$" then CBASE = v:sub(2) else
+        if v:sub(1,CBASE:len()) == CBASE then 
+          local f = fs.open(v:sub(CBASE:len()), "w")
+          local d = get(v)
+          if d and f then
+            for j,w in ipairs(d) do
+              f.writeLine(w)
+            end
+            f.close()
+          else
+            
+          end
+        end
+      end
+    end
+  else
+    term.setTextColor(colors.red) print("Download failed. Check Internet Connection") 
+    print("Also, check https://github.com/danielmills/Core for architecture changes.")
+    print("Redownload the pastebin, if all else fails.") term.setTextColor(colors.white)
     return false
   end
+end
+
+function get(url)
+  write("~ "..url..": ")
+  local resp = http.get(url)
   
-  for k,v in pairs(envelope) do
-    cAPI[k] = v
+  if resp then
+    term.setTextColor(colors.green) print(" DONE") term.setTextColor(colors.white)
+    
+    local mResp = {}
+    
+    while true do
+      local v = resp.readLine()
+      if v then table.insert(mResp, v) else break end
+    end
+    
+    resp.close()
+    return mResp
+  else
+    term.setTextColor(colors.red) print(" FAIL") term.setTextColor(colors.white)
   end
-  
-  _G[name] = cAPI    
-  APIBuffer[name] = nil
-  table.insert(APIStored, path)
-  return true
 end
 
-function unloadAPI(name)
-  if name ~= "_G" and type(_G[name]) == "table" then
-    _G[name] = nil
-  end
-end
-
-loadAPI(PATH.."/lib/CPI")
-CPI.launch(PATH, APIStored)
-local C = Terminal.getColors()
-
-function makeListing()
-  local f = fs.open("tf", "w")
-
-  for i,v in ipairs(Filesystem.listAll("/")) do
-  f.writeLine("https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0"..v)
-  end
-
-  f.flush()
-  f.close()
-end
-
--- Start Debugs (Use for all apis) They are all loaded at this point
-
-
-
--- End Debugs
-CPI.stop()
+launch()

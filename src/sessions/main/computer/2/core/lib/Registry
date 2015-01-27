@@ -1,0 +1,3 @@
+CPI.requireAPI("Filesystem")
+
+local registry = {}
