@@ -1,18 +1,71 @@
 local CNAME = "Core"
 local CVERSION = "1.0"
 local CBUILD = 44
-local CURL = "http://raw.githubusercontent.com/danielmills/Core/master/release/current"
+local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
 local CDATA = {}
 local CLOCAL
+local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
 
 function launch()
   term.clear() term.setCursorPos(1,1)
-  print("Gathering Core Source from repository...")
+  if needsStructure() then git() end
+  
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
   
-  local cText = get(CURL)
+end
+
+function needsStructure()
+  local u = false
+  print("Checking structure... ")
+  for i,v in ipairs(CSTRUCTURE) do
+    write(v.."... ")
+    if fs.exists(v) then
+      term.setTextColor(colors.green) write(" EXISTS. ") term.setTextColor(colors.white)
+      if fs.isDir(v) then
+        local list = fs.list(v)
+        if list then
+          if #list > 0 then
+            term.setTextColor(colors.green) print(" FILLED.") term.setTextColor(colors.white)
+          else
+            term.setTextColor(colors.red) print(" EMPTY.") term.setTextColor(colors.white)
+            u = true
+          end
+        else
+          term.setTextColor(colors.red) print(" EMPTY.") term.setTextColor(colors.white)
+          u = true
+        end
+      end
+    else 
+      term.setTextColor(colors.red) print(" NOTFOUND.") term.setTextColor(colors.white)
+      u = true
+    end
+  end
   
-  if cText then print(cText) end
+  if u then
+    term.setTextColor(colors.orange) print("Invalid Structure. First Time?") term.setTextColor(colors.white)
+  else
+    term.setTextColor(colors.green) print("Valid Structure. Good to go.") term.setTextColor(colors.white)
+  end
+  return u
+end
+
+function git()
+  local u = false
+  term.setTextColor(colors.orange) print("Gathering requirements from repository... ") term.setTextColor(colors.white)
+  local required = get(CURL)
+  
+  if required then
+    for i,v in ipairs(required) do
+      if i == 1 then cBuild = v:sub(2) else
+        
+      end
+    end
+  else
+    term.setTextColor(colors.red) print("Download failed. Check Internet Connection") 
+    print("Also, check https://github.com/danielmills/Core for architecture changes.")
+    print("Redownload the pastebin, if all else fails.") term.setTextColor(colors.white)
+    return false
+  end
 end
 
 function get(url)
@@ -20,13 +73,19 @@ function get(url)
   local resp = http.get(url)
   
   if resp then
-    term.setTextColor(colors.green) print(" DONE")
+    term.setTextColor(colors.green) print(" DONE") term.setTextColor(colors.white)
     
-    local mResp = resp.readAll()
+    local mResp = {}
+    
+    while true do
+      local v = resp.readLine()
+      if v then table.insert(mResp, v) else break end
+    end
+    
     resp.close()
     return mResp
   else
-    term.setTextColor(colors.red) print(" FAIL")
+    term.setTextColor(colors.red) print(" FAIL") term.setTextColor(colors.white)
   end
 end
 
