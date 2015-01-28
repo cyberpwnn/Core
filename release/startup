@@ -6,6 +6,7 @@ local CDATA = {}
 local CLOCAL
 local CBASE = "https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0/"
 local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
+local CREQ = {}
 
 local ww,hh = term.getSize()
 local spc = " "
@@ -74,6 +75,13 @@ function needsStructure()
   if u then
   else
   end
+  
+  if not u then
+    for i,v in ipairs(CREQ) do
+      if not fs.exists(v) then term.setTextColor(colors.red) u = true end
+      print("CHK: "..v) term.setTextColor(colors.white)
+    end
+  else return u end
   return u
 end
 
@@ -81,6 +89,7 @@ function git()
   local u = false
   local p = 0.0
   local required = get(CURL)
+  CREQ = required
   
   if required then
     for i,v in ipairs(required) do
