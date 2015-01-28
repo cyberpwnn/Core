@@ -5,7 +5,7 @@ The Core API is made for a wide veriety of things, including heavy screen render
 
 ## Installation
 Setting up a copy is very simple for Consumer use. Simply use the following command on any computer terminal. NOTE: This requires network access with HTTPS
-### pastebin run anGbrfjq
+#### pastebin run anGbrfjq
 This will start the remote installer process. You can use an Emulator if you wish, but it works well ingame also. When the installer starts, you will need to press enter. This will install the startup file, and reboot. The startup file will then install the software and reboot.
 
 ## Development
@@ -20,4 +20,16 @@ If you wish to help contribute to this project, you will need to set up your wor
 * You are good to go! Simply use the project folder indicated below for the source
 
 #### Source /src/sessions/main/computer/0
-You can also use /src/sessions/main/computer/1 and /src/sessions/main/computer/2 for the other computers.
+
+## Objectives
+Since there are a lot of objectives, its slightly difficult to show all of them in a huge list. We have separated them into ideas or files that serve a similar purpose.
+
+## Use Conceptual Ideas
+We want a broad range of possibilities. Here, we will list a bunch of specific actions or contraptions made possible by the Core API. This will also have references to the apis if they can be done.
+- [x] Multiple Cursors in the terminal all writing with different colors at the same time.
+- [x] Rendering multiple shapes to a screen, and rastering them with virtual layers.
+- [x] Filesystem with options and functions not avalible by Computercraft fs. Such as auto closing open files at shutdown
+- [x] An API Loader that can load all apis sequentially ordered by the APIs themselves with the requireAPI() function
+- [ ] CO-OP Turtle construction with mobile computer controller and monitor. The host computer would host it
+- [ ] Mobile touch screen interfacing for the mobile computers.
+- [ ] Networking for streaming data via LAN (virtual)
