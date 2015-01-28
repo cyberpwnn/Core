@@ -12,10 +12,14 @@ if response then
   print("Downloaded... Creating file")
   local sResponse = response.readAll()
   response.close()
+  print("Saving file to /startup")
+  print("Response" .. sResponse)
+  print("Writing to file")
   local f = fs.open("/startup", "w")
   if f then f.write(sResponse) f.flush() f.close() print("/startup created. REBOOTING") os.reboot() end
 else
-  printError("Download failed. Cancel Install......")
+  printError("Download failed. Cancel Install... (3s)")
   os.sleep(3)
+  printError("SHUTDOWN")
   os.shutdown()
 end
