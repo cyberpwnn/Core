@@ -168,8 +168,9 @@ function getPath() return stc end
 
 function startDebugger()
   deb = peripheral.find("monitor")
+  print(type(deb))
   if monitor then otd = true else otd = false end
-  net = peripheral.wrap("top")
+  if peripheral.isPresent("top") then net = peripheral.wrap("top") else net = false end
   if net then otn = true net.transmit(3, 1, "/clear") else otn = false end
 end
 

@@ -35,3 +35,7 @@
 2015-01-27 20:13:08 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
 2015-01-27 20:13:18 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
 2015-01-27 20:13:22 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
+2015-01-27 20:19:00 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
+2015-01-27 20:19:00 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
+2015-01-27 20:19:00 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
+2015-01-27 20:19:00 [INFO] [CCEmuRedux Launcher] Emulator process finished!
