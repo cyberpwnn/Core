@@ -3,11 +3,10 @@ local url = "https://raw.githubusercontent.com/danielmills/Core/master/release/s
 print("Loading Core installation...")
 print("This will require an internet connection!")
 print("QUEUE: "..url)
-print("Press Enter to start Download & Install Stream")
-read(" ")
 
 print("GIT: " .. url)
 local response = http.get(url)
+print("Testing HTTP Handle")
 
 if response then
   print("Downloaded... Creating file")
