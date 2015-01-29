@@ -1,0 +1,31 @@
+CPI.requireAPI("Renderer")
+
+local C = Terminal.getColors()
+
+local Window = CPI.object()
+
+function newWindow(x,y,z,w,h,t)
+  local self = CPI.object(Window)
+  self.x = x
+  self.y = y
+  self.w = w
+  self.h = h
+  self.t = t
+  self.o = {}
+    self.o.pane  = Renderer.newShape(x,y,z,w,h,C.black,C.white," "):show()
+    self.o.bar   = Renderer.newShape(x,y,z+1,w,1,C.white,C.blue,t):show()
+    -- Removing the self.o.close fixes it all
+    self.o.close = Renderer.newShape(x+w-1,y,z+2,1,1,C.red,C.red," "):show()
+
+  
+  return self
+end
+
+function Window:move(x,y)
+  self.x = x
+  self.y = y
+  CPI.inf("UIWindow MoveTo "..x..","..y)
+  self.o.close:move(x,y)
+  self.o.pane:move(x,y)
+  self.o.bar:move(x+self.w,y)
+end
