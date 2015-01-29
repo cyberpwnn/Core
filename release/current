@@ -1,8 +1,7 @@
-B77
+B79
 V1.7 Alpha
-$https://raw.githubusercontent.com/danielmills/Core/master/release/source
+$https://raw.githubusercontent.com/danielmills/Core/master/release/source/
 https://raw.githubusercontent.com/danielmills/Core/master/release/source/launcher
-https://raw.githubusercontent.com/danielmills/Core/master/release/source/startup
 https://raw.githubusercontent.com/danielmills/Core/master/release/source/sh
 https://raw.githubusercontent.com/danielmills/Core/master/release/source/core/lib/Configurator
 https://raw.githubusercontent.com/danielmills/Core/master/release/source/core/lib/CPI
