@@ -2,7 +2,7 @@
   "storage-limit" : 104857600,
   "label" : "Debugger",
   "advanced" : true,
-  "on" : true,
+  "on" : false,
   "screen-x" : 296,
   "screen-y" : 144,
   "side-data" : {

@@ -1,6 +1,6 @@
 local CNAME = "Core"
-local CVERSION = "1.0"
-local CBUILD = 44
+local CVERSION = "0.0"
+local CBUILD = 0
 local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
 local CDATA = {}
 local CLOCAL
@@ -14,6 +14,16 @@ local spc = " "
 local sppc = spc:rep(ww)
 
 function launch()
+  if fs.exists("/core/config/version.txt") then
+    print("Getting Build information")
+    local fb = fs.open("/core/config/version.txt", "r")
+    CBUILD = tonumber(fb.readLine())
+    fb.close()
+    print("Build is "..CBUILD)
+    read()
+    checkUpdate()
+  end
+
   term.setBackgroundColor(colors.cyan)
   term.clear()
   term.setBackgroundColor(colors.blue)
@@ -55,7 +65,39 @@ function launch()
 end
 
 function checkUpdate()
-
+  local vCBUILD = 0
+  print(CBUILD)
+  if CBUILD ~= 0 then
+    print("Checking for Updates")
+    print("Version information found.")
+    local resp = http.get(CURL)
+    print("> HTTP GET CURL")
+    read()
+    local m = true
+    if resp then  
+      local mResp = {}
+      
+      while true do
+        local v = resp.readLine()
+        if v:sub(1,1) == "B" then vCBUILD = tonumber(v:sub(2)) 
+        else break end
+      end
+      print(vCBUILD)
+      resp.close()
+    else
+      print("Error downloading updated version number.")
+      m = false
+    end
+    
+    if CBUILD ~= 0 and m == true then
+      if vCBUILD > CBUILD then
+        print("UPDATE Found!")
+        print("Updating from "..CBUILD.." to "..vCBUILD)
+      else
+        print("You are up to date!")
+      end
+    end
+  end
 end
 
 function needsStructure()
@@ -135,8 +177,13 @@ function git()
       term.setBackgroundColor(1)
       
       if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
+        if CBUILD ~= 0 then 
+          local fmv = fs.open("/core/config/version.txt", "w")
+          if fmv then fmv.writeLine(tostring(CBUILD)) fmv.flush() fmv.close() end
+        end
       elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
-      elseif v:sub(1,1) == "$" then CBASE = v:sub(2) else
+      elseif v:sub(1,1) == "$" then CBASE = v:sub(2) 
+      else
         if v:sub(1,CBASE:len()) == CBASE then 
           local f = fs.open(v:sub(CBASE:len()), "w")
           local d = get(v)
