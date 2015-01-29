@@ -4,9 +4,10 @@ local CBUILD = 44
 local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
 local CDATA = {}
 local CLOCAL
-local CBASE = "https://raw.githubusercontent.com/danielmills/Core/master/src/sessions/main/computer/0/"
+local CBASE = ""
 local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
 local CREQ = {}
+local CCHECKUPDATE = true
 
 local ww,hh = term.getSize()
 local spc = " "
@@ -50,7 +51,11 @@ function launch()
   
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
   shell.run("/launcher")
-  --shell.run("/sh")
+  shell.run("/sh")
+end
+
+function checkUpdate()
+
 end
 
 function needsStructure()
