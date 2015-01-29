@@ -33,3 +33,4 @@ We want a broad range of possibilities. Here, we will list a bunch of specific a
 - [ ] CO-OP Turtle construction with mobile computer controller and monitor. The host computer would host it
 - [ ] Mobile touch screen interfacing for the mobile computers.
 - [ ] Networking for streaming data via LAN (virtual)
+- [ ] Automatic update checking and syncing with the release folder.
