@@ -1,4 +1,4 @@
-local url = "https://raw.githubusercontent.com/danielmills/Core/master/release/startup"
+local url = "https://raw.githubusercontent.com/danielmills/Core/master/release/source/startup"
 
 print("Loading Core installation...")
 print("This will require an internet connection!")
