@@ -50,7 +50,7 @@ function launch()
   
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
   shell.run("/launcher")
-  shell.run("/sh")
+  --shell.run("/sh")
 end
 
 function needsStructure()
@@ -104,7 +104,7 @@ function git()
       term.setCursorPos(2, 7)  term.write("                                                ")
       term.setCursorPos(2, 8)  term.write("   Core is now installing to your system (/ )   ")
       term.setCursorPos(2, 9)  term.write("   Within a few moments, core will reboot and   ")
-      term.setCursorPos(2, 10) term.write("   Makes several folders. /core /core/lib amd   ")
+      term.setCursorPos(2, 10) term.write("   Make several folders. /core /core/lib, and   ")
       term.setCursorPos(2, 11) term.write("  the base rom /core/urom. All of the apis are  ")
       term.setCursorPos(2, 12) term.write(" written to the computer in a stream from the   ")
       term.setCursorPos(2, 13) term.write(" Github root. This root supplies all downloads  ")
