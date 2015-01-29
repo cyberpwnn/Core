@@ -50,6 +50,7 @@ function launch()
   
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
   shell.run("/launcher")
+  shell.run("/sh")
 end
 
 function needsStructure()
