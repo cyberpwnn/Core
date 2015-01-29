@@ -4,9 +4,10 @@ local running = true
 
 local C = {}
   C[1] = {"clear", "cls", function() term.setBackgroundColor(colors.white) term.clear() end}
-  C[2] = {"print", function(par) local t = "" for i,v in ipairs(par) do t = t .. v .. " " end print(t) end}
-  C[3] = {"path", function() print(PATH) end}
+  C[2] = {"print", function(par) local t = "" for i,v in ipairs(par) do t = t .. v .. " " end out(t) end}
+  C[3] = {"path", function() out(PATH) end}
   C[4] = {"reboot", "restart", function() os.reboot() end}
+  C[5] = {"help", "?", function() out("If you where expecting a graphical ui or some useful functionality, your out of luck. Basically your currently in a virtual limbo. Core may have crashed. Here are some commands: ") commands() end}
   
 function start()
   fixUI()
@@ -18,11 +19,12 @@ function start()
 end
 
 function input()
+  write("> ")
   local s = read()
   pars = {}
   for par in s:gmatch("%w+") do table.insert(pars, par) end
   for i,v in ipairs(C) do
-    if pars[1] == v[1] or pars[1] == v[2] or pars[1] == v[3] then
+    if pars[1] == v[1] or pars[1] == v[2] then
       local npars = {}
       for j,w in ipairs(pars) do
         if j ~= 1 then table.insert(npars,w) end
@@ -36,6 +38,20 @@ end
 function fixUI()
   term.setTextColor(colors.black)
   term.setBackgroundColor(colors.white)
+end
+
+function out(s)
+  term.setTextColor(colors.gray)
+  print(s)
+  term.setTextColor(colors.black)
+end
+
+function commands()
+  local t = ""
+  for i,v in ipairs(C) do
+    t = t .. v[1] .. ", "
+  end
+  out("Commands: "..t)
 end
 
 start()
