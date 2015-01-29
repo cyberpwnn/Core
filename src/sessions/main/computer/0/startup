@@ -2,6 +2,7 @@ local CNAME = "Core"
 local CVERSION = "0.0"
 local CBUILD = 0
 local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
+local CIURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/info"
 local CDATA = {}
 local CLOCAL
 local CBASE = ""
@@ -22,7 +23,6 @@ function launch()
     CBUILD = tonumber(fb.readLine())
     CVERSION = tonumber(fb.readLine())
     fb.close()
-    print("Build is "..CBUILD)
     checkUpdate()
   end
 
@@ -62,16 +62,18 @@ function launch()
   end
   
   if CBUILD ~= 0 then 
-    local fmv = fs.open("/core/config/version.txt", "w")
-    if fmv then 
-      fmv.writeLine(tostring(CBUILD))
-      fmv.writeLine(tostring(CVERSION)) 
-      fmv.flush() fmv.close() 
-    end
+    updateVersion(CBUILD,CVERSION)
   end
   
   shell.run("/launcher",CBUILD,CVERSION)
   shell.run("/sh",CBUILD,CVERSION)
+end
+
+function updateVersion(b,v)
+  local fmv = fs.open("/core/config/version.txt", "w")
+  if fmv then fmv.writeLine(tostring(b)) fmv.writeLine(tostring(v)) fmv.flush() fmv.close() end
+  CBUILD = b
+  CVERSION = v
 end
 
 function checkUpdate()
@@ -79,7 +81,7 @@ function checkUpdate()
   if CBUILD ~= 0 then
     term.setBackgroundColor(colors.white)
     term.clear()
-    local resp = http.get(CURL)
+    local resp = http.get(CIURL)
     local m = true
     if resp then  
       local mResp = {}
@@ -162,12 +164,7 @@ function update()
           if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
           elseif v:sub(1,1) == "V" then CVERSION = v:sub(2)
             if CBUILD ~= 0 then 
-              local fmv = fs.open("/core/config/version.txt", "w")
-              if fmv then 
-                fmv.writeLine(tostring(CBUILD))
-                fmv.writeLine(tostring(CVERSION)) 
-                fmv.flush() fmv.close() 
-              end
+              updateVersion(CBUILD,CVERSION)
             end
           elseif v:sub(1,1) == "$" then CBASE = v:sub(2)
           else
