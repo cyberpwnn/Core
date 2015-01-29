@@ -143,7 +143,8 @@ function output(s, t)
     term.setTextColor(t)
     print(s)
   end
-  if otd then 
+  if otd then
+    deb = peripheral.find
     local ax,ay = deb.getCursorPos()
     local aw,ah = deb.getSize()
     deb.setTextColor(t)
@@ -168,9 +169,8 @@ function getPath() return stc end
 
 function startDebugger()
   deb = peripheral.find("monitor")
-  print(type(deb))
   if monitor then otd = true else otd = false end
-  if peripheral.isPresent("top") then net = peripheral.wrap("top") else net = false end
+  net = peripheral.wrap("top")
   if net then otn = true net.transmit(3, 1, "/clear") else otn = false end
 end
 
