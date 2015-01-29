@@ -48,7 +48,7 @@ function launch()
   end
   
   print(CNAME.." Version "..CVERSION.." Build "..CBUILD)
-  shell.run("/launcher")
+  shell.run("/launcher",CVERSION,CBUILD)
 end
 
 function needsStructure()

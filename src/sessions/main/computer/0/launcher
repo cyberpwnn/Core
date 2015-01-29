@@ -1,4 +1,7 @@
 -- Starts Up Core
+local arg = (...)
+local CVERSION = arg[1]
+local CBUILD = arg[2]
 
 -- ENVIRONMENT VARIABLES
 local PATH = "/core"
@@ -63,7 +66,7 @@ end
 
 -- Start Debugs (Use for all apis) They are all loaded at this point
 
-print("Core is up")
+print("Core Version ")--..CVERSION.." Build "..CBUILD)
 
 -- End Debugs
 CPI.stop()
