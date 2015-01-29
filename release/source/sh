@@ -1,10 +1,16 @@
+local PATH = "/core/home/"
+
 local running = true
 
 local C = {}
-  C[1] = {"clear", function() term.setBackgroundColor(colors.white) term.clear() end}
-  C[2] = {"print", function(s) print(tostring(s)) end}
-
+  C[1] = {"clear", "cls", function() term.setBackgroundColor(colors.white) term.clear() end}
+  C[2] = {"print", function(par) local t = "" for i,v in ipairs(par) do t = t .. v .. " " end print(t) end}
+  C[3] = {"path", function() print(PATH) end}
+  C[4] = {"reboot", "restart", function() os.reboot() end}
+  
 function start()
+  fixUI()
+  term.clear()
   while running do
     fixUI()
     input()
@@ -16,7 +22,14 @@ function input()
   pars = {}
   for par in s:gmatch("%w+") do table.insert(pars, par) end
   for i,v in ipairs(C) do
-    if pars[1] v[1] then pars[1] = nil v[2](unpack(pars)) end
+    if pars[1] == v[1] or pars[1] == v[2] or pars[1] == v[3] then
+      local npars = {}
+      for j,w in ipairs(pars) do
+        if j ~= 1 then table.insert(npars,w) end
+      end
+      
+      v[#v](npars)
+    end
   end
 end
 
