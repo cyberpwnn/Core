@@ -4,6 +4,7 @@ local CCOMMIT
 
 local DURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/version/reference"
 local IURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/version/committed"
+local SHELL = "/core/system/boot/shell"
 
 local DBASE = ""
 local DLIST = {}
@@ -16,6 +17,7 @@ local updateCheck = true
 function launch()
   if not installed() then install() end
   if not updated() then update() end
+  shell.run(SHELL,CVERSION,CBUILD,CCOMMIT)
 end
 
 function updated()
