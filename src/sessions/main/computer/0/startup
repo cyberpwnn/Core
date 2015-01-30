@@ -19,11 +19,18 @@ function launch()
 end
 
 function updated()
-  
+  if installed() then
+    local cData = getl(IURL)
+    if cData then
+      if tonumber(cData[2]:sub(2)) > tonumber(CBUILD) then
+        update()
+      end
+    end
+  else install() end
 end
 
 function update()
-  
+  install()
 end
 
 function installed()
@@ -53,10 +60,7 @@ function install()
       if v:sub(1,1) == "@" then wset = v:sub(2) end
       if v:sub(1,1) == ">" then
         local base = v:sub(2)
-        local data = get(base)
-        print(">"..base:sub(#wset))
-        print("@"..wset)
-        
+        local data = get(base)        
         local file = fs.open(base:sub(#wset),"w")
         if file then
           if data then file.write(data) end

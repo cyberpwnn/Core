@@ -1,42 +1,41 @@
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.0 started on windows...
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] Current time is Jan 30, 2015 1:24:19 AM
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\Daniel\Documents\GitHub\Core\src
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 8'
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '6.2'
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.7.0_51'
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
-2015-01-30 01:24:19 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
-2015-01-30 01:24:22 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.248)
-2015-01-30 01:24:23 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre7\bin\javaw.exe -Xmx512M -cp C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
-2015-01-30 01:24:23 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
-2015-01-30 01:24:24 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Options'
-2015-01-30 01:24:25 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
-2015-01-30 01:24:27 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
-2015-01-30 01:28:54 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
-2015-01-30 01:28:54 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
-2015-01-30 01:28:54 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
-2015-01-30 01:28:54 [INFO] [CCEmuRedux Launcher] Emulator process finished!
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.0 started on windows...
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Current time is Jan 30, 2015 1:41:48 AM
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\Daniel\Documents\GitHub\Core\src
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 8'
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '6.2'
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.7.0_51'
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-01-30 01:41:48 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:49 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:50 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-01-30 01:41:50 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:01.232)
+2015-01-30 01:41:50 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre7\bin\javaw.exe -Xmx512M -cp C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\Daniel\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
+2015-01-30 01:41:50 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
+2015-01-30 01:41:51 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
+2015-01-30 01:41:53 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
+2015-01-30 01:52:40 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
+2015-01-30 01:52:40 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
+2015-01-30 01:52:40 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
+2015-01-30 01:52:40 [INFO] [CCEmuRedux Launcher] Emulator process finished!
