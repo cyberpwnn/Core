@@ -14,7 +14,8 @@ local LOCAL = {}
 local updateCheck = true
 
 function launch()
-  
+  if not installed() then install() end
+  if not updated() then update() end
 end
 
 function updated()
@@ -41,7 +42,7 @@ function installed()
       end
     end
   end
-  return false end
+  return false
 end
 
 function install()
@@ -52,6 +53,7 @@ function install()
       if v:sub(1,1) == "@" then wset = v:sub(2) end
       if v:sub(1,1) == ">" then
         local base = v:sub(2)
+        print(base)
         local data = get(base)
         local file = fs.open(base:sub(#wset),"w")
         if file then
@@ -94,3 +96,5 @@ function getl(url)
     return nil
   end
 end
+
+launch()

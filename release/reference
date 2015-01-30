@@ -1,0 +1,9 @@
+# Loads installer files later used for update checking
+@https://raw.githubusercontent.com/danielmills/Core/master/release
+>https://raw.githubusercontent.com/danielmills/Core/master/release/reference
+>https://raw.githubusercontent.com/danielmills/Core/master/release/committed
+
+# Loads installer files later used for update checking
+@https://raw.githubusercontent.com/danielmills/Core/master/release/src
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/startup
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/launcher
