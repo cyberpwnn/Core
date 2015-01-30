@@ -1,335 +1,99 @@
-local CNAME = "Core"
-local CVERSION = "0.0"
-local CBUILD = 0
-local CURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/current"
-local CIURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/info"
-local CDATA = {}
-local CLOCAL
-local CBASE = ""
-local CSTRUCTURE = {"/core", "/core/lib", "/core/urom"}
-local CREQ = {}
-local CCHECKUPDATE = true
+local CVERSION
+local CBUILD
+local CCOMMIT
 
-local ww,hh = term.getSize()
-local spc = " "
-local sppc = spc:rep(ww)
+local DURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/reference"
+local IURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/committed"
+
+local DBASE = ""
+local DLIST = {}
+local LOCAL = {}
+  LOCAL.REFERENCE = "/core/system/reference"
+  LOCAL.COMMITTED = "/core/system/committed"
+  
+local updateCheck = true
 
 function launch()
-  term.setBackgroundColor(colors.white)
-  term.clear()
-  if fs.exists("/core/config/version.txt") then
-    print("Getting Build information")
-    local fb = fs.open("/core/config/version.txt", "r")
-    CBUILD = tonumber(fb.readLine())
-    CVERSION = tonumber(fb.readLine())
-    fb.close()
-    checkUpdate()
-  end
-
-  if needsStructure() then
-      
-    term.setBackgroundColor(colors.cyan)
-    term.clear()
-    term.setBackgroundColor(colors.blue)
-    term.setCursorPos(1,1)
-    term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(2, 2) term.setBackgroundColor(colors.blue)
-                             term.write("                 Installing Core                ") term.setBackgroundColor(colors.white) term.setTextColor(colors.black)
-    term.setCursorPos(2, 3)  term.write("                                                ") term.setTextColor(colors.red)
-    term.setCursorPos(2, 4)  term.write("  NETWORK REQUIRED FOR INSTALL. READ BELOW!!!!  ") term.setTextColor(colors.black)
-    term.setCursorPos(2, 13)  term.write("                                                ")
-    term.setCursorPos(2, 14)  term.write("                                                ")
-    term.setCursorPos(2, 15)  term.write("                                                ")
-    term.setCursorPos(2, 5)  term.write(" CORE TERM LICENSE AGREEMENT. YOU MUST AGREE TO ")
-    term.setCursorPos(2, 6)  term.write(" CONTINUE. THE INSTALLATION WILL EXECUTE A FEW  ")
-    term.setCursorPos(2, 7) term.write(" TASKS THAT WILL FIRST (1) DOWNLOAD A FILE FROM ")
-    term.setCursorPos(2, 8) term.write(" GITHUB HTTPS SERVERS. THIS WILL CHECK FOR THE  ")
-    term.setCursorPos(2, 9) term.write(" LATEST FILESYSTEM. CORE WILL THEN DOWNLOAD ALL ")
-    term.setCursorPos(2, 10) term.write(" OF THE FILES NEEDED. BEFORE ANY NETWORK ACTION ")
-    term.setCursorPos(2, 11) term.write(" IT WILL CHECK THE FILESYSTEM. IF ITS OK, THERE ")
-    term.setCursorPos(2, 12) term.write("      WILL BE NO DOWNLOADS OR NET ACTIVITY.     ")
-    term.setCursorPos(2, 16) term.write("                                                ")
-    term.setCursorPos(2, 17) term.write("                                                ") term.setBackgroundColor(colors.blue) term.setTextColor(colors.white)
-    term.setCursorPos(15, 17) term.write("I Agree") term.setCursorPos(30, 17) term.write("Cancel") term.setBackgroundColor(colors.white)
-    term.setCursorPos(2, 18) term.write("                                                ")
-    term.setBackgroundColor(colors.cyan) term.setCursorPos(1,hh) write(sppc)
-    
-    while true do
-      local ee,bb,xx,yy = os.pullEvent("mouse_click")
-      if bb == 1 and xx >= 15 and xx <= 22 and yy == 17 then break end
-    end
-    
-    git()
-  end
-  
-  if CBUILD ~= 0 then 
-    updateVersion(CBUILD,CVERSION)
-  end
-  
-  shell.run("/launcher",CBUILD,CVERSION)
-  shell.run("/sh",CBUILD,CVERSION)
+  if not installed() then install() end
+  if not updated() then update() end
 end
 
-function updateVersion(b,v)
-  local fmv = fs.open("/core/config/version.txt", "w")
-  if fmv then fmv.writeLine(tostring(b)) fmv.writeLine(tostring(v)) fmv.flush() fmv.close() end
-  CBUILD = b
-  CVERSION = v
-end
-
-function checkUpdate()
-  local vCBUILD = 0
-  if CBUILD ~= 0 then
-    term.setBackgroundColor(colors.white)
-    term.clear()
-    local resp = http.get(CIURL)
-    local m = true
-    if resp then  
-      local mResp = {}
-      
-      while true do
-        local v = resp.readLine()
-        if v:sub(1,1) == "B" then vCBUILD = tonumber(v:sub(2)) 
-        else break end
-      end
-      resp.close()
-    else
-      m = false
-    end
-    
-    if CBUILD ~= 0 and m == true then
-      if vCBUILD > CBUILD then
-        update()
-      end
-    end
-  end
+function updated()
+  
 end
 
 function update()
-  term.setBackgroundColor(colors.cyan)
-  term.clear()
-  term.setBackgroundColor(colors.blue)
-  term.setCursorPos(1,1)
   
-  term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(12, 5) term.setBackgroundColor(colors.blue)
-                            term.write("     System Update Found    ") term.setBackgroundColor(colors.white) term.setTextColor(colors.black)
-  term.setCursorPos(12, 6)  term.write("                            ")
-  term.setCursorPos(12, 7)  term.write(" Would you like to download ")
-  term.setCursorPos(12, 8)  term.write("    and install them now?   ")
-  term.setCursorPos(12, 9)  term.write("                            ")
-  term.setCursorPos(12, 10) term.write("                            ")
-  term.setCursorPos(12, 11) term.write("                            ") term.setBackgroundColor(colors.blue) term.setTextColor(colors.white)
-  term.setCursorPos(18, 10) term.write("Install")
-  term.setCursorPos(28, 10) term.write("Later")
-  term.setBackgroundColor(colors.cyan) term.setCursorPos(1,hh) write(sppc)
-  
-  while true do
-    local ee,bb,xx,yy = os.pullEvent("mouse_click")
-    if bb == 1 and xx >= 18 and xx <= 24 and yy == 10 then 
-      local u = false
-      local p = 0.0
-      local required = get(CURL)
-      CREQ = required
-      if required then
-        for i,v in ipairs(required) do
-          p = tostring(i / #required *100):sub(1,4)
-          term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(2, 2) term.setBackgroundColor(colors.blue)
-                                   term.write("                  Updating Core                 ") term.setBackgroundColor(colors.white)
-          term.setCursorPos(2, 3)  term.write("                                                ")
-          term.setCursorPos(2, 4)  term.write("                                                ")
-          term.setCursorPos(2, 5)  term.write("                                                ")
-          term.setCursorPos(2, 6)  term.write("                                                ")
-          term.setCursorPos(2, 7)  term.write("    Core is now updating to your system (/ )    ")
-          term.setCursorPos(2, 8)  term.write("   Within a few moments, core will reboot and   ")
-          term.setCursorPos(2, 9) term.write("    your new updates will be put into place     ")
-          term.setCursorPos(2, 10) term.write("  the base rom /core/urom. All of the apis are  ")
-          term.setCursorPos(2, 11) term.write(" written to the computer in a stream from the   ")
-          term.setCursorPos(2, 12) term.write(" Github root. This root supplies all downloads  ")
-          term.setCursorPos(2, 13) term.write(" https://raw.githubusercontent.com/danielmills/ ")
-          term.setCursorPos(2, 14) term.write("  Then navigate to the /Core/master directory.  ")
-          term.setCursorPos(2, 15) term.write("                                                ")
-          
-          term.setBackgroundColor(colors.lightGray)
-          term.setTextColor(colors.black)
-          term.setCursorPos(3,5)
-          write(spc:rep(46)) --term.scroll(1)
-          term.setBackgroundColor(colors.green) term.setCursorPos(3,5)
-          write(spc:rep(46*p/100))
-          term.setCursorPos(44,4)
-          term.setTextColor(colors.black) term.setBackgroundColor(colors.white)
-          write(tostring(p):sub(1,4).."%")
-          
-          term.setTextColor(colors.black)
-          term.setBackgroundColor(1)
-          
-          if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
-          elseif v:sub(1,1) == "V" then CVERSION = v:sub(2)
-            if CBUILD ~= 0 then 
-              updateVersion(CBUILD,CVERSION)
-            end
-          elseif v:sub(1,1) == "$" then CBASE = v:sub(2)
-          else
-            if v:sub(1,CBASE:len()) == CBASE then 
-              local f = fs.open(v:sub(CBASE:len()), "w")
-              local d = get(v)
-              term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-              --write("DOWNLOAD: "..v:sub(1,20).."...")
-              if d and f then
-                term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-                --write("DOWNLOADED: "..v:sub(1,20).."...")
-                for j,w in ipairs(d) do
-                  f.writeLine(w)
-                  term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-                  write("WRITE: "..w:sub(1,20).."...")
-                end
-                term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-                write("SAVE: "..v:sub(1,20).."...")
-                f.flush()
-                write("CLOSE: "..v:sub(1,20).."...")
-                f.close()            
-              end
-            end
-          end
-        end
-      end
-      os.reboot()
-    elseif bb == 1 and xx >= 28 and xx <= 32 and yy == 10 then 
-      break
-    end
-  end
 end
 
-function needsStructure()
-  local u = false
-  for i,v in ipairs(CSTRUCTURE) do
-    if fs.exists(v) then
-      if fs.isDir(v) then
-        local list = fs.list(v)
-        if list then
-          if #list > 0 then
-          else
-            u = true
-          end
-        else
-          u = true
-        end
+function installed()
+  if fs.exists(LOCAL.COMMITTED) then
+    local file = fs.open(LOCAL.COMMITTED, "r")
+    if file then
+      while true do
+        local line = file.readLine()
+        if line then
+          if line:sub(1,1) == "V" then CVERSION = line:sub(2)
+          elseif line:sub(1,1) == "B" then CBUILD = line:sub(2)
+          elseif line:sub(1,1) == "C" then CCOMMIT = line:sub(2)
+          else end
+        else file.close() file.close() end
+        if CVERSION and CBUILD and CCOMMIT then return true end
       end
-    else 
-      u = true
     end
   end
-  
-  if u then
-  else
-  end
-  
-  if not u then
-    for i,v in ipairs(CREQ) do
-      if not fs.exists(v) then term.setTextColor(colors.red) u = true end
-      print("CHK: "..v) term.setTextColor(colors.white)
-    end
-  else return u end
-  return u
+  return false
 end
 
-function git()
-  local u = false
-  local p = 0.0
-  local required = get(CURL)
-  CREQ = required
-  
-  if required then
-    for i,v in ipairs(required) do
-      p = i / #required *100
-      term.setBackgroundColor(colors.cyan) term.clear() term.setCursorPos(2, 2) term.setBackgroundColor(colors.blue)
-                               term.write("                 Installing Core                ") term.setBackgroundColor(colors.white)
-      term.setCursorPos(2, 3)  term.write("                                                ")
-      term.setCursorPos(2, 4)  term.write("                                                ")
-      term.setCursorPos(2, 5)  term.write("                                                ")
-      term.setCursorPos(2, 6)  term.write("                                                ")
-      term.setCursorPos(2, 7)  term.write("                                                ")
-      term.setCursorPos(2, 8)  term.write("   Core is now installing to your system (/ )   ")
-      term.setCursorPos(2, 9)  term.write("   Within a few moments, core will reboot and   ")
-      term.setCursorPos(2, 10) term.write("   Make several folders. /core /core/lib, and   ")
-      term.setCursorPos(2, 11) term.write("  the base rom /core/urom. All of the apis are  ")
-      term.setCursorPos(2, 12) term.write(" written to the computer in a stream from the   ")
-      term.setCursorPos(2, 13) term.write(" Github root. This root supplies all downloads  ")
-      term.setCursorPos(2, 14) term.write(" https://raw.githubusercontent.com/danielmills/ ")
-      term.setCursorPos(2, 15) term.write("  Then navigate to the /Core/master directory.  ")
-      term.setCursorPos(2, 16) term.write("                                                ")
-      term.setCursorPos(2, 17) term.write("                                                ") term.setBackgroundColor(colors.lightGray) term.setTextColor(colors.black)
-      term.setCursorPos(15, 17) term.write("Agreed!") term.setCursorPos(30, 17) term.write("Cancel") term.setBackgroundColor(colors.white)
-      term.setCursorPos(2, 18) term.write("                                                ")
-      
-      
-      term.setBackgroundColor(colors.lightGray)
-      term.setTextColor(colors.black)
-      term.setCursorPos(3,5)
-      write(spc:rep(46)) --term.scroll(1)
-      term.setBackgroundColor(colors.green) term.setCursorPos(3,5)
-      write(spc:rep(46*p/100))
-      term.setCursorPos(44,4)
-      term.setTextColor(colors.black) term.setBackgroundColor(colors.white)
-      write(tostring(p):sub(1,4).."%")
-      
-      term.setTextColor(colors.black)
-      term.setBackgroundColor(1)
-      
-      if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
-        if CBUILD ~= 0 then 
-          local fmv = fs.open("/core/config/version.txt", "w")
-          if fmv then fmv.writeLine(tostring(CBUILD)) fmv.flush() fmv.close() end
-        end
-      elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
-      elseif v:sub(1,1) == "$" then CBASE = v:sub(2) 
-      else
-        if v:sub(1,CBASE:len()) == CBASE then 
-          local f = fs.open(v:sub(CBASE:len()), "w")
-          local d = get(v)
-          term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-          --write("DOWNLOAD: "..v:sub(1,20).."...")
-          if d and f then
-            term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-            --write("DOWNLOADED: "..v:sub(1,20).."...")
-            for j,w in ipairs(d) do
-              f.writeLine(w)
-              term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-              write("WRITE: "..w:sub(1,20).."...")
-            end
-            term.setTextColor(colors.black) term.setBackgroundColor(colors.white) term.setCursorPos(3,6)
-            write("SAVE: "..v:sub(1,20).."...")
-            f.flush()
-            write("CLOSE: "..v:sub(1,20).."...")
-            f.close()            
-          end
+function install()
+  DLIST = getl(DURL)
+  if DLIST then
+    local wset = ""
+    for i,v in ipairs(DLIST) do
+      if v:sub(1,1) == "@" then wset = v:sub(2) end
+      if v:sub(1,1) == ">" then
+        local base = v:sub(2)
+        print(base)
+        local data = get(base)
+        local file = fs.open(base:sub(#wset),"w")
+        if file then
+          file.write(data)
+          file.flush()
+          file.close()
         end
       end
     end
   else
-    term.setTextColor(colors.red) print("Download failed. Check Internet Connection") 
-    print("Also, check https://github.com/danielmills/Core for architecture changes.")
-    print("Redownload the pastebin, if all else fails.") term.setTextColor(colors.white)
-    return false
+    
   end
 end
 
 function get(url)
-  term.setCursorPos(3,4)
-  write(url:sub(CBASE:len()))
-  --term.scroll(1)
-  local resp = http.get(url)
-  
-  if resp then  
-    local mResp = {}
-    
-    while true do
-      local v = resp.readLine()
-      if v then table.insert(mResp, v) else break end
-    end
-    
-    resp.close()
-    return mResp
+  local response = http.get(url)
+      
+  if response then      
+    local sResponse = response.readAll()
+    response.close()
+    return sResponse
   else
+    return nil
+  end
+end
 
+function getl(url)
+  local response = http.get(url)
+      
+  if response then      
+    sResponse = {}
+    while true do
+      local vResponse = response.readLine()
+      if vResponse then 
+        table.insert(sResponse, vResponse) 
+      else response.close() break end
+    end
+    return sResponse
+  else
+    return nil
   end
 end
 

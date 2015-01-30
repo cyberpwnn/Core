@@ -20,6 +20,7 @@ function launch()
     print("Getting Build information")
     local fb = fs.open("/core/config/version.txt", "r")
     CBUILD = tonumber(fb.readLine())
+    CVERSION = tonumber(fb.readLine())
     fb.close()
     print("Build is "..CBUILD)
     checkUpdate()
@@ -60,8 +61,17 @@ function launch()
     git()
   end
   
-  shell.run("/launcher")
-  shell.run("/sh")
+  if CBUILD ~= 0 then 
+    local fmv = fs.open("/core/config/version.txt", "w")
+    if fmv then 
+      fmv.writeLine(tostring(CBUILD))
+      fmv.writeLine(tostring(CVERSION)) 
+      fmv.flush() fmv.close() 
+    end
+  end
+  
+  shell.run("/launcher",CBUILD,CVERSION)
+  shell.run("/sh",CBUILD,CVERSION)
 end
 
 function checkUpdate()
@@ -150,12 +160,16 @@ function update()
           term.setBackgroundColor(1)
           
           if v:sub(1,1) == "B" then CBUILD = v:sub(2) 
+          elseif v:sub(1,1) == "V" then CVERSION = v:sub(2)
             if CBUILD ~= 0 then 
               local fmv = fs.open("/core/config/version.txt", "w")
-              if fmv then fmv.writeLine(tostring(CBUILD)) fmv.flush() fmv.close() end
+              if fmv then 
+                fmv.writeLine(tostring(CBUILD))
+                fmv.writeLine(tostring(CVERSION)) 
+                fmv.flush() fmv.close() 
+              end
             end
-          elseif v:sub(1,1) == "V" then CVERSION = v:sub(2) 
-          elseif v:sub(1,1) == "$" then CBASE = v:sub(2) 
+          elseif v:sub(1,1) == "$" then CBASE = v:sub(2)
           else
             if v:sub(1,CBASE:len()) == CBASE then 
               local f = fs.open(v:sub(CBASE:len()), "w")
