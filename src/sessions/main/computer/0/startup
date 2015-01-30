@@ -2,14 +2,14 @@ local CVERSION
 local CBUILD
 local CCOMMIT
 
-local DURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/reference"
-local IURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/committed"
+local DURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/version/reference"
+local IURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/version/committed"
 
 local DBASE = ""
 local DLIST = {}
 local LOCAL = {}
-  LOCAL.REFERENCE = "/core/system/reference"
-  LOCAL.COMMITTED = "/core/system/committed"
+  LOCAL.REFERENCE = "/core/system/version/reference"
+  LOCAL.COMMITTED = "/core/system/version/committed"
   
 local updateCheck = true
 
@@ -54,10 +54,12 @@ function install()
       if v:sub(1,1) == ">" then
         local base = v:sub(2)
         local data = get(base)
-        print(base:sub(#wset))
+        print(">"..base:sub(#wset))
+        print("@"..wset)
+        
         local file = fs.open(base:sub(#wset),"w")
         if file then
-          file.write(data)
+          if data then file.write(data) end
           file.flush()
           file.close()
         end
