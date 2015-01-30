@@ -48,5 +48,6 @@ end
 
 loadAPI(PATH.."/lib/CPI")
 CPI.launch(PATH, APIStored)
-
+CPI.wrn("UP!!!")
+os.sleep(1)
 CPI.stop()
