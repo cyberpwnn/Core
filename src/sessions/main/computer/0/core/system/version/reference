@@ -1,0 +1,19 @@
+# Loads installer files later used for update checking
+@https://raw.githubusercontent.com/danielmills/Core/master/release/src/
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/launcher
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/version/reference
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/version/committed
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/system/boot/shell
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Configurator
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/CPI
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Event
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Filesystem
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Logger
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Math
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Registry
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Renderer
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/String
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Table
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Terminal
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/Thread
+>https://raw.githubusercontent.com/danielmills/Core/master/release/src/core/lib/UI

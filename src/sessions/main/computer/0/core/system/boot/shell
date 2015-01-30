@@ -1,0 +1,53 @@
+-- Starts Up Core
+
+-- ENVIRONMENT VARIABLES
+local PATH = "/core"
+
+-- ENVIRONMENT SETUP
+local APIBuffer = {}
+local APIStored = {}
+
+function loadAPI(path)
+  local name = fs.getName(path)
+  local envelope = {}
+  local fAPI, errt = loadfile(path)
+  local cAPI = {}
+
+  if APIBuffer[name] == true then
+
+    return false
+  end
+  
+  APIBuffer[name] = true
+  setmetatable(envelope, {__index = _G})
+  
+  if fAPI then
+    setfenv(fAPI, envelope)
+    fAPI()
+  else
+    printError(errt)
+    APIBuffer[name] = nil
+    return false
+  end
+  
+  for k,v in pairs(envelope) do
+    cAPI[k] = v
+  end
+  
+  _G[name] = cAPI    
+  APIBuffer[name] = nil
+  table.insert(APIStored, path)
+  return true
+end
+
+function unloadAPI(name)
+  if name ~= "_G" and type(_G[name]) == "table" then
+    _G[name] = nil
+  end
+end
+
+loadAPI(PATH.."/lib/CPI")
+CPI.launch(PATH, APIStored)
+CPI.wrn("UP!!!")
+os.sleep(1)
+CPI.stop()
