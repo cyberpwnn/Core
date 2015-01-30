@@ -1,0 +1,100 @@
+local CVERSION
+local CBUILD
+local CCOMMIT
+
+local DURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/reference"
+local IURL = "https://raw.githubusercontent.com/danielmills/Core/master/release/committed"
+
+local DBASE = ""
+local DLIST = {}
+local LOCAL = {}
+  LOCAL.REFERENCE = "/core/system/reference"
+  LOCAL.COMMITTED = "/core/system/committed"
+  
+local updateCheck = true
+
+function launch()
+  if not installed() then install() end
+  if not updated() then update() end
+end
+
+function updated()
+  
+end
+
+function update()
+  
+end
+
+function installed()
+  if fs.exists(LOCAL.COMMITTED) then
+    local file = fs.open(LOCAL.COMMITTED, "r")
+    if file then
+      while true do
+        local line = file.readLine()
+        if line then
+          if line:sub(1,1) == "V" then CVERSION = line:sub(2)
+          elseif line:sub(1,1) == "B" then CBUILD = line:sub(2)
+          elseif line:sub(1,1) == "C" then CCOMMIT = line:sub(2)
+          else end
+        else file.close() file.close() end
+        if CVERSION and CBUILD and CCOMMIT then return true end
+      end
+    end
+  end
+  return false
+end
+
+function install()
+  DLIST = getl(DURL)
+  if DLIST then
+    local wset = ""
+    for i,v in ipairs(DLIST) do
+      if v:sub(1,1) == "@" then wset = v:sub(2) end
+      if v:sub(1,1) == ">" then
+        local base = v:sub(2)
+        local data = get(base)
+        print(base:sub(#wset))
+        local file = fs.open(base:sub(#wset),"w")
+        if file then
+          file.write(data)
+          file.flush()
+          file.close()
+        end
+      end
+    end
+  else
+    
+  end
+end
+
+function get(url)
+  local response = http.get(url)
+      
+  if response then      
+    local sResponse = response.readAll()
+    response.close()
+    return sResponse
+  else
+    return nil
+  end
+end
+
+function getl(url)
+  local response = http.get(url)
+      
+  if response then      
+    sResponse = {}
+    while true do
+      local vResponse = response.readLine()
+      if vResponse then 
+        table.insert(sResponse, vResponse) 
+      else response.close() break end
+    end
+    return sResponse
+  else
+    return nil
+  end
+end
+
+launch()
