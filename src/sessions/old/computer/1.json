@@ -1,10 +1,10 @@
 {
-  "storage-limit" : 134217728,
-  "label" : "Main",
+  "storage-limit" : 104857600,
+  "label" : "Debugger",
   "advanced" : true,
   "on" : true,
-  "screen-x" : 149,
-  "screen-y" : 140,
+  "screen-x" : 834,
+  "screen-y" : 57,
   "side-data" : {
     "bottom" : {
       "peripheral" : {
@@ -17,7 +17,7 @@
     },
     "top" : {
       "peripheral" : {
-        "type" : null
+        "type" : "WirelessModem"
       },
       "redstone" : {
         "redstone-output" : 0,

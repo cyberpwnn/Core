@@ -1,0 +1,199 @@
+local inLines = {}
+local outLines = {}
+local outDeclare = {}
+
+local ROW = "<tr class=\"row\">"
+local XROW = "</tr>"
+local COL = "  <td class=\"id\">"
+local COLN = "  <td class=\"row-desc\"><span class=\"name\">"
+local XCOL = "<"
+local XPER = ")"
+local SEP = ":"
+local UCOL = "("
+local UXCOL = ")"
+
+function readIn()
+  print("Opening File")
+  local file = fs.open("in.txt", "r")
+  
+  while true do
+    local line = file.readLine()
+    if line == nil then
+      break
+    end
+    table.insert(inLines, line)
+  end
+  file.close()
+  print("Collected data for processing.")
+end
+
+function processRow(index)
+  local id = -1
+  local meta = 0
+  local name
+  local iname
+  local uname = "ummm..."
+
+  if inLines[index+1]:sub(1, COL:len()) == COL then
+    id = inLines[index+1]:sub(COL:len()+1)
+    
+    for i = 1,id:len() do
+      if id:sub(i,i) == XCOL then
+        id = id:sub(1,i-1)
+        break
+      end
+    end
+    
+    for i = 1,id:len() do
+      if id:sub(i,i) == SEP then
+        meta = id:sub(i+1)
+        id = id:sub(1,i-1)
+        break
+      end
+    end
+  end
+  
+  if inLines[index+3]:sub(1, COLN:len()) == COLN then
+    name = inLines[index+3]:sub(COLN:len()+1)
+    
+    for i = 1,name:len() do
+      if name:sub(i,i) == XCOL then
+        iname = name:sub(i)
+        name = name:sub(1,i-1)
+        
+        break
+      end
+    end
+    
+    for i = 1,iname:len() do
+      if iname:sub(i,i) == SEP then
+        iname = iname:sub(i+1)
+        
+        break
+      end
+    end
+    
+    for i = 1,iname:len() do
+      if iname:sub(i,i) == XPER then
+        iname = iname:sub(1, i-1)
+        
+        break
+      end
+    end
+    
+    for i = 1,iname:len() do
+      if iname:sub(i,i) == XPER then
+        iname = iname:sub(1, i-1)
+        
+        break
+      end
+    end
+    
+    for i = 1,inLines[index+3]:len() do
+      if inLines[index+3]:sub(i,i) == UCOL then
+        uname = inLines[index+3]:sub(i)
+      end
+    end
+    
+    for i = 1,uname:len() do
+      if uname:sub(i,i) == UXCOL then
+        uname = uname:sub(2,i-1)
+      end
+    end
+  end
+  
+  --print(name.."/"..iname..": ID:"..id.." MD:"..meta)
+  
+  convertToJava(name, iname, id, meta, uname)
+end
+
+function convertToJava(name, iname, id, meta, uname)
+  local n = name
+  local u = clean(iname)
+  local un = uname
+  local i = id
+  local m = meta
+  local t = "item" .. removeSpaces(clean(name))
+  local d = "R.drawable.img_" .. toImageFile(clean(n))
+  local f = ".setMeta("..meta..");" if m == 0 then f = ";" end
+  
+  --if tonumber(m) == 0 then
+    --m = ""
+  --else
+    --m = ", "..m
+  --end
+  
+  local y = ".setUName(\""..un.."\")"
+  local dv = ".setIcon("..d..")"
+  
+  local c = "public static Item " .. t .. " = new Item(\""..n.."\", "..i..m..")"
+  
+  --table.insert(outDeclare, c..y..dv..";")
+  --table.insert(outLines, "items.add(" .. t .. ");")
+  table.insert(outLines, "\"" .. tostring(i) .. "-" .. tostring(m) .. "\": \"" .. n .. "\"")
+  
+  print(c)
+end
+
+function removeSpaces(s)
+  local r = ""
+  for i = 1,s:len() do
+    if s:sub(i,i) ~= " " then
+      r = r .. s:sub(i,i)
+    end
+  end
+  
+  return r
+end
+
+function toImageFile(s)
+  local r = ""
+  for i = 1,s:len() do
+    if s:sub(i,i) == " " then
+      r = r .. "_"
+    end
+    
+    if s:sub(i,i) ~= " " then
+      r = r .. s:sub(i,i)
+    end
+  end
+  
+  return r:lower()
+end
+
+function clean(s)
+  local r = ""
+  for i = 1,s:len() do
+    if s:sub(i,i) ~= "'" and s:sub(i,i) ~= "-" and s:sub(i,i) ~= "(" and s:sub(i,i) ~= ")" then
+      r = r .. s:sub(i,i)
+    end
+  end
+  
+  return r
+end
+
+function run()
+  readIn()
+
+  for i,v in ipairs(inLines) do
+    if v:sub(1, ROW:len()) == ROW then
+      processRow(i)
+    end
+  end
+  
+  local f = fs.open("out.txt", "w")
+  
+  for i,v in ipairs(outDeclare) do
+    f.writeLine(v)
+  end
+  
+  f.writeLine("")
+  
+  for i,v in ipairs(outLines) do
+    f.writeLine(v)
+  end
+  
+  f.close()
+end
+
+run()
