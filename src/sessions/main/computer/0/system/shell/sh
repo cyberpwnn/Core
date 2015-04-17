@@ -25,6 +25,11 @@ function start()
   ver = fi.readLine()
   fi.close()
   
+  if fs.exists("/installer") then
+    fs.delete("/installer")
+    out("Core has successfully been Iinstalled!")
+  end
+  
   out("Loading Libraries...")
   
   loadAPIs()
