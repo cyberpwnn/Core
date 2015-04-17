@@ -191,3 +191,17 @@ function adownload(uri)
     return false
   end
 end
+
+function sync()
+  sh.out("Syncing Operating system...")
+  fs.delete("/system/data/version")
+  local f = fs.open("/system/data/version", "w")
+  f.write("-1")
+  f.flush()
+  f.close()
+  update()
+  sh.out("Synced Operating System.")
+  sh.out("Restarting...")
+  os.sleep(1)
+  sh.restart()
+end
