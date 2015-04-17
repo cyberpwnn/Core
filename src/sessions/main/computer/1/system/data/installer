@@ -1,36 +1,6 @@
 local version = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/version"
 local data = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/data"
-local bm = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/"
-
-function install()
-  print("STARTING INSTALLATION!")
-  print("Checking connection...")
-  if isConnected() then
-    print("Connected.")
-  else error("Problems connecting.") return false end
-  print("Downloading the latest files...")
-  
-  local dat = adownload(data)
-  if dat == false then
-    print("No data?")
-    error("Cant find any data?")
-    return false
-  end
-  local lin = {}
-  print("Reading install data...")
-  while true do
-    local dk = dat.readLine()
-    if dk then table.insert(lin, dk) else break end
-  end
-  
-  for i,v in ipairs(lin) do
-    mprocess(v)
-  end
-  
-  print("INSTALL COMPLETE! REBOOT 1s")
-  os.sleep(1)
-  os.reboot()
-end
+local bm = "https://github.com/danielmills/Core/tree/master/release/src/"
 
 function update()
   sh.out("STARTING INSTALLATION FOR UPDATE!")
@@ -71,18 +41,6 @@ function update()
   sh.out("INSTALL COMPLETE! REBOOT 1s")
   os.sleep(1)
   sh.restart()
-end
-
-function mprocess(ur)
-  local k = download(ur)
-  if k == false then return false end
-  local lur = ur:sub(bm:len(), ur:len())
-  print("Downloading " .. lur)
-  
-  local km = fs.open(lur, "w")
-  km.write(k)
-  km.flush()
-  km.close()
 end
 
 function process(ur)

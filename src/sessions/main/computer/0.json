@@ -3,8 +3,8 @@
   "label" : "Main",
   "advanced" : true,
   "on" : true,
-  "screen-x" : 348,
-  "screen-y" : 130,
+  "screen-x" : 296,
+  "screen-y" : 144,
   "side-data" : {
     "bottom" : {
       "peripheral" : {
