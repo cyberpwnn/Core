@@ -9,7 +9,7 @@ local command =
   function(c) if c == "?" or c == "help" then help() end end,
   function(c) if c == "reboot" or c == "restart" then restart() end end,
   function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
-  function(c) if c == "reinstall" then reinstall() end end,
+  function(c) if c == "sync" then sync() end end,
   function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
   function(c) if c == "stats" or c == "//" then stats() end end,
   function(c) if c == "apis" or c == "libs" then apis() end end,
@@ -24,6 +24,11 @@ function start()
   fi = fs.open("/system/data/version", "r")
   ver = fi.readLine()
   fi.close()
+  
+  if fs.exists("/installer") then
+    fs.delete("/installer")
+    out("Core has successfully been Iinstalled!")
+  end
   
   out("Loading Libraries...")
   
@@ -76,7 +81,7 @@ function help()
   out("This is the SW-Layer of core.")
   out("  - clear(cls), help(?), update(chup)")
   out("  - reboot(restart), shutdown(exit)")
-  out("  - logger clear, reinstall")
+  out("  - logger clear, sync")
   out("  - stats(//), apis(libs)")
 end
 
@@ -275,6 +280,12 @@ function chupdate()
     out("Could not check updates.")
   end
     
+  os.unloadAPI("/system/data/installer")
+end
+
+function sync()
+  os.loadAPI("/system/data/installer")
+  installer.sync()
   os.unloadAPI("/system/data/installer")
 end
 
