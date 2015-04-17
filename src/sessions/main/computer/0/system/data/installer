@@ -1,5 +1,6 @@
 local version = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/version"
 local data = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/data"
+local bm = "https://github.com/danielmills/Core/tree/master/release/src/"
 
 function update()
   sh.out("STARTING INSTALLATION FOR UPDATE!")
@@ -27,8 +28,28 @@ function update()
   end
   
   for i,v in ipairs(lin) do
-    sh.out("Found " .. v)
+    sh.out("Downloading " .. v)
+    process(v)
   end
+  
+  local fxx = getRVersion()
+  fs.delete("/system/data/version")
+  local f = fs.open("/system/data/version", "w")
+  f.write(fxx)
+  f.flush()
+  f.close()
+  
+  sh.out("INSTALL COMPLETE! REBOOT 1s")
+  os.sleep(1)
+  sh.restart()
+end
+
+function process(ur)
+  local k = download(ur)
+  if k == false then return false end
+  local lur = ur:sub(bm:len(), ur:len())
+  sh.out(lur)
+  read()
 end
 
 function breakout(msg)
@@ -47,6 +68,14 @@ function getVersion()
   local v = f.readLine()
   f.close()
   return v
+end
+
+function getRVersion()
+  local f = download(version)
+  
+  if f ~= false then return f end
+  
+  return "-1"
 end
 
 function isConnected()
