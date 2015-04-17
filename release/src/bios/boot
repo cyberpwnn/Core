@@ -1,1 +1,3 @@
-shell.run("/system/boot/launch")
+os.loadAPI("/system/shell/sh")
+sh.start()
+os.unloadAPI("/system/shell/sh")

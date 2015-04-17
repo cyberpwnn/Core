@@ -1,2 +1,10 @@
-https://github.com/danielmills/Core/tree/master/release/src/startup
-https://github.com/danielmills/Core/tree/master/release/src/bios/boot
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/bios/boot
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/startup
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/boot/launch
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/lib/CPI
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/lib/Filesystem
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/lib/Logger
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/lib/String
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/lib/Terminal
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/shell/sh
+https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/shell/version.str

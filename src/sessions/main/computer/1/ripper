@@ -1,0 +1,25 @@
+local dir = {}
+local bse = "/"
+local mse = "https://raw.githubusercontent.com/danielmills/Core/master/release"
+local fi
+
+function rip()
+  print("Finding all directories...")
+  fi = fs.open("data", "w")
+  findin(bse)
+  fi.flush()
+  fi.close()
+end
+
+function findin(dirx)
+  for i,v in ipairs(fs.list(dirx)) do
+    if fs.isDir(dirx..v.."/") then
+      findin(dirx..v.."/")
+    else
+      print(mse..dirx..v)
+      fi.writeLine(mse..dirx..v)
+    end
+  end
+end
+
+rip()

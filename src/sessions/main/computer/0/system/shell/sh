@@ -1,4 +1,5 @@
 local w, h = term.getSize()
+local vers = "-1"
 local tAPIsLoading = {}
 local API = {}
 local dirLib = "/system/lib/"
@@ -8,36 +9,28 @@ local command =
   function(c) if c == "?" or c == "help" then help() end end,
   function(c) if c == "reboot" or c == "restart" then restart() end end,
   function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
+  function(c) if c == "reinstall" then reinstall() end end,
+  function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
+  function(c) if c == "stats" or c == "//" then stats() end end,
+  function(c) if c == "apis" or c == "libs" then apis() end end,
+  function(c) if c == "lock" or c == "hide" then fade() end end,
+  function(c) if c == "update" or c == "chup" then chupdate() end end,  
   function(c) if c == "logger clear" then clearLogs() end end
 }
 
 function start()
+  startin()
   clear()
   fi = fs.open("/system/data/version", "r")
   ver = fi.readLine()
   fi.close()
-  
-  out("Starting Core Shell...")
-  out("Checking for updates...")
-  
-  os.loadAPI("/system/data/installer")
-  
-  if installer.isUpdated() == false then
-    out("Found updates! Use the [update] command.")
-    installer.update()
-  elseif installer.isUpdated() == true then
-    out("No new updates!")
-  else
-    out("Could not check updates.")
-  end
-    
-  os.unloadAPI("/system/data/installer")
   
   out("Loading Libraries...")
   
   loadAPIs()
 
   out("Shell V" .. ver .. " started.")
+  vers = ver
   
   debug()
   
@@ -69,7 +62,7 @@ function clear()
 end
 
 function out(message, color)
-  if color == nil then color = colors.black end
+  if color == nil then color = colors.gray end
   term.setTextColor(color)
   term.setCursorPos(1, h)
   term.write(string.rep(" ", w))
@@ -81,14 +74,59 @@ end
 
 function help()
   out("This is the SW-Layer of core.")
-  out("  - clear(cls), help(?)")
+  out("  - clear(cls), help(?), update(chup)")
   out("  - reboot(restart), shutdown(exit)")
-  out("  - logger clear")
+  out("  - logger clear, reinstall")
+  out("  - stats(//), apis(libs)")
 end
 
 function restart()
   out("RESTARTING!")
+  os.sleep(0.02)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.6)
   os.reboot()
+end
+
+function startin()
+  term.clear()
+  os.sleep(0.02)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.white)
+  term.clear()
+end
+
+function fade()
+  os.sleep(0.02)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.6)
+  read()
+  startin()
 end
 
 function shutdown()
@@ -143,16 +181,10 @@ function isAPILoaded(dir)
   return false
 end
 
-function loadAPIs()
-  out("Starting Library Build...")
-  
+function loadAPIs()  
   if fs.exists(dirLib) then
-    out("Found Lib folder")
-    
     local dirs = {}
-    
-    out("Scanning Libraries...")
-    
+        
     for i,v in ipairs(fs.list(dirLib)) do
       table.insert(dirs, dirLib .. v)
     end
@@ -165,6 +197,8 @@ function loadAPIs()
   else
     out("Cannot find lib folder!")
   end
+  
+  out("Loaded " .. #API .. " Libraries")
 end
 
 function require(dir)
@@ -189,12 +223,61 @@ function clearLogs()
   out("Cleared all Logs")
 end
 
+function reinstall()
+  out("REINSTALL CORE OS")
+  out("This will require internet!")
+  out("Type 'confirm' to reinstall")
+  local s = read()
+  if s:lower() ~= "confirm" then out("Reinstall cancelled.") return false end
+  
+  fs.delete("/system/data/version")
+  mk = fs.open("/system/data/version", "w")
+  mk.write("-1")
+  mk.flush()
+  mk.close()
+  
+  out("Invalidated version number.")
+  out("Auto update will update next startup.")
+end
+
+function stats()
+  out("=======================================")
+  out("CORE_VERSION: " .. vers)
+  out("SCREEN_SIZE: " .. w.." x "..h)
+  out("CPU_UPTIME: " .. os.clock())
+  out("CPU_TIME: " .. os.time())
+  out("CPU_WID: " .. os.getComputerID())
+  out("CPU_TAG: " .. os.getComputerLabel())
+  out("KERNEL_VERSION: " .. os.version())
+  out("SOFT_APIS_LOAD: " .. #API)
+  out("=======================================")
+end
+
+function apis()
+  out("=======================================")
+  for i,v in ipairs(API) do
+    out(v)
+  end
+  out("=======================================")
+end
+
+function chupdate()
+  out("Checking for updates...")
+  
+  os.loadAPI("/system/data/installer")
+  
+  if installer.isUpdated() == false then
+    out("Found updates! Use the [update] command.")
+    installer.update()
+  elseif installer.isUpdated() == true then
+    out("No new updates!")
+  else
+    out("Could not check updates.")
+  end
+    
+  os.unloadAPI("/system/data/installer")
+end
+
 function debug()
-  out("Starting DEBUG Testing")
   
-  
-  
-  Logger.clearLogs()
-  
-  out("Ending DEBUG Testing")
 end
