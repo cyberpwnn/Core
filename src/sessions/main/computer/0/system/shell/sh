@@ -13,9 +13,25 @@ local command =
 
 function start()
   clear()
-  fi = fs.open("/system/shell/version.str", "r")
+  fi = fs.open("/system/data/version", "r")
   ver = fi.readLine()
   fi.close()
+  
+  out("Starting Core Shell...")
+  out("Checking for updates...")
+  
+  os.loadAPI("/system/data/installer")
+  
+  if installer.isUpdated() == false then
+    out("Found updates! Use the [update] command.")
+    installer.update()
+  elseif installer.isUpdated() == true then
+    out("No new updates!")
+  else
+    out("Could not check updates.")
+  end
+    
+  os.unloadAPI("/system/data/installer")
   
   out("Loading Libraries...")
   
@@ -108,7 +124,6 @@ function loadAPI(path)
     _G[sName] = tAPI    
     tAPIsLoading[sName] = nil
     table.insert(API, path)
-    out("Loaded " .. path)
     return true
 end
 
@@ -144,7 +159,6 @@ function loadAPIs()
     
     for i,v in ipairs(dirs) do
       if isAPILoaded(v) == false then
-        out("Loading " .. v)
         loadAPI(v)
       end
     end
@@ -156,14 +170,12 @@ end
 function require(dir)
   if fs.exists(dir) then
     if isAPILoaded(dir) == false then
-      out("Waiting for " .. dir)
       loadAPI(dir)
     end
   else
     if fs.exists(dirLib..dir) then
       dir = dirLib..dir
       if isAPILoaded(dir) == false then
-        out("Waiting for " .. dir)
         loadAPI(dir)
       end
     else

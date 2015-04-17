@@ -1,0 +1,24 @@
+local ghd = "https://github.com/danielmills/Core/tree/master/release/data"
+
+print("Loading installer v3")
+print("-----------------------------------")
+print("THE FOLLOWING SCRIPT WILL DOWNLOAD")
+print("DATA FROM THE INTERNET. THE FILES")
+print("WILL BE STORED ON THIS COMPUTER")
+print("IF THE COMPUTER CONTAINS ANY FILES")
+print("BE SURE TO BACK UP. CORE MAY WIPE")
+print("THIS COMPUTER DRIVE BEFORE INSTALL")
+print("BUT WILL ASK YOU BEFORE THE PROCESS")
+print("-----------------------------------")
+print("Press any key to agree, and begin")
+read()
+print("Checking connection...")
+fs.makeDir("/temp")
+local content = http.get("http://google.com/").readAll()
+if not content then
+  error("Could not connect")
+else
+  print("Connection OK")
+end
+
+print("Downloading instructions from GitHub")

@@ -2,9 +2,9 @@
   "storage-limit" : 134217728,
   "label" : "Main",
   "advanced" : true,
-  "on" : true,
-  "screen-x" : 149,
-  "screen-y" : 140,
+  "on" : false,
+  "screen-x" : 86,
+  "screen-y" : 121,
   "side-data" : {
     "bottom" : {
       "peripheral" : {

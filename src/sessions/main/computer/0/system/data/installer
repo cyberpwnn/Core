@@ -1,0 +1,67 @@
+local version = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/version/"
+local data = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/data/"
+
+function isInstalled()
+  return fs.exists("/system/data/version")
+end
+
+function getVersion()
+  local f = fs.open("/system/data/version", "r")
+  local v = f.readLine()
+  f.close()
+  return v
+end
+
+function isConnected()
+  local content = http.get("http://google.com/")
+  
+  if content then
+    content = content.readAll()
+  else
+    return false
+  end
+  
+  if not content then
+    return false
+  else
+    return true
+  end
+end
+
+function isUpdated()
+  if isConnected() then
+    local rv = download(version)
+    if rv ~= false then
+      rv = tonumber(rv)
+      af = fs.open("/system/data/version", "r")
+      av = tonumber(fs.readLine())
+      af.close()
+      
+      if av < rv then
+        return false
+      else
+        return true
+      end
+    else
+      return nil
+    end
+  else
+    return nil
+  end
+end
+
+function download(uri)
+  local content = http.get(uri)
+  
+  if content then
+    content = content.readAll()
+  else
+    return false
+  end
+  
+  if not content then
+    return false
+  else
+    return content
+  end
+end
