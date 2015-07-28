@@ -1,0 +1,294 @@
+local w, h = term.getSize()
+local vers = "-1"
+local tAPIsLoading = {}
+local API = {}
+local dirLib = "/system/lib/"
+local command = 
+{
+  function(c) if c == "cls" or c == "clear" then clear() end end,
+  function(c) if c == "?" or c == "help" then help() end end,
+  function(c) if c == "reboot" or c == "restart" then restart() end end,
+  function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
+  function(c) if c == "sync" then sync() end end,
+  function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
+  function(c) if c == "stats" or c == "//" then stats() end end,
+  function(c) if c == "apis" or c == "libs" then apis() end end,
+  function(c) if c == "lock" or c == "hide" then fade() end end,
+  function(c) if c == "update" or c == "chup" then chupdate() end end,  
+  function(c) if c == "logger clear" then clearLogs() end end
+}
+
+function start()
+  startin()
+  clear()
+  fi = fs.open("/system/data/version", "r")
+  ver = fi.readLine()
+  fi.close()
+  
+  if fs.exists("/installer") then
+    fs.delete("/installer")
+    out("Core has successfully been Iinstalled!")
+  end
+  
+  out("Loading Libraries...")
+  
+  loadAPIs()
+
+  out("Shell V" .. ver .. " started.")
+  vers = ver
+  
+  debug()
+  
+  while true do
+    entry()
+  end
+end
+
+function entry()
+  term.setCursorPos(1, h)
+  term.write("> ")
+  process(read())
+end
+
+function process(message)
+  if message ~= "" then
+    for i,v in ipairs(command) do
+      v(message)
+    end
+  end
+end
+
+function clear()
+  term.setCursorPos(1,1)
+  term.setTextColor(colors.black)
+  term.setBackgroundColor(colors.white)
+  term.clear()
+  term.setCursorPos(1, h)
+end
+
+function out(message, color)
+  if color == nil then color = colors.gray end
+  term.setTextColor(color)
+  term.setCursorPos(1, h)
+  term.write(string.rep(" ", w))
+  term.setCursorPos(1, h)
+  term.write(message)
+  term.scroll(1)
+  term.setTextColor(colors.black)
+end
+
+function help()
+  out("This is the SW-Layer of core.")
+  out("  - clear(cls), help(?), update(chup)")
+  out("  - reboot(restart), shutdown(exit)")
+  out("  - logger clear, sync")
+  out("  - stats(//), apis(libs)")
+end
+
+function restart()
+  out("RESTARTING!")
+  os.sleep(0.02)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.6)
+  os.reboot()
+end
+
+function startin()
+  term.clear()
+  os.sleep(0.02)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.white)
+  term.clear()
+end
+
+function fade()
+  os.sleep(0.02)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.02)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.6)
+  read()
+  startin()
+end
+
+function shutdown()
+  out("STOPPING!")
+  os.shutdown()
+end
+
+function loadAPI(path)
+    local sName = fs.getName(path)
+    if tAPIsLoading[sName] == true then
+        printError( "API "..sName.." is already being loaded" )
+        return false
+    end
+    tAPIsLoading[sName] = true
+        
+    local tEnv = {}
+    setmetatable( tEnv, { __index = _G } )
+    local fnAPI, err = loadfile(path)
+    if fnAPI then
+        setfenv( fnAPI, tEnv )
+        fnAPI()
+    else
+        printError( err )
+        tAPIsLoading[sName] = nil
+        return false
+    end
+    
+    local tAPI = {}
+    for k,v in pairs( tEnv ) do
+        tAPI[k] =  v
+    end
+    
+    _G[sName] = tAPI    
+    tAPIsLoading[sName] = nil
+    table.insert(API, path)
+    return true
+end
+
+function unloadAPI( _sName )
+    if _sName ~= "_G" and type(_G[_sName]) == "table" then
+        _G[_sName] = nil
+    end
+end
+
+function isAPILoaded(dir)
+  for i,v in ipairs(API) do
+    if v == dir then
+      return true
+    end
+  end
+  
+  return false
+end
+
+function loadAPIs()  
+  if fs.exists(dirLib) then
+    local dirs = {}
+        
+    for i,v in ipairs(fs.list(dirLib)) do
+      table.insert(dirs, dirLib .. v)
+    end
+    
+    for i,v in ipairs(dirs) do
+      if isAPILoaded(v) == false then
+        loadAPI(v)
+      end
+    end
+  else
+    out("Cannot find lib folder!")
+  end
+  
+  out("Loaded " .. #API .. " Libraries")
+end
+
+function require(dir)
+  if fs.exists(dir) then
+    if isAPILoaded(dir) == false then
+      loadAPI(dir)
+    end
+  else
+    if fs.exists(dirLib..dir) then
+      dir = dirLib..dir
+      if isAPILoaded(dir) == false then
+        loadAPI(dir)
+      end
+    else
+      out("ERROR: Cannot find " .. dir)
+    end
+  end
+end
+
+function clearLogs()
+  Logger.clearLogs()
+  out("Cleared all Logs")
+end
+
+function reinstall()
+  out("REINSTALL CORE OS")
+  out("This will require internet!")
+  out("Type 'confirm' to reinstall")
+  local s = read()
+  if s:lower() ~= "confirm" then out("Reinstall cancelled.") return false end
+  
+  fs.delete("/system/data/version")
+  mk = fs.open("/system/data/version", "w")
+  mk.write("-1")
+  mk.flush()
+  mk.close()
+  
+  out("Invalidated version number.")
+  out("Auto update will update next startup.")
+end
+
+function stats()
+  out("=======================================")
+  out("CORE_VERSION: " .. vers)
+  out("SCREEN_SIZE: " .. w.." x "..h)
+  out("CPU_UPTIME: " .. os.clock())
+  out("CPU_TIME: " .. os.time())
+  out("CPU_WID: " .. os.getComputerID())
+  out("CPU_TAG: " .. os.getComputerLabel())
+  out("KERNEL_VERSION: " .. os.version())
+  out("SOFT_APIS_LOAD: " .. #API)
+  out("=======================================")
+end
+
+function apis()
+  out("=======================================")
+  for i,v in ipairs(API) do
+    out(v)
+  end
+  out("=======================================")
+end
+
+function chupdate()
+  out("Checking for updates...")
+  
+  os.loadAPI("/system/data/installer")
+  
+  if installer.isUpdated() == false then
+    out("Found updates! Use the [update] command.")
+    installer.update()
+  elseif installer.isUpdated() == true then
+    out("No new updates!")
+  else
+    out("Could not check updates.")
+  end
+    
+  os.unloadAPI("/system/data/installer")
+end
+
+function sync()
+  os.loadAPI("/system/data/installer")
+  installer.sync()
+  os.unloadAPI("/system/data/installer")
+end
+
+function debug()
+  
+end
