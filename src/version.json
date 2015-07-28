@@ -1,5 +1,5 @@
 {
-  "id" : "v1.1-dev.10",
+  "id" : "v1.1-dev.12",
   "minimum-launcher-protocol" : 1,
   "entry-point" : "com.xtansia.ccemu.desktop.DesktopLauncher",
   "libraries" : [ {
@@ -24,9 +24,9 @@
     "checksum" : null
   }, {
     "name" : "computercraft",
-    "version" : "1.65",
-    "custom-url" : "http://addons.cursecdn.com/files/2216/236/ComputerCraft1.65.jar",
-    "checksum" : "145d92fa808ce30b245e51420381d167"
+    "version" : "1.74",
+    "custom-url" : "http://addons-origin.cursecdn.com/files/2244/605/ComputerCraft1.74.jar",
+    "checksum" : "4fbca55ae45a65015e1037c2cfce7e1c"
   }, {
     "name" : "gdx",
     "version" : "0.9.9",
