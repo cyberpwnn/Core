@@ -269,8 +269,8 @@ function apis()
 end
 
 function hostLogin()
-  local lan = LAN.open("left")
   out("Hosting Connection for 10s")
+  local lan = LAN.open("left")
   local id, msg = lan.host()
   if msg == "cyberpwnisawesome" then
     out("Opening door for ID:" .. tostring(id))

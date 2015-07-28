@@ -56,3 +56,6 @@
 2015-07-28 05:45:55 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
 2015-07-28 05:46:23 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
 2015-07-28 05:46:39 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
+2015-07-28 06:11:04 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
+2015-07-28 06:11:04 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
+2015-07-28 06:11:20 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
