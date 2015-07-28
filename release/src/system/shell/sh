@@ -16,7 +16,7 @@ local command =
   function(c) if c == "lock" or c == "hide" then fade() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
   function(c) if c == "logger clear" then clearLogs() end end,
-  function(c) if c == "host" then hostLogin() end end
+  function(c) if c == "host" then hostLogin() end end,
   function(c) if c == "open" then openDoor() end end
 }
 
@@ -252,7 +252,7 @@ function stats()
   out("CORE_VERSION: " .. vers)
   out("SCREEN_SIZE: " .. w.." x "..h)
   out("CPU_UPTIME: " .. os.clock())
-  out("CPU_TIME: " .. os.time())
+  out("CPU_TIME: " .. tostring(os.time()))
   out("CPU_WID: " .. os.getComputerID())
   out("CPU_TAG: " .. os.getComputerLabel())
   out("KERNEL_VERSION: " .. os.version())
