@@ -2,7 +2,7 @@ sh.require("CPI")
 
 local Network = CPI.object()
 
-function open(String side)
+function open(side)
   local self = CPI.object(Network)
   
   sh.out("Opening Networking port on " . side)
