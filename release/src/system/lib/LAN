@@ -5,7 +5,7 @@ local Network = CPI.object()
 function open(side)
   local self = CPI.object(Network)
   
-  sh.out("Opening Networking port on " .. side)
+  --sh.out("Opening Networking port on " .. side)
   
   self.port = rednet.open(side)
   
