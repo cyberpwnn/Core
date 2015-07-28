@@ -15,7 +15,9 @@ local command =
   function(c) if c == "apis" or c == "libs" then apis() end end,
   function(c) if c == "lock" or c == "hide" then fade() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
-  function(c) if c == "logger clear" then clearLogs() end end
+  function(c) if c == "logger clear" then clearLogs() end end,
+  function(c) if c == "host" then hostLogin() end end
+  function(c) if c == "open" then openDoor() end end
 }
 
 function start()
@@ -264,6 +266,21 @@ function apis()
     out(v)
   end
   out("=======================================")
+end
+
+function hostLogin()
+  local lan = LAN.open("left")
+  out("Hosting Connection for 10s")
+  local id, msg = lan.host()
+  if msg == "cyberpwnisawesome" then
+    out("Opening door for ID:" .. tostring(id))
+  end
+end
+
+function openDoor()
+  local lan = LAN.open("left")
+  out("Requesting to open door...")
+  lan.
 end
 
 function chupdate()
