@@ -33,6 +33,10 @@ function start()
   out("Loading Libraries...")
   
   loadAPIs()
+  
+  out("Loading External Libraries...")
+  
+  rundisk()
 
   out("Shell V" .. ver .. " started.")
   vers = ver
@@ -140,6 +144,10 @@ function shutdown()
 end
 
 function loadAPI(path)
+    if fs.exists(path) then
+      out("Loading " .. path)
+    else return end
+
     local sName = fs.getName(path)
     if tAPIsLoading[sName] == true then
         printError( "API "..sName.." is already being loaded" )
@@ -158,7 +166,7 @@ function loadAPI(path)
         tAPIsLoading[sName] = nil
         return false
     end
-    
+        
     local tAPI = {}
     for k,v in pairs( tEnv ) do
         tAPI[k] =  v
@@ -286,6 +294,14 @@ function sync()
   os.loadAPI("/system/data/installer")
   installer.sync()
   os.unloadAPI("/system/data/installer")
+end
+
+function rundisk()
+  for k,v in ipairs(Side.getSides()) do
+    if(disk.isPresent(v)) then
+      loadAPI(disk.getMountPath(v).."run")
+    end
+  end
 end
 
 function debug()
