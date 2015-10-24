@@ -1,0 +1,10 @@
+function object(o)
+  if o then 
+    o = setmetatable({}, o)
+    return o
+  else
+    local this = {}
+    this.__index = this
+    return this
+  end
+end

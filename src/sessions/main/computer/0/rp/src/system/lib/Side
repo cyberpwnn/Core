@@ -1,0 +1,11 @@
+local side = {}
+  side.top = "top"
+  side.bottom = "bottom"
+  side.left = "left"
+  side.right = "right"
+  side.front = "front"
+  side.back = "back"
+
+function getSides()
+  return side
+end

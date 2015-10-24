@@ -1,0 +1,15 @@
+sh.require("Logger")
+sh.require("Filesystem")
+
+local L = Logger.newChannel("PlayerLog")
+
+prox = peripheral.wrap("top")
+mon = peripheral.wrap("right")
+
+while prox.getPlayers() ~= "{}" do
+  players = prox.getPlayers()
+
+  L:wrn(players)
+end
+
+sleep(5)
