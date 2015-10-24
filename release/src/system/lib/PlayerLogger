@@ -4,12 +4,12 @@ sh.require("Filesystem")
 local L = Logger.newChannel("PlayerLog")
 
 prox = peripheral.wrap("top")
-mon = peripheral.wrap("right")
 
-while prox.getPlayers() ~= "{}" do
-  players = prox.getPlayers()
-
-  L:wrn(players)
+if(prox == nil) then
+  L:err('No Player Detector found on top')
+else
+  while prox.getPlayers() ~= "{}" do
+    players = prox.getPlayers()
+    L:err(players)
+  end
 end
-
-sleep(5)
