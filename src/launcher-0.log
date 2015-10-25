@@ -1,42 +1,66 @@
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.1 started on windows...
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] Current time is Oct 24, 2015 10:03:17 AM
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\cyberpwn\Documents\GitHub\Core\src
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 10'
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '10.0'
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.8.0_60'
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
-2015-10-24 10:03:17 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:18 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2015-10-24 10:03:19 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Downloaded successfully and etag matched
-2015-10-24 10:03:19 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:01.138)
-2015-10-24 10:03:19 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre1.8.0_60\bin\javaw.exe -Xmx512M -cp C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
-2015-10-24 10:03:19 [INFO] [CCEmuRedux Launcher] Emulator> Native loading is disabled.
-2015-10-24 10:03:20 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
-2015-10-24 10:03:21 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
-2015-10-24 10:03:25 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
-2015-10-24 10:07:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-24 10:26:29 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-24 10:26:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-24 10:26:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.1 started on windows...
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Current time is Oct 25, 2015 6:56:35 PM
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\cyberpwn\Documents\GitHub\Core\src
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 10'
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '10.0'
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.8.0_60'
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
+2015-10-25 18:56:35 [WARNING] [CCEmuRedux Launcher] Unexpected exception while fetching remote manifest!
+java.net.UnknownHostException: dl.xtansia.com.s3.amazonaws.com
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at com.xtansia.ccemu.launcher.util.HttpUtils.performGet(HttpUtils.java:28)
+	at com.xtansia.ccemu.launcher.Updater.getRemoteContent(Updater.java:204)
+	at com.xtansia.ccemu.launcher.Updater.fetchRemoteManifest(Updater.java:50)
+	at com.xtansia.ccemu.launcher.Launcher$1.run(Launcher.java:50)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
+2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.268)
+2015-10-25 18:56:35 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre1.8.0_60\bin\javaw.exe -Xmx512M -cp C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
+2015-10-25 18:56:36 [INFO] [CCEmuRedux Launcher] Emulator> Native loading is disabled.
+2015-10-25 18:56:37 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
+2015-10-25 18:59:46 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
+2015-10-25 19:13:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 262705ms, proc-time: 0ms]
+2015-10-25 19:13:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 117ms, proc-time: 0ms]

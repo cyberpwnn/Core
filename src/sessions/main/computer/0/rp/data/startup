@@ -1,3 +1,0 @@
-os.loadAPI("/installer")
-installer.install()
-os.unloadAPI("/installer")

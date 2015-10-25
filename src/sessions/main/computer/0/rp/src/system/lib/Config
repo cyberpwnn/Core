@@ -1,4 +1,0 @@
-sh.require("Filesystem")
-sh.require("String")
-
-local gdir = "/system/config/"
