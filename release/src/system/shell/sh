@@ -298,7 +298,7 @@ function sync()
 end
 
 function pdt()
-  
+  PlayerLogger.run()
 end
 
 function rundisk()
