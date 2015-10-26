@@ -4,20 +4,33 @@ sh.require("Filesystem")
 local L = Logger.newChannel("PlayerLog")
 
 function run()
+  os.loadAPI("ocs/apis/sensor")
   prox = peripheral.wrap("top")
+  mon = peripheral.wrap("right")
   
   if(prox == nil) then
     L:err('No Player Detector found on top')
   else
+    sensor.setSensorRange('top', prox, 128)
     while prox.getPlayers() ~= "{}" do
       players = prox.getPlayers()
-      for i, v in ipairs(players) do
-        L:err('Player: ' .. v.name)
+      
+      if(mon == nil) then
+        L:err('No Monitor found on right')
+        return
+      else
+        for i, v in ipairs(players) do
+          L:err('Player: ' .. v.name)
+          mon.setCursorPos(1, i)
+          mon.write('Player: ' .. v.name)
+        end
       end
-      os.sleep(0.1)
+      
+      os.sleep(0.5)
       sh.clear()
     end
   end
+  os.unloadAPI("ocs/apis/sensor")
 end
 
 
