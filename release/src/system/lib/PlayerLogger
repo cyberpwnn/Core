@@ -21,6 +21,7 @@ function run()
           L:err('Player: ' .. v.name)
           mon.setCursorPos(1, i)
           mon.write('Player: ' .. '                             ')
+          mon.setCursorPos(1, i)
           mon.write('Player: ' .. v.name)
         end
       end
