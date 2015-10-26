@@ -16,6 +16,7 @@ local command =
   function(c) if c == "lock" or c == "hide" then fade() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
   function(c) if c == "logger clear" then clearLogs() end end
+  function(c) if c == "pdt" then pdt() end end
 }
 
 function start()
@@ -294,6 +295,10 @@ function sync()
   os.loadAPI("/system/data/installer")
   installer.sync()
   os.unloadAPI("/system/data/installer")
+end
+
+function pdt()
+  
 end
 
 function rundisk()
