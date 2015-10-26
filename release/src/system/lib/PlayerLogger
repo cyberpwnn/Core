@@ -11,7 +11,7 @@ function run()
   if(prox == nil) then
     L:err('No Player Detector found on top')
   else
-    sensor.setSensorRange('top', prox, 128)
+    sensor.setSensorRange('top', sensor.wrap('top'), 128)
     while prox.getPlayers() ~= "{}" do
       players = prox.getPlayers()
       
