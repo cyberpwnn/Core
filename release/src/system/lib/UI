@@ -1,0 +1,26 @@
+sh.require("Renderer")
+
+local Pane = CPI.object()
+local C = Color.get()
+
+function init()
+  Logger.close()
+  test = newPane(2, 2, 20, 10)
+end
+
+function newPane(x,y,w,h)
+  local self = CPI.object(Pane)
+  
+  self.subshadow = Renderer.newBox(x+1,y+1,w,h,C.gray, C.gray)
+  self.pane = Renderer.newBox(x,y,w,h,C.black, C.white)
+  self.tab = Renderer.newBox(x,y,w-2,0,C.white, C.blue)
+  self.xbutton = Renderer.newBox(w+2,y,0,0,C.red, C.red)
+  self.nbutton = Renderer.newBox(w+1,y,0,0,C.red, C.green)
+  self.mbutton = Renderer.newBox(w,y,0,0,C.red, C.yellow)
+  
+  Renderer.render()
+  
+  return self
+end
+
+init()

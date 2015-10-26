@@ -1,279 +1,50 @@
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.1 started on windows...
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Current time is Oct 25, 2015 6:56:35 PM
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\cyberpwn\Documents\GitHub\Core\src
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 10'
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '10.0'
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.8.0_60'
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
-2015-10-25 18:56:35 [WARNING] [CCEmuRedux Launcher] Unexpected exception while fetching remote manifest!
-java.net.UnknownHostException: dl.xtansia.com.s3.amazonaws.com
-	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
-	at java.net.PlainSocketImpl.connect(Unknown Source)
-	at java.net.SocksSocketImpl.connect(Unknown Source)
-	at java.net.Socket.connect(Unknown Source)
-	at sun.net.NetworkClient.doConnect(Unknown Source)
-	at sun.net.www.http.HttpClient.openServer(Unknown Source)
-	at sun.net.www.http.HttpClient.openServer(Unknown Source)
-	at sun.net.www.http.HttpClient.<init>(Unknown Source)
-	at sun.net.www.http.HttpClient.New(Unknown Source)
-	at sun.net.www.http.HttpClient.New(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.plainConnect0(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream0(Unknown Source)
-	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
-	at com.xtansia.ccemu.launcher.util.HttpUtils.performGet(HttpUtils.java:28)
-	at com.xtansia.ccemu.launcher.Updater.getRemoteContent(Updater.java:204)
-	at com.xtansia.ccemu.launcher.Updater.fetchRemoteManifest(Updater.java:50)
-	at com.xtansia.ccemu.launcher.Launcher$1.run(Launcher.java:50)
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
-	at java.util.concurrent.FutureTask.run(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at java.lang.Thread.run(Unknown Source)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Couldn't connect to server (UnknownHostException: 'dl.xtansia.com.s3.amazonaws.com') but have local file, assuming it's good
-2015-10-25 18:56:35 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.268)
-2015-10-25 18:56:35 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre1.8.0_60\bin\javaw.exe -Xmx512M -cp C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
-2015-10-25 18:56:36 [INFO] [CCEmuRedux Launcher] Emulator> Native loading is disabled.
-2015-10-25 18:56:37 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
-2015-10-25 18:59:46 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
-2015-10-25 19:13:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 262705ms, proc-time: 0ms]
-2015-10-25 19:13:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 117ms, proc-time: 0ms]
-2015-10-25 19:18:56 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:19:30 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
-2015-10-25 19:19:30 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 102ms, proc-time: 0ms]
-2015-10-25 19:19:30 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 109ms, proc-time: 0ms]
-2015-10-25 19:19:31 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:19:31 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
-2015-10-25 19:19:38 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:19:41 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 94ms, proc-time: 0ms]
-2015-10-25 19:19:42 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 97ms, proc-time: 0ms]
-2015-10-25 19:19:48 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 145ms, proc-time: 0ms]
-2015-10-25 19:19:48 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 19:20:03 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 100ms, proc-time: 0ms]
-2015-10-25 19:20:03 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:20:11 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 19:20:12 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 99ms, proc-time: 0ms]
-2015-10-25 19:20:14 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:20:16 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
-2015-10-25 19:20:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:20:32 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:20:32 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 95ms, proc-time: 0ms]
-2015-10-25 19:20:55 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 121ms, proc-time: 0ms]
-2015-10-25 19:21:20 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
-2015-10-25 19:21:22 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 142ms, proc-time: 0ms]
-2015-10-25 19:21:23 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:21:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:21:52 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
-2015-10-25 19:21:53 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:23:55 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 19:24:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 97ms, proc-time: 0ms]
-2015-10-25 19:24:07 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 19:24:09 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:24:09 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 98ms, proc-time: 0ms]
-2015-10-25 19:24:09 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:24:09 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 106ms, proc-time: 0ms]
-2015-10-25 19:24:13 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
-2015-10-25 19:24:14 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:24:14 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:24:14 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 94ms, proc-time: 0ms]
-2015-10-25 19:24:15 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 121ms, proc-time: 0ms]
-2015-10-25 19:24:15 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 165ms, proc-time: 0ms]
-2015-10-25 19:24:15 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:24:15 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:24:16 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:24:19 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 121ms, proc-time: 0ms]
-2015-10-25 19:24:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 112ms, proc-time: 0ms]
-2015-10-25 19:24:22 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:24:22 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 97ms, proc-time: 0ms]
-2015-10-25 19:24:23 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:24:24 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:24:24 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:24:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:24:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 113ms, proc-time: 0ms]
-2015-10-25 19:24:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 19:24:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 158ms, proc-time: 0ms]
-2015-10-25 19:24:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 226ms, proc-time: 0ms]
-2015-10-25 19:24:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:24:28 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:24:28 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 173ms, proc-time: 0ms]
-2015-10-25 19:24:30 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:24:31 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:24:31 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:24:32 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 97ms, proc-time: 0ms]
-2015-10-25 19:24:33 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 104ms, proc-time: 0ms]
-2015-10-25 19:24:33 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 98ms, proc-time: 0ms]
-2015-10-25 19:24:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 116ms, proc-time: 0ms]
-2015-10-25 19:24:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:24:35 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 103ms, proc-time: 0ms]
-2015-10-25 19:24:36 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 109ms, proc-time: 0ms]
-2015-10-25 19:24:36 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
-2015-10-25 19:24:38 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:24:38 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:24:38 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 107ms, proc-time: 0ms]
-2015-10-25 19:24:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:24:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:24:45 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 19:24:46 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:24:46 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:24:51 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:24:52 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:24:52 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 103ms, proc-time: 0ms]
-2015-10-25 19:24:57 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:24:58 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:24:59 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:25:07 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:25:08 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 162ms, proc-time: 0ms]
-2015-10-25 19:25:10 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:25:10 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 1ms]
-2015-10-25 19:25:13 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 92ms, proc-time: 0ms]
-2015-10-25 19:25:16 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 116ms, proc-time: 0ms]
-2015-10-25 19:25:51 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 85ms, proc-time: 0ms]
-2015-10-25 19:27:03 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:28:46 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
-2015-10-25 19:28:47 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:29:28 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 95ms, proc-time: 0ms]
-2015-10-25 19:31:39 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:31:39 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:31:42 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 92ms, proc-time: 0ms]
-2015-10-25 19:32:13 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:33:47 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:39:08 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 125ms, proc-time: 0ms]
-2015-10-25 19:40:08 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:40:29 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:47:04 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:47:57 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:48:00 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:48:01 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:48:05 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:48:05 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:48:22 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:48:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:48:36 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 173ms, proc-time: 0ms]
-2015-10-25 19:48:46 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:49:07 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
-2015-10-25 19:49:20 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:49:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 19:49:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:49:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 101ms, proc-time: 0ms]
-2015-10-25 19:49:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 94ms, proc-time: 0ms]
-2015-10-25 19:49:28 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 128ms, proc-time: 0ms]
-2015-10-25 19:49:29 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:49:29 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 19:49:30 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 220ms, proc-time: 0ms]
-2015-10-25 19:49:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 102ms, proc-time: 0ms]
-2015-10-25 19:49:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:49:50 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:49:55 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:50:02 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:50:03 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 108ms, proc-time: 0ms]
-2015-10-25 19:50:25 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 112ms, proc-time: 0ms]
-2015-10-25 19:50:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:50:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:50:26 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
-2015-10-25 19:50:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 94ms, proc-time: 0ms]
-2015-10-25 19:50:27 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 86ms, proc-time: 0ms]
-2015-10-25 19:50:31 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 111ms, proc-time: 0ms]
-2015-10-25 19:50:31 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:50:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 102ms, proc-time: 16ms]
-2015-10-25 19:50:34 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 116ms, proc-time: 0ms]
-2015-10-25 19:50:35 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 90ms, proc-time: 0ms]
-2015-10-25 19:50:39 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:50:39 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:50:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:50:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 98ms, proc-time: 0ms]
-2015-10-25 19:50:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:50:41 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:50:43 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 110ms, proc-time: 0ms]
-2015-10-25 19:50:43 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:50:43 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:50:43 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:50:45 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 89ms, proc-time: 0ms]
-2015-10-25 19:50:49 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:50:51 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 82ms, proc-time: 0ms]
-2015-10-25 19:50:55 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 95ms, proc-time: 0ms]
-2015-10-25 19:51:54 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 19:52:05 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:54:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 303ms, proc-time: 0ms]
-2015-10-25 19:54:07 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 129ms, proc-time: 0ms]
-2015-10-25 19:54:08 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:54:08 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 19:54:08 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 105ms, proc-time: 1ms]
-2015-10-25 19:54:09 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 101ms, proc-time: 0ms]
-2015-10-25 19:54:10 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:54:11 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 19:55:00 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:55:41 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 91ms, proc-time: 0ms]
-2015-10-25 19:55:41 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 19:55:58 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 101ms, proc-time: 0ms]
-2015-10-25 19:55:58 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 100ms, proc-time: 0ms]
-2015-10-25 19:56:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 19:56:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 19:56:23 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 100ms, proc-time: 0ms]
-2015-10-25 19:56:39 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 20:05:33 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 20:11:43 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 110ms, proc-time: 0ms]
-2015-10-25 20:12:42 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 102ms, proc-time: 0ms]
-2015-10-25 20:21:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 20:32:48 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 113ms, proc-time: 1ms]
-2015-10-25 20:54:22 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 20:54:40 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 21:08:58 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 21:10:01 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 21:20:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 121ms, proc-time: 0ms]
-2015-10-25 21:20:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 154ms, proc-time: 0ms]
-2015-10-25 21:20:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 135ms, proc-time: 0ms]
-2015-10-25 21:20:07 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 92ms, proc-time: 0ms]
-2015-10-25 21:20:07 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 21:23:43 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 21:23:44 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 21:23:52 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 192ms, proc-time: 0ms]
-2015-10-25 21:23:56 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 97ms, proc-time: 0ms]
-2015-10-25 21:23:57 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 83ms, proc-time: 0ms]
-2015-10-25 21:24:49 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 120ms, proc-time: 0ms]
-2015-10-25 21:24:49 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 21:24:50 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 104ms, proc-time: 0ms]
-2015-10-25 21:24:57 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 84ms, proc-time: 0ms]
-2015-10-25 21:24:58 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 93ms, proc-time: 0ms]
-2015-10-25 21:24:59 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 217ms, proc-time: 0ms]
-2015-10-25 21:25:01 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 110ms, proc-time: 0ms]
-2015-10-25 21:25:01 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 21:25:18 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 88ms, proc-time: 0ms]
-2015-10-25 21:25:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 81ms, proc-time: 0ms]
-2015-10-25 21:25:21 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 94ms, proc-time: 0ms]
-2015-10-25 21:40:17 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 100ms, proc-time: 0ms]
-2015-10-25 21:46:55 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 99ms, proc-time: 0ms]
-2015-10-25 21:47:48 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 21:47:50 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 95ms, proc-time: 0ms]
-2015-10-25 21:47:52 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 96ms, proc-time: 0ms]
-2015-10-25 21:47:53 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 107ms, proc-time: 0ms]
-2015-10-25 21:48:06 [INFO] [CCEmuRedux Launcher] Emulator> WARNING: Emulator tick manager can't keep up - [cycle-time: 87ms, proc-time: 0ms]
-2015-10-25 21:55:11 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
-2015-10-25 21:55:11 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
-2015-10-25 21:55:11 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
-2015-10-25 21:55:11 [INFO] [CCEmuRedux Launcher] Emulator process finished!
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.1 started on windows...
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] Current time is Oct 26, 2015 6:51:59 AM
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\cyberpwn\Documents\GitHub\Core\src
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 10'
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '10.0'
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.8.0_60'
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
+2015-10-26 06:51:59 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.276)
+2015-10-26 06:52:00 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre1.8.0_60\bin\javaw.exe -Xmx512M -cp C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-core.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-annotations.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\jackson-databind.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\guava.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\computercraft.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\gdx-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\lwjgl-platform.jar;C:\Users\cyberpwn\Documents\GitHub\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
+2015-10-26 06:52:00 [INFO] [CCEmuRedux Launcher] Emulator> Native loading is disabled.
+2015-10-26 06:52:01 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
+2015-10-26 06:52:01 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
+2015-10-26 06:52:04 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Delete Selected'
+2015-10-26 06:52:06 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Delete Selected'
+2015-10-26 06:52:07 [INFO] [CCEmuRedux Launcher] Emulator> DeleteSession: Deleting directory .\sessions\New Session
+2015-10-26 06:52:08 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Delete Selected'
+2015-10-26 06:52:09 [INFO] [CCEmuRedux Launcher] Emulator> DeleteSession: Deleting directory .\sessions\old
+2015-10-26 06:52:10 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Delete Selected'
+2015-10-26 06:52:11 [INFO] [CCEmuRedux Launcher] Emulator> DeleteSession: Deleting directory .\sessions\parse
+2015-10-26 06:52:15 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Create New'
+2015-10-26 06:52:17 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
+2015-10-26 07:32:37 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
+2015-10-26 07:32:37 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
+2015-10-26 07:32:37 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
+2015-10-26 07:32:37 [INFO] [CCEmuRedux Launcher] Emulator process finished!

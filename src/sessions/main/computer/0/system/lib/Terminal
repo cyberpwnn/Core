@@ -12,6 +12,7 @@ function newCursor(x,y,t,b)
   if y then self.y = y else self.y = 1 end
   if t then self.t = t else self.t = C.black end
   if b then self.b = b else self.b = C.white end
+  self.w, self.h = term.getSize()
   
   return self
 end
@@ -50,6 +51,22 @@ end
 
 function Cursor:write(s)
   draw(self.x, self.y, self.t, self.b, s)
+  return self
+end
+
+function Cursor:clear()
+  self:drawBox(1,1,self.w, self.h, C.lightGray, C.cyan, ' ')
+end
+
+function Cursor:drawBox(x,y,w,h,t,b,c)
+  self:move(x,y)
+  
+  for i = x,w+x,1 do
+    for j = y,h+y,1 do
+      draw(i,j,t,b,c)
+    end
+  end
+  
   return self
 end
 

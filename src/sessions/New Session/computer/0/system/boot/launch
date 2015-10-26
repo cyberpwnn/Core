@@ -1,2 +1,0 @@
-os.loadAPI("/system/shell/sh")
-sh.start()

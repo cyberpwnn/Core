@@ -66,6 +66,18 @@ function rout(tag, msg)
   end
 end
 
+function close()
+  oShell = false
+end
+
+function closed()
+  if oShell then
+    return false
+  else
+    return true
+  end
+end
+
 function clearLogs()
   Filesystem.delete(logs)
   Filesystem.makeDir(logs)

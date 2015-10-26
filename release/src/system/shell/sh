@@ -15,8 +15,7 @@ local command =
   function(c) if c == "apis" or c == "libs" then apis() end end,
   function(c) if c == "lock" or c == "hide" then fade() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
-  function(c) if c == "logger clear" then clearLogs() end end,
-  function(c) if c == "pdt" then pdt() end end
+  function(c) if c == "logger clear" then clearLogs() end end
 }
 
 function start()
@@ -72,6 +71,12 @@ function clear()
 end
 
 function out(message, color)
+  if Logger ~= nil then
+    if Logger.closed() then
+      return
+    end
+  end
+  
   if color == nil then color = colors.gray end
   term.setTextColor(color)
   term.setCursorPos(1, h)
@@ -295,10 +300,6 @@ function sync()
   os.loadAPI("/system/data/installer")
   installer.sync()
   os.unloadAPI("/system/data/installer")
-end
-
-function pdt()
-  PlayerLogger.run()
 end
 
 function rundisk()

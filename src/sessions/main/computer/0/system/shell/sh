@@ -71,6 +71,12 @@ function clear()
 end
 
 function out(message, color)
+  if Logger ~= nil then
+    if Logger.closed() then
+      return
+    end
+  end
+  
   if color == nil then color = colors.gray end
   term.setTextColor(color)
   term.setCursorPos(1, h)
