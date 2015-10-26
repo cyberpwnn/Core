@@ -10,6 +10,8 @@ if(prox == nil) then
 else
   while prox.getPlayers() ~= "{}" do
     players = prox.getPlayers()
-    L:err(players)
+    for i,v in ipairs(players)
+      L:err('Player' .. v)
+    end
   end
 end
