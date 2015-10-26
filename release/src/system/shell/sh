@@ -15,7 +15,7 @@ local command =
   function(c) if c == "apis" or c == "libs" then apis() end end,
   function(c) if c == "lock" or c == "hide" then fade() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
-  function(c) if c == "logger clear" then clearLogs() end end
+  function(c) if c == "logger clear" then clearLogs() end end,
   function(c) if c == "pdt" then pdt() end end
 }
 
