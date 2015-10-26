@@ -12,7 +12,7 @@ function run()
     while prox.getPlayers() ~= "{}" do
       players = prox.getPlayers()
       for i, v in ipairs(players) do
-        L:err('Player' .. v.name())
+        L:err('Player' .. tostring(v.name()))
       end
     end
   end
