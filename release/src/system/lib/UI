@@ -4,6 +4,7 @@ local Pane = CPI.object()
 local C = Color.get()
 
 function init()
+  return
   Logger.close()
   test = newPane(2, 2, 20, 10)
 end
