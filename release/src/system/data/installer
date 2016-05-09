@@ -1,6 +1,6 @@
-local version = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/version"
-local data = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/data"
-local bm = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/"
+local version = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/data/inf/version"
+local data = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/data/inf/data"
+local bm = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/src/"
 
 function install()
   print("STARTING INSTALLATION!")
