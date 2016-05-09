@@ -5,7 +5,7 @@ The Core API is made for a wide veriety of things, including heavy screen render
 
 ## Installation
 Setting up a copy is very simple for Consumer use. Simply use the following command on any computer terminal. NOTE: This requires network access with HTTPS
-#### pastebin run anGbrfjq
+#### pastebin run DzJ0faVz
 This will start the remote installer process. You can use an Emulator if you wish, but it works well ingame also. When the installer starts, you will need to press enter. This will install the startup file, and reboot. The startup file will then install the software and reboot.
 
 ## Development
