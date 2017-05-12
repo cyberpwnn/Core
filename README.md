@@ -1,4 +1,4 @@
-#Computercraft Core API
+# Computercraft Core API
 The Core API runs off the Computercraft operating system, which allows users to enjoy a better computercraft expirience, and to make a better development environment for everyone. We also look forward to creating a UI operating system with entire graphical elements. Computercraft is quick and easy to set up very simple contraptions, but it is rather difficult to set up big projects for redstone, or a base with security all over. The possibilities are endless.
 
 The Core API is made for a wide veriety of things, including heavy screen rendering, to CO-OP Turtle building via mobile computing (handheld). The Core API is a great way for many possibilities that where passed up due to the huge work beind them. Core will have many objectives. All objectives are located below for convinience.
