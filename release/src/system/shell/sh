@@ -2,6 +2,7 @@ local w, h = term.getSize()
 local vers = "-1"
 local tAPIsLoading = {}
 local API = {}
+local running = true
 local dirLib = "/system/lib/"
 local command = 
 {
@@ -14,9 +15,14 @@ local command =
   function(c) if c == "stats" or c == "//" then stats() end end,
   function(c) if c == "apis" or c == "libs" then apis() end end,
   function(c) if c == "lock" or c == "hide" then fade() end end,
+  function(c) if c == "native" or c == "gonative" then goNative() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
   function(c) if c == "logger clear" then clearLogs() end end
 }
+
+function goNative()
+  running = false
+end
 
 function start()
   startin()
@@ -31,21 +37,22 @@ function start()
   end
   
   out("Loading Libraries...")
-  
   loadAPIs()
-  
   out("Loading External Libraries...")
-  
+  out("Reading Disk Drive...")
   rundisk()
 
   out("Shell V" .. ver .. " started.")
   vers = ver
-  
   debug()
-  
-  while true do
+  chupdate()
+  while running do
     entry()
   end
+  out("Exiting CoreOS")
+  os.sleep(1.5)
+  clear()
+  fadeonly()
 end
 
 function entry()
@@ -91,7 +98,7 @@ function help()
   out("This is the SW-Layer of core.")
   out("  - clear(cls), help(?), update(chup)")
   out("  - reboot(restart), shutdown(exit)")
-  out("  - logger clear, sync")
+  out("  - logger clear, sync, gonative(native)")
   out("  - stats(//), apis(libs)")
 end
 
@@ -144,8 +151,64 @@ function fade()
   startin()
 end
 
+function fadeonly()
+  os.sleep(0.03)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.03)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.white)
+  term.clear()
+  os.sleep(0.03)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.white)
+  term.clear()
+  os.sleep(0.03)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+end
+
 function shutdown()
-  out("STOPPING!")
+  out("Shutting Down")
   os.shutdown()
 end
 
@@ -281,9 +344,7 @@ end
 
 function chupdate()
   out("Checking for updates...")
-  
   os.loadAPI("/system/data/installer")
-  
   if installer.isUpdated() == false then
     out("Found updates! Use the [update] command.")
     installer.update()
