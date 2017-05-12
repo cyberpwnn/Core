@@ -311,5 +311,5 @@ function rundisk()
 end
 
 function debug()
-  
+  out("Right...")
 end
