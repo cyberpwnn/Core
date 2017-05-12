@@ -16,9 +16,34 @@ local command =
   function(c) if c == "apis" or c == "libs" then apis() end end,
   function(c) if c == "lock" or c == "hide" then fade() end end,
   function(c) if c == "native" or c == "gonative" then goNative() end end,
+  function(c) if c == "disk" or c == "floppy" then rundisk() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
-  function(c) if c == "logger clear" then clearLogs() end end
+  function(c) if c == "brick" or c == "block" then brick() end end,  
+  function(c) if c == "v" or c == "ver" or c == "version" then versioning() end end,  
+  function(c) if c == "clearlogs" then clearLogs() end end
 }
+
+function help()
+  out("This is the SW-Layer of core.")
+  out("  - clear,cls       - Clear the screen")
+  out("  - ver,version,v   - Os Version Information")
+  out("  - help,?          - This help page")
+  out("  - reboot,restart  - Reboot CoreOS")
+  out("  - shutdown,exit   - Shutdown Computer")
+  out("  - stats,//        - System stats")
+  out("  - apis,libs       - Show loaded libs")
+  out("  - lock,hide       - Hide screen and lock")
+  out("  - block,brick     - Brick the system")
+  out("  - native,gonative - Boot into native system")
+  out("  - disk,floppy     - Autorun all loaded disk drives")
+  out("  - update,chup     - Netinstall latest os from git")
+  out("  - clearlogs       - Wipe logs folder")
+end
+
+function versioning()
+  out("Running Shell V" .. vers)
+  out("Using COS Layer for Handset")
+end
 
 function goNative()
   running = false
@@ -94,14 +119,6 @@ function out(message, color)
   term.setTextColor(colors.black)
 end
 
-function help()
-  out("This is the SW-Layer of core.")
-  out("  - clear(cls), help(?), update(chup)")
-  out("  - reboot(restart), shutdown(exit)")
-  out("  - logger clear, sync, gonative(native)")
-  out("  - stats(//), apis(libs)")
-end
-
 function restart()
   out("RESTARTING!")
   os.sleep(0.02)
@@ -149,6 +166,33 @@ function fade()
   os.sleep(0.6)
   read()
   startin()
+end
+
+function brick()
+  while true do
+    os.sleep(0.02)
+    term.clear()
+    os.sleep(0.02)
+    term.setBackgroundColor(colors.lightGray)
+    term.clear()
+    os.sleep(0.02)
+    term.setBackgroundColor(colors.gray)
+    term.clear()
+    os.sleep(0.02)
+    term.setBackgroundColor(colors.black)
+    term.clear()
+    os.sleep(0.02)
+    term.clear()
+    os.sleep(0.02)
+    term.setBackgroundColor(colors.gray)
+    term.clear()
+    os.sleep(0.02)
+    term.setBackgroundColor(colors.lightGray)
+    term.clear()
+    os.sleep(0.02)
+    term.setBackgroundColor(colors.white)
+    term.clear()
+  end
 end
 
 function fadeonly()
