@@ -69,6 +69,16 @@ function start()
 
   out("Shell V" .. ver .. " started.")
   vers = ver
+  
+  if vers == "0" then
+    clear()
+    term.setTextColor(colors.white)
+	term.setBackgroundColor(colors.blue)
+    term.clear()
+    out("Please wait while coreos gets the latest updates...")
+	os.sleep(2.5)
+  end
+  
   debug()
   chupdate()
   while running do
@@ -172,26 +182,26 @@ end
 
 function brick()
   while true do
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.setBackgroundColor(colors.lightGray)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.setBackgroundColor(colors.gray)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.setBackgroundColor(colors.black)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.setBackgroundColor(colors.gray)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.setBackgroundColor(colors.lightGray)
     term.clear()
-    os.sleep(0.05)
+    os.sleep(0.25)
     term.setBackgroundColor(colors.white)
     term.clear()
   end
