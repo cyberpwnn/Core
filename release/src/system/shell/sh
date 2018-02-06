@@ -20,7 +20,8 @@ local command =
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
   function(c) if c == "brick" or c == "block" then brick() end end,  
   function(c) if c == "v" or c == "ver" or c == "version" then versioning() end end,  
-  function(c) if c == "clearlogs" then clearLogs() end end
+  function(c) if c == "clearlogs" then clearLogs() end end,
+  function(c) if c == "reinstall" then reinstall() end end
 }
 
 function help()
@@ -38,6 +39,7 @@ function help()
   out("  - disk,floppy     - Autorun all loaded disk drives")
   out("  - update,chup     - Netinstall latest os from git")
   out("  - clearlogs       - Wipe logs folder")
+  out("  - reinstall       - Does what it says.")
 end
 
 function versioning()
