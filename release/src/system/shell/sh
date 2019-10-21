@@ -12,7 +12,7 @@ local disable = "pkg disable ";
 local uninstall = "pkg uninstall ";
 local enable = "pkg enable ";
 local lst = "pkg list ";
-local defaultrepo = "cyberpwnn/corerepo"
+local defaultrepo = "Puretie/CPT"
 local executed = false;
 local command = 
 {
