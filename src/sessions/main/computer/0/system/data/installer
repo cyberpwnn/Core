@@ -1,6 +1,6 @@
-local version = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/version"
-local data = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/inf/data"
-local bm = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/"
+local version = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/data/inf/version"
+local data = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/data/inf/data"
+local bm = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/src/"
 
 function install()
   print("STARTING INSTALLATION!")
@@ -80,6 +80,7 @@ function mprocess(ur)
   print("Downloading " .. lur)
   
   local km = fs.open(lur, "w")
+  print("Writing " .. lur)
   km.write(k)
   km.flush()
   km.close()
@@ -130,6 +131,7 @@ end
 function isConnected()
   local content = http.get("http://google.com/")
   
+  print("Checking Internet Connection...")
   if content then
     content = content.readAll()
   else
@@ -137,13 +139,16 @@ function isConnected()
   end
   
   if not content then
+    print("Not Connected! Failing...")
     return false
   else
+    print("Connected!")
     return true
   end
 end
 
 function isUpdated()
+  print("Reading SRGs")
   if isConnected() then
     local rv = download(version)
     if rv ~= false then

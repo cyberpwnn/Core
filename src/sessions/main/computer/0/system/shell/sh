@@ -2,7 +2,19 @@ local w, h = term.getSize()
 local vers = "-1"
 local tAPIsLoading = {}
 local API = {}
+local running = true
 local dirLib = "/system/lib/"
+local updf = "pkg update ";
+local install = "pkg install ";
+local repo = "pkg repo ";
+local pkrun = "pkg run ";
+local pkrun = "pkg updateall";
+local disable = "pkg disable ";
+local uninstall = "pkg uninstall ";
+local enable = "pkg enable ";
+local lst = "pkg list ";
+local defaultrepo = "cyberpwnn/corerepo"
+local executed = false;
 local command = 
 {
   function(c) if c == "cls" or c == "clear" then clear() end end,
@@ -10,13 +22,213 @@ local command =
   function(c) if c == "reboot" or c == "restart" then restart() end end,
   function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
   function(c) if c == "sync" then sync() end end,
+  function(c) if c == "pkg" then pkgHelp() end end,
   function(c) if c == "shutdown" or c == "exit" then shutdown() end end,
   function(c) if c == "stats" or c == "//" then stats() end end,
   function(c) if c == "apis" or c == "libs" then apis() end end,
   function(c) if c == "lock" or c == "hide" then fade() end end,
+  function(c) if c == "native" or c == "gonative" then goNative() end end,
+  function(c) if c == "disk" or c == "floppy" then rundisk() end end,
   function(c) if c == "update" or c == "chup" then chupdate() end end,  
-  function(c) if c == "logger clear" then clearLogs() end end
+  function(c) if c == "v" or c == "ver" or c == "version" then versioning() end end,  
+  function(c) if c == "clearlogs" then clearLogs() end end,
+  function(c) if c == "reinstall" then reinstall() end end,
+  function(c) 
+    if c == "pkg list" then
+      for i,v in ipairs(findPackages()) do
+        out(v[3] .. " from repo " .. v[2])
+      end
+      executed = true
+    end 
+  end,
+  function(c) 
+    if c == "pkg updateall" then
+      for i,v in ipairs(findPackages()) do
+        t = v[3]
+        s = defaultrepo
+        defaultrepo = v[2]
+        url = "https://raw.githubusercontent.com/" .. defaultrepo .. "/master/" .. t
+        out("Downloading package update " .. defaultrepo .. "/" .. t .. "...")
+        src = http.get(url).readAll()
+        out("Installing package update " .. defaultrepo .. "/" .. t .. "...")
+        pth = "/system/packages/"..defaultrepo.."/"..t
+        pf = fs.open(pth, "w")
+        pf.write(src)
+        pf.flush()
+        pf.close()
+        out("Updated Shortcut " .. t .. " -> " .. pth)
+        sct = "/system/symlnk/"..t
+        sf = fs.open(sct, "w")
+        sf.write("os.run({}, \"".. pth .. "\")")
+        sf.flush()
+        sf.close()
+        defaultrepo = s
+      end
+      executed = true
+    end 
+  end,
+  function(c) 
+    if c:sub(1, #install) == install then
+      t = c:sub(#install + 1)
+      url = "https://raw.githubusercontent.com/" .. defaultrepo .. "/master/" .. t
+      out("Downloading package " .. defaultrepo .. "/" .. t .. "...")
+      src = http.get(url).readAll()
+      out("Installing package " .. defaultrepo .. "/" .. t .. "...")
+      pth = "/system/packages/"..defaultrepo.."/"..t
+      pf = fs.open(pth, "w")
+      pf.write(src)
+      pf.flush()
+      pf.close()
+      out("Added Shortcut " .. t .. " -> " .. pth)
+      sct = "/system/symlnk/"..t
+      sf = fs.open(sct, "w")
+      sf.write("os.run({}, \"".. pth .. "\")")
+      sf.flush()
+      sf.close()
+      executed = true
+    end
+  end,
+  function(c) 
+    if c:sub(1, #updf) == updf then
+      t = c:sub(#updf + 1)
+      s = defaultrepo
+      defaultrepo = resolvePackageRepo(t)
+      url = "https://raw.githubusercontent.com/" .. defaultrepo .. "/master/" .. t
+      out("Downloading package update " .. defaultrepo .. "/" .. t .. "...")
+      src = http.get(url).readAll()
+      out("Installing package update " .. defaultrepo .. "/" .. t .. "...")
+      pth = "/system/packages/"..defaultrepo.."/"..t
+      pf = fs.open(pth, "w")
+      pf.write(src)
+      pf.flush()
+      pf.close()
+      out("Updated Shortcut " .. t .. " -> " .. pth)
+      sct = "/system/symlnk/"..t
+      sf = fs.open(sct, "w")
+      sf.write("os.run({}, \"".. pth .. "\")")
+      sf.flush()
+      sf.close()
+      defaultrepo = s
+      executed = true
+    end
+  end,
+  function(c) 
+    if c:sub(1, #repo) == repo then
+      t = c:sub(#repo + 1)
+      out("Switched to repository " .. t)
+      defaultrepo = t
+    end
+  end,
+  function(c) 
+    if c:sub(1, #uninstall) == uninstall then
+      t = c:sub(#uninstall + 1)
+      g = resolvePackageRepo(t)
+      fs.delete("/system/symlnk/"..t)
+      fs.delete("/system/config/enabled/"..t)
+      fs.delete("/system/packages/".. g .."/"..t)
+
+      out("Uninstalled " .. g .. "/" .. t)
+      executed = true
+    end
+  end,
+  function(c) 
+    if c:sub(1, #enable) == enable then
+      t = c:sub(#enable + 1)
+      fx = fs.open("/system/config/enabled/" .. t, "w")
+      fx.write("enabled")
+      fx.flush()
+      fx.close()
+      out("Enabled " .. t .. " to run on startup.")
+      executed = true
+    end
+  end,
+  function(c) 
+    if c:sub(1, #disable) == disable then
+      t = c:sub(#disable + 1)
+      fs.delete("/system/config/enabled/" .. t)
+      out("Disabled " .. t .. " from running on startup.")
+      executed = true
+    end
+  end,
+  function(c) 
+    if c:sub(1, #pkrun) == pkrun then
+      t = c:sub(#pkrun + 1)
+      out("Executing " .. t)
+      os.run({}, "/system/symlnk/"..t)
+      executed = true
+    end
+  end
 }
+
+function resolvePackageRepo(pkg)
+  for i,v in ipairs(findPackages()) do
+    if v[3] == pkg then
+      return v[2]
+    end
+  end
+end
+
+function findPackages()
+  fd = {}
+      
+  if fs.exists("/system/packages") then
+    for i,v in ipairs(fs.list("/system/packages")) do
+      root = v
+      pk = "/system/packages/" .. root
+      for j,a in ipairs(fs.list(pk)) do
+        rep = a
+        pk = "/system/packages/" .. root .. "/" .. rep
+        for k,c in ipairs(fs.list(pk)) do
+          pg = c
+          pkg = "/system/packages/" .. root .. "/" .. rep .. "/" .. pg
+          fd[#fd + 1] = {root.."/"..rep.."/"..pg, root.."/"..rep, pg}
+        end
+      end
+    end
+  end
+
+  return fd
+end
+
+function pkgHelp()
+  out("This is the SW-Layer of core.")
+  out("  - pkg run <pkg>     - Run a package")
+  out("  - pkg repo <r>      - Switch repo (Puretie/CPT)")
+  out("  - pkg uninstall <p> - Install a package (switch repo first!)")
+  out("  - pkg install <p>   - Install a package")
+  out("  - pkg update <p>    - Update a package")
+  out("  - pkg updateall     - Update all packages")
+  out("  - pkg list          - List all packages")
+  out("  - pkg enable <p>    - Enable a package for startup")
+  out("  - pkg disable <p>   - Disable a package for startup")
+end
+
+function help()
+  out("This is the SW-Layer of core.")
+  out("  - pkg             - Package Help")
+  out("  - clear,cls       - Clear the screen")
+  out("  - ver,version,v   - Os Version Information")
+  out("  - help,?          - This help page")
+  out("  - reboot,restart  - Reboot CoreOS")
+  out("  - shutdown,exit   - Shutdown Computer")
+  out("  - stats,//        - System stats")
+  out("  - apis,libs       - Show loaded libs")
+  out("  - lock,hide       - Hide screen and lock")
+  out("  - native,gonative - Boot into native system")
+  out("  - disk,floppy     - Autorun all loaded disk drives")
+  out("  - update,chup     - Netinstall latest os from git")
+  out("  - clearlogs       - Wipe logs folder")
+  out("  - reinstall       - Does what it says.")
+end
+
+function versioning()
+  out("Running Shell V" .. vers)
+  out("Using COS Layer for Handset")
+end
+
+function goNative()
+  running = false
+end
 
 function start()
   startin()
@@ -31,20 +243,40 @@ function start()
   end
   
   out("Loading Libraries...")
-  
   loadAPIs()
-  
   out("Loading External Libraries...")
-  
+  out("Reading Disk Drive...")
   rundisk()
 
   out("Shell V" .. ver .. " started.")
   vers = ver
   
-  debug()
+  if vers == "0" then
+    clear()
+    term.setTextColor(colors.white)
+	term.setBackgroundColor(colors.blue)
+    term.clear()
+  end
   
-  while true do
+  chupdate()
+  runStartups()
+  while running do
     entry()
+  end
+  out("Exiting CoreOS")
+  os.sleep(0.5)
+  clear()
+  fadeonly()
+  out("Exited COS Layer into native mode.")
+  out("To spin up COS, run core.")
+end
+
+function runStartups()
+  if fs.exists("/system/config/enabled") then
+    for i,v in ipairs(fs.list("/system/config/enabled")) do
+      out("Executing Startup Package " .. v)
+      os.run({}, "/system/symlnk/" .. v)
+    end
   end
 end
 
@@ -56,8 +288,14 @@ end
 
 function process(message)
   if message ~= "" then
+    executed = false
+
     for i,v in ipairs(command) do
       v(message)
+
+      if(executed) then
+        break
+      end
     end
   end
 end
@@ -85,14 +323,6 @@ function out(message, color)
   term.write(message)
   term.scroll(1)
   term.setTextColor(colors.black)
-end
-
-function help()
-  out("This is the SW-Layer of core.")
-  out("  - clear(cls), help(?), update(chup)")
-  out("  - reboot(restart), shutdown(exit)")
-  out("  - logger clear, sync")
-  out("  - stats(//), apis(libs)")
 end
 
 function restart()
@@ -144,8 +374,24 @@ function fade()
   startin()
 end
 
+function fadeonly()
+  os.sleep(0.03)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.lightGray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.gray)
+  term.clear()
+  os.sleep(0.03)
+  term.setBackgroundColor(colors.black)
+  term.clear()
+  os.sleep(0.03)
+  term.clear()
+end
+
 function shutdown()
-  out("STOPPING!")
+  out("Shutting Down")
   os.shutdown()
 end
 
@@ -281,9 +527,7 @@ end
 
 function chupdate()
   out("Checking for updates...")
-  
   os.loadAPI("/system/data/installer")
-  
   if installer.isUpdated() == false then
     out("Found updates! Use the [update] command.")
     installer.update()
@@ -308,8 +552,4 @@ function rundisk()
       loadAPI(disk.getMountPath(v).."run")
     end
   end
-end
-
-function debug()
-  out("Right...")
 end

@@ -1,0 +1,71 @@
+function os.pullEvent()
+    local event, p1, p2, p3, p4, p5 = os.pullEventRaw()
+    if event == "terminate" then
+         print ("ERROR: Attempted Override. Initiating Lockdown.")
+        sleep(2)
+		lockdown()
+    end
+    return event, p1, p2, p3, p4, p5
+end
+local f = 5
+local p = false
+function openDoorLeft()
+    redstone.setOutput("left", true)
+    peripheral.wrap("bottom").clear()
+	peripheral.wrap("bottom").setCursorPos(1,1)
+	peripheral.wrap("bottom").setTextScale(1)
+	peripheral.wrap("bottom").write("Door is open.")
+end
+
+function closeDoorLeft()
+    redstone.setOutput("left", false)
+    peripheral.wrap("bottom").clear()
+	peripheral.wrap("bottom").setCursorPos(1,1)
+	peripheral.wrap("bottom").setTextScale(1)
+	peripheral.wrap("bottom").write("Door is closed.")
+end
+
+function grantAccess()
+    openDoorLeft()
+    os.sleep(3)
+    closeDoorLeft()
+end
+
+function getRequest()
+    term.write("Please enter the password: ")
+end
+function submitRequest(c)
+    if c ~= "pancake" then
+        f = f - 1
+        term.write("Incorrect password. You have " .. f .. " attempts remaining")
+        os.sleep(5)
+        return
+    end
+    term.write("Access Granted.")
+    grantAccess()
+    f = 5
+    p = true
+end
+
+function lockdown()
+        term.clear()
+        term.setCursorPos(1,1)
+        term.write("Lockdown Initiated. Sleeping for 30 seconds.")
+        os.sleep(30)
+end
+
+function needLockdown()
+    if f == 0 then
+        term.write("Too many incorrect attempts. Initiating Lockdown.")
+        os.sleep(2)
+        lockdown()
+        f = 5
+    end
+end
+while true do
+    term.clear()
+    term.setCursorPos(1,1)
+    needLockdown()
+    getRequest()
+    submitRequest(read())
+    end
