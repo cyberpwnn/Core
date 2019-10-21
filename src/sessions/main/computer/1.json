@@ -1,10 +1,10 @@
 {
-  "storage-limit" : 134217728,
-  "label" : "Main",
+  "storage-limit" : 1048576,
+  "label" : "sdf",
   "advanced" : true,
   "on" : true,
-  "screen-x" : 190,
-  "screen-y" : 93,
+  "screen-x" : 135,
+  "screen-y" : 73,
   "side-data" : {
     "bottom" : {
       "peripheral" : {

@@ -8,6 +8,7 @@ local updf = "pkg update ";
 local install = "pkg install ";
 local repo = "pkg repo ";
 local pkrun = "pkg run ";
+local pkrun = "pkg updateall";
 local disable = "pkg disable ";
 local uninstall = "pkg uninstall ";
 local enable = "pkg enable ";

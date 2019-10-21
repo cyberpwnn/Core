@@ -1,53 +1,55 @@
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.2 started on windows...
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] Current time is Oct 21, 2019 3:33:04 PM
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\cyberpwn\Documents\development\workspace\Core\src
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 10'
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '10.0'
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.8.0_221'
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
-2019-10-21 15:33:04 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Downloaded successfully and etag matched
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Downloaded successfully and checksum matched
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.558)
-2019-10-21 15:33:06 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre1.8.0_221\bin\javaw.exe -Xmx512M -cp C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-core.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-annotations.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-databind.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\guava.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\computercraft.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-platform.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl-platform.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
-2019-10-21 15:33:06 [INFO] [CCEmuRedux Launcher] Emulator> Native loading is disabled.
-2019-10-21 15:33:07 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Changing to screen: MainMenu [MainMenuScreen]
-2019-10-21 15:33:07 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
-2019-10-21 15:33:07 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Showing new screen [MainMenuScreen]
-2019-10-21 15:33:07 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Resizing new screen to (960, 540)
-2019-10-21 15:33:09 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
-2019-10-21 15:33:09 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Changing to screen: SelectSession [SelectSessionScreen]
-2019-10-21 15:33:09 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Hiding current screen [MainMenuScreen]
-2019-10-21 15:33:09 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Showing new screen [SelectSessionScreen]
-2019-10-21 15:33:09 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Resizing new screen to (1920, 1027)
-2019-10-21 15:33:10 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
-2019-10-21 15:33:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Changing to screen: Session [SessionScreen]
-2019-10-21 15:33:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Hiding current screen [SelectSessionScreen]
-2019-10-21 15:33:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Showing new screen [SessionScreen]
-2019-10-21 15:33:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Resizing new screen to (1920, 1027)
-2019-10-21 17:11:27 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
-2019-10-21 17:11:27 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
-2019-10-21 17:11:27 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
-2019-10-21 17:11:27 [INFO] [CCEmuRedux Launcher] Emulator process finished!
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] CCEmuRedux Launcher v1.2 started on windows...
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Current time is Oct 21, 2019 5:23:09 PM
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Using data directory: C:\Users\cyberpwn\Documents\development\workspace\Core\src
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] System.getProperty('os.name') == 'Windows 10'
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] System.getProperty('os.version') == '10.0'
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] System.getProperty('os.arch') == 'amd64'
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] System.getProperty('java.version') == '1.8.0_221'
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] System.getProperty('java.vendor') == 'Oracle Corporation'
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] System.getProperty('sun.arch.data.model') == '64'
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Download job 'CCEmuRedux & Libraries' started (16 threads, 11 files)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Attempting to download C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries'... (try 0)
+2019-10-21 17:23:09 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\computercraft.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched expected checksum
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-annotations.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-databind.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-core.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-backend-lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\ccemuredux.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\guava.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Finished downloading C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-platform.jar for job 'CCEmuRedux & Libraries': Used own copy as it matched etag
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] 'CCEmuRedux & Libraries' finished successfully (took 0:00:00.117)
+2019-10-21 17:23:10 [FINE] [CCEmuRedux Launcher] Running C:\Program Files\Java\jre1.8.0_221\bin\javaw.exe -Xmx512M -cp C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-core.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-annotations.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\jackson-databind.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\guava.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\computercraft.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-backend-lwjgl.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\gdx-platform.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\lwjgl-platform.jar;C:\Users\cyberpwn\Documents\development\workspace\Core\src\bin\ccemuredux.jar com.xtansia.ccemu.desktop.DesktopLauncher
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Emulator> Native loading is disabled.
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Changing to screen: MainMenu [MainMenuScreen]
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Starting tick thread
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Showing new screen [MainMenuScreen]
+2019-10-21 17:23:10 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Resizing new screen to (960, 540)
+2019-10-21 17:23:11 [INFO] [CCEmuRedux Launcher] Emulator> MainMenu: Click 'Local Session'
+2019-10-21 17:23:11 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Changing to screen: SelectSession [SelectSessionScreen]
+2019-10-21 17:23:11 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Hiding current screen [MainMenuScreen]
+2019-10-21 17:23:11 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Showing new screen [SelectSessionScreen]
+2019-10-21 17:23:11 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Resizing new screen to (960, 540)
+2019-10-21 17:23:13 [INFO] [CCEmuRedux Launcher] Emulator> SessionSelection: Click 'Load Selected'
+2019-10-21 17:23:13 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Changing to screen: Session [SessionScreen]
+2019-10-21 17:23:13 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Hiding current screen [SelectSessionScreen]
+2019-10-21 17:23:13 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Showing new screen [SessionScreen]
+2019-10-21 17:23:13 [INFO] [CCEmuRedux Launcher] Emulator> SetScreen: Resizing new screen to (960, 540)
+2019-10-21 17:23:25 [INFO] [CCEmuRedux Launcher] Emulator> SessionScreen: New
+2019-10-21 17:25:11 [INFO] [CCEmuRedux Launcher] Emulator> SessionScreen: New
+2019-10-21 17:27:54 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Unloading Session
+2019-10-21 17:27:54 [INFO] [CCEmuRedux Launcher] Emulator> CCEmulator: Disposing Resources
+2019-10-21 17:27:54 [INFO] [CCEmuRedux Launcher] Emulator> TickManager: Ticking interrupted
+2019-10-21 17:27:54 [INFO] [CCEmuRedux Launcher] Emulator process finished!
