@@ -1,5 +1,5 @@
-local uri = "https://raw.githubusercontent.com/danielmills/Core/master/release/src/system/data/installer"
-local urs = "https://raw.githubusercontent.com/danielmills/Core/master/release/data/startup"
+local uri = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/src/system/data/installer"
+local urs = "https://raw.githubusercontent.com/cyberpwnn/Core/master/release/data/startup"
 
 function run()
   print("Downloading Installer...")
@@ -23,7 +23,7 @@ function run()
     fi.flush()
     fi.close()
   else
-    error("Could not download installer...")'
+    error("Could not download installer...")
     os.sleep(3)
     os.reboot()
   end
